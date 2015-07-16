@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "BottomItemView.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;
 
 @end
 
@@ -16,12 +19,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self addBtns];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addBtns {
+    
+    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal2" selectedImgName:@"btn_freehand_pressed" titleName:@"绘图"];
+    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal2" selectedImgName:@"btn_freehand_pressed" titleName:@"绘图"];
+    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal2" selectedImgName:@"btn_freehand_pressed" titleName:@"绘图"];
+}
+
+- (IBAction)showMenuClick:(id)sender {
+    
+    if (!self.bottomItemView.show) {
+        self.bottomItemView.show = YES;
+    } else {
+        self.bottomItemView.show = NO;
+    }
 }
 
 @end
