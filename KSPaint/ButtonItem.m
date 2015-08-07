@@ -27,15 +27,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.imageView.contentMode = UIViewContentModeCenter;
-        self.contentEdgeInsets = UIEdgeInsetsMake(0, 0, -5, 0);
-        
+
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
         self.titleLabel.font = kButtonItemTitleFont;
+        
         [self setTitleColor:kButtonItemTitleColor forState:UIControlStateNormal];
         [self setTitleColor:kButtonItemTitleSelectedColor forState:UIControlStateSelected];
 
         self.backgroundColor = [UIColor clearColor];
-        
     }
     return self;
 }

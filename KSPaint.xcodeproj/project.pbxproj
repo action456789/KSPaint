@@ -15,7 +15,9 @@
 		101438831B56448700607B9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101438811B56448700607B9C /* LaunchScreen.xib */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
 		1014389A1B5656E600607B9C /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 101438991B5656E600607B9C /* BottomItemView.m */; };
+		104092FB1B7399EA00EF9B1A /* KSPaintBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */; };
 		10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E356A31B574DB400AF3FA6 /* ButtonItem.m */; };
+		10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3C111B6B61BA005D058B /* KSPaintView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,12 @@
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
 		101438981B5656E600607B9C /* BottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomItemView.h; sourceTree = "<group>"; };
 		101438991B5656E600607B9C /* BottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomItemView.m; sourceTree = "<group>"; };
+		104092F91B7399EA00EF9B1A /* KSPaintBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintBezierPath.h; sourceTree = "<group>"; };
+		104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintBezierPath.m; sourceTree = "<group>"; };
 		10E356A21B574DB400AF3FA6 /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
 		10E356A31B574DB400AF3FA6 /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
+		10FA3C101B6B61BA005D058B /* KSPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintView.h; sourceTree = "<group>"; };
+		10FA3C111B6B61BA005D058B /* KSPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +77,6 @@
 			children = (
 				101438711B56448700607B9C /* KSPaint */,
 				1014388B1B56448700607B9C /* KSPaintTests */,
-				101438701B56448700607B9C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,23 +87,19 @@
 				101438881B56448700607B9C /* KSPaintTests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		101438711B56448700607B9C /* KSPaint */ = {
 			isa = PBXGroup;
 			children = (
-				101438761B56448700607B9C /* AppDelegate.h */,
-				101438771B56448700607B9C /* AppDelegate.m */,
-				101438791B56448700607B9C /* ViewController.h */,
-				1014387A1B56448700607B9C /* ViewController.m */,
-				101438981B5656E600607B9C /* BottomItemView.h */,
-				101438991B5656E600607B9C /* BottomItemView.m */,
-				10E356A21B574DB400AF3FA6 /* ButtonItem.h */,
-				10E356A31B574DB400AF3FA6 /* ButtonItem.m */,
-				1014387C1B56448700607B9C /* Main.storyboard */,
+				10E356A61B57A72400AF3FA6 /* Main */,
+				1031B38A1B74B52900805ECB /* Paint */,
+				10E356A51B57A70500AF3FA6 /* Buttom */,
 				1014387F1B56448700607B9C /* Images.xcassets */,
 				101438811B56448700607B9C /* LaunchScreen.xib */,
 				101438721B56448700607B9C /* Supporting Files */,
+				101438701B56448700607B9C /* Products */,
 			);
 			path = KSPaint;
 			sourceTree = "<group>";
@@ -127,6 +128,40 @@
 				1014388D1B56448700607B9C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1031B38A1B74B52900805ECB /* Paint */ = {
+			isa = PBXGroup;
+			children = (
+				10FA3C101B6B61BA005D058B /* KSPaintView.h */,
+				10FA3C111B6B61BA005D058B /* KSPaintView.m */,
+				104092F91B7399EA00EF9B1A /* KSPaintBezierPath.h */,
+				104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */,
+			);
+			name = Paint;
+			sourceTree = "<group>";
+		};
+		10E356A51B57A70500AF3FA6 /* Buttom */ = {
+			isa = PBXGroup;
+			children = (
+				10E356A21B574DB400AF3FA6 /* ButtonItem.h */,
+				10E356A31B574DB400AF3FA6 /* ButtonItem.m */,
+				101438981B5656E600607B9C /* BottomItemView.h */,
+				101438991B5656E600607B9C /* BottomItemView.m */,
+			);
+			name = Buttom;
+			sourceTree = "<group>";
+		};
+		10E356A61B57A72400AF3FA6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				101438761B56448700607B9C /* AppDelegate.h */,
+				101438771B56448700607B9C /* AppDelegate.m */,
+				101438791B56448700607B9C /* ViewController.h */,
+				1014387A1B56448700607B9C /* ViewController.m */,
+				1014387C1B56448700607B9C /* Main.storyboard */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1014387B1B56448700607B9C /* ViewController.m in Sources */,
+				10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */,
 				10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */,
 				101438781B56448700607B9C /* AppDelegate.m in Sources */,
+				104092FB1B7399EA00EF9B1A /* KSPaintBezierPath.m in Sources */,
 				1014389A1B5656E600607B9C /* BottomItemView.m in Sources */,
 				101438751B56448700607B9C /* main.m in Sources */,
 			);
@@ -361,7 +398,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
 				INFOPLIST_FILE = KSPaint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -371,7 +410,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
 				INFOPLIST_FILE = KSPaint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -47,17 +47,35 @@
 - (void)addButtonItemWithName:(NSString *)imgName selectedImgName:(NSString *) selectedName titleName:(NSString *)titleName{
     
     ButtonItem *drawBtn = [ButtonItem buttonWithType:UIButtonTypeCustom];
+    
     [drawBtn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
     [drawBtn setImage:[UIImage imageNamed:selectedName] forState:UIControlStateSelected];
+    
     [drawBtn setTitle:titleName forState:UIControlStateNormal];
     [drawBtn setTitle:titleName forState:UIControlStateSelected];
+
+    //[drawBtn setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
+    //[drawBtn setBackgroundImage:[UIImage imageNamed:selName] forState:UIControlStateSelected];
+    
     [drawBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    
     [self addSubview:drawBtn];
+    
+    // 默认选中第0个按钮
+//    if (self.subviews.count == 1) {
+//        [self btnClick:drawBtn];
+//    }
 }
 
 - (void)btnClick:(ButtonItem *)button {
     
+    if ([self.delegate respondsToSelector:@selector(bottomItemView:didSelectItemFrom:to:)]) {
+        [self.delegate bottomItemView:self didSelectItemFrom:self.selectedBtn.tag to:button.tag];
+    }
+    
+    self.selectedBtn.selected = NO;
     button.selected = YES;
+    self.selectedBtn = button;
 }
 
 - (void)layoutSubviews {
@@ -78,17 +96,5 @@
     }
 }
 
-- (void)setShow:(BOOL)show {
-    if (show) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.frame.size.height);
-        }];
-    } else {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.transform = CGAffineTransformIdentity;
-        }];
-    }
-    _show = show;
-}
 
 @end
