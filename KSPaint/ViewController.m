@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BottomItemView.h"
 #import "KSPaintView.h"
+#import "KSToolScrollView.h"
 
 #define kBrusherViewH 44
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;
 @property (weak, nonatomic) IBOutlet UIButton *mainBtn;
 @property (weak, nonatomic) IBOutlet KSPaintView *paintView;
+@property (nonatomic, strong) KSToolScrollView *brusherView;
 
 @end
 
@@ -62,6 +64,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.bottomItemView.transform = CGAffineTransformIdentity;
         self.mainBtn.hidden = NO;
+        self.brusherView.hidden = YES;
     }];
 }
 
@@ -74,33 +77,44 @@
     }
 }
 
+/**
+ *  底部ItemView中，点击画笔按钮时出现的工具条
+ */
+- (KSToolScrollView *)brusherView {
+    if (_brusherView == nil) {
+        KSToolScrollView *brusherView = [[KSToolScrollView alloc] init];
+        CGFloat brusherViewW = self.view.bounds.size.width;
+        CGFloat brusherViewY = self.view.bounds.size.height - self.bottomItemView.bounds.size.height - kBrusherViewH;
+        brusherView.frame = CGRectMake(0, brusherViewY, brusherViewW, kBrusherViewH);
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view addSubview:brusherView];
+        }];
+
+        _brusherView = brusherView;
+    }
+    return _brusherView;
+}
+
 - (void)bottomItemView:(BottomItemView *)bottomItemView didSelectItemFrom:(NSInteger)from to:(NSInteger)to {
     
     if (!self.bottomItemView.show) return;
     switch (to) {
         case 0: {   //画笔
-            UIView *brusherView = [[UIView alloc] init];
-            CGFloat brusherViewW = self.view.bounds.size.width;
-            CGFloat brusherViewY = self.view.bounds.size.height - self.bottomItemView.bounds.size.height - kBrusherViewH;
+            self.brusherView.hidden = NO;
             
-            brusherView.frame = CGRectMake(0, brusherViewY, brusherViewW, kBrusherViewH);
-            brusherView.backgroundColor = [UIColor redColor];
-            [UIView animateWithDuration:0.5 animations:^{
-                [self.bottomItemView addSubview:brusherView];
-            }];
             
             break;
         }
         case 1: {   //颜色
-            
+            self.brusherView.hidden = YES;
             break;
         }
         case 2: {   //背景
-            
+            self.brusherView.hidden = YES;
             break;
         }
         case 3: {   //填充
-            
+            self.brusherView.hidden = YES;
             break;
         }
         default:
@@ -108,6 +122,8 @@
     }
 }
 
-
+/**
+ *  toolScrollView
+ */
 
 @end

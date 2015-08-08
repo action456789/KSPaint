@@ -16,6 +16,7 @@
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
 		1014389A1B5656E600607B9C /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 101438991B5656E600607B9C /* BottomItemView.m */; };
 		104092FB1B7399EA00EF9B1A /* KSPaintBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */; };
+		10A077FD1B759772001DCB86 /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A077FC1B759772001DCB86 /* KSToolScrollView.m */; };
 		10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E356A31B574DB400AF3FA6 /* ButtonItem.m */; };
 		10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3C111B6B61BA005D058B /* KSPaintView.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,8 @@
 		101438991B5656E600607B9C /* BottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomItemView.m; sourceTree = "<group>"; };
 		104092F91B7399EA00EF9B1A /* KSPaintBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintBezierPath.h; sourceTree = "<group>"; };
 		104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintBezierPath.m; sourceTree = "<group>"; };
+		10A077FB1B759772001DCB86 /* KSToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToolScrollView.h; sourceTree = "<group>"; };
+		10A077FC1B759772001DCB86 /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
 		10E356A21B574DB400AF3FA6 /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
 		10E356A31B574DB400AF3FA6 /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
 		10FA3C101B6B61BA005D058B /* KSPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintView.h; sourceTree = "<group>"; };
@@ -95,7 +98,7 @@
 			children = (
 				10E356A61B57A72400AF3FA6 /* Main */,
 				1031B38A1B74B52900805ECB /* Paint */,
-				10E356A51B57A70500AF3FA6 /* Buttom */,
+				10E356A51B57A70500AF3FA6 /* Bottom */,
 				1014387F1B56448700607B9C /* Images.xcassets */,
 				101438811B56448700607B9C /* LaunchScreen.xib */,
 				101438721B56448700607B9C /* Supporting Files */,
@@ -141,15 +144,17 @@
 			name = Paint;
 			sourceTree = "<group>";
 		};
-		10E356A51B57A70500AF3FA6 /* Buttom */ = {
+		10E356A51B57A70500AF3FA6 /* Bottom */ = {
 			isa = PBXGroup;
 			children = (
 				10E356A21B574DB400AF3FA6 /* ButtonItem.h */,
 				10E356A31B574DB400AF3FA6 /* ButtonItem.m */,
 				101438981B5656E600607B9C /* BottomItemView.h */,
 				101438991B5656E600607B9C /* BottomItemView.m */,
+				10A077FB1B759772001DCB86 /* KSToolScrollView.h */,
+				10A077FC1B759772001DCB86 /* KSToolScrollView.m */,
 			);
-			name = Buttom;
+			name = Bottom;
 			sourceTree = "<group>";
 		};
 		10E356A61B57A72400AF3FA6 /* Main */ = {
@@ -267,6 +272,7 @@
 				1014387B1B56448700607B9C /* ViewController.m in Sources */,
 				10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */,
 				10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */,
+				10A077FD1B759772001DCB86 /* KSToolScrollView.m in Sources */,
 				101438781B56448700607B9C /* AppDelegate.m in Sources */,
 				104092FB1B7399EA00EF9B1A /* KSPaintBezierPath.m in Sources */,
 				1014389A1B5656E600607B9C /* BottomItemView.m in Sources */,
