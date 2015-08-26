@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KSPaint.h"
 
 typedef void (^paintViewTapBlock)();
 
 @interface KSPaintView : UIView
 
 @property (nonatomic, copy) paintViewTapBlock tapBlock;
+@property (nonatomic, assign) KSSelectedForm selectedFrom;
 
 @end

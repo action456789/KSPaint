@@ -53,6 +53,7 @@
 		10A077FC1B759772001DCB86 /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
 		10E356A21B574DB400AF3FA6 /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
 		10E356A31B574DB400AF3FA6 /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
+		10F0254B1B8DB9E6000689CE /* KSPaint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSPaint.h; sourceTree = "<group>"; };
 		10FA3C101B6B61BA005D058B /* KSPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintView.h; sourceTree = "<group>"; };
 		10FA3C111B6B61BA005D058B /* KSPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +97,7 @@
 		101438711B56448700607B9C /* KSPaint */ = {
 			isa = PBXGroup;
 			children = (
+				10F0254B1B8DB9E6000689CE /* KSPaint.h */,
 				10E356A61B57A72400AF3FA6 /* Main */,
 				1031B38A1B74B52900805ECB /* Paint */,
 				10E356A51B57A70500AF3FA6 /* Bottom */,

@@ -59,16 +59,34 @@
     
     CGPoint startP = [[touches anyObject] locationInView:self];
     
-    KSPaintBezierPath *path = [KSPaintBezierPath paintBezierPathWithColor:[UIColor blackColor] lineWidth:2.0 startPoint:startP];
-    [path moveToPoint:startP];
-    _path = path;
-    [self.paths addObject:path];
+    // 画线
+    if (self.selectedFrom == KSLine) {
+        KSPaintBezierPath *path = [KSPaintBezierPath paintBezierPathWithColor:[UIColor blackColor] lineWidth:2.0 startPoint:startP];
+        [path moveToPoint:startP];
+        _path = path;
+        [self.paths addObject:path];
+    }
+
+    // 画矩形
+    if (self.selectedFrom == KSRect) {
+        UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(startP.x, startP.y, 0, 0)];
+        _path = path;
+        [self.paths addObject:path];
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     CGPoint endP = [[touches anyObject] locationInView:self];
-    [_path addLineToPoint:endP];
+    
+    if (self.selectedFrom == KSLine) {
+        [_path addLineToPoint:endP];
+    }
+    
+    if (self.selectedFrom == KSRect) {
+        
+    }
+    
     [self setNeedsDisplay];
 }
 

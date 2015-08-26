@@ -10,11 +10,13 @@
 #import "BottomItemView.h"
 #import "KSPaintView.h"
 #import "KSToolScrollView.h"
+#import "ButtonItem.h"
+#import "KSPaint.h"
 
 #define kBrusherViewH 44
 
 
-@interface ViewController () <BottomItemViewDelegate>
+@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate>
 
 @property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;
 @property (weak, nonatomic) IBOutlet UIButton *mainBtn;
@@ -65,6 +67,12 @@
         self.bottomItemView.transform = CGAffineTransformIdentity;
         self.mainBtn.hidden = NO;
         self.brusherView.hidden = YES;
+        
+        for (ButtonItem *item in self.bottomItemView.subviews) {
+            if (item.selected) {
+                item.selected = NO;
+            }
+        }
     }];
 }
 
@@ -83,6 +91,8 @@
 - (KSToolScrollView *)brusherView {
     if (_brusherView == nil) {
         KSToolScrollView *brusherView = [[KSToolScrollView alloc] init];
+        brusherView.tollScrolViewDelegate = self;
+        
         CGFloat brusherViewW = self.view.bounds.size.width;
         CGFloat brusherViewY = self.view.bounds.size.height - self.bottomItemView.bounds.size.height - kBrusherViewH;
         brusherView.frame = CGRectMake(0, brusherViewY, brusherViewW, kBrusherViewH);
@@ -101,8 +111,6 @@
     switch (to) {
         case 0: {   //画笔
             self.brusherView.hidden = NO;
-            
-            
             break;
         }
         case 1: {   //颜色
@@ -122,8 +130,9 @@
     }
 }
 
-/**
- *  toolScrollView
- */
+#pragma KSTollScrollViewDelegate
+- (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedForm:(KSSelectedForm)form {
+    self.paintView.selectedFrom = form;
+}
 
 @end
