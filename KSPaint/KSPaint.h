@@ -11,7 +11,8 @@
 
 typedef NS_ENUM(NSInteger, KSSelectedForm) {
     KSLine,
-    KSRect
+    KSRect,
+    KSOval
 };
 
 #endif

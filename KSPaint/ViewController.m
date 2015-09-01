@@ -132,7 +132,7 @@
 
 #pragma KSTollScrollViewDelegate
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedForm:(KSSelectedForm)form {
-    self.paintView.selectedFrom = form;
+    self.paintView.selectedForm = form;
 }
 
 @end

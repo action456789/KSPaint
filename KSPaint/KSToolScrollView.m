@@ -31,28 +31,36 @@
 
 - (void)initSet {
     self.backgroundColor = [UIColor redColor];
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [btn1 addTarget:self action:@selector(click1:) forControlEvents:UIControlEventTouchDown];
-    [self addSubview:btn1];
     
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    btn2.frame = CGRectMake(20, 0, 20, 20);
-    [btn2 addTarget:self action:@selector(click2:) forControlEvents:UIControlEventTouchDown];
-    [self addSubview:btn2];
+    [self addBtnWithTarget:self action:@"click1:"];
+    
+    [self addBtnWithTarget:self action:@"click2:"];
+    
+    [self addBtnWithTarget:self action:@"click3:"];
 }
 
 - (void)click1:(UIButton *)btn {
-    NSLog(@"click1");
     if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
         [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSLine];
     }
 }
 
 - (void)click2:(UIButton *)btn {
-    NSLog(@"click2");
     if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
         [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSRect];
     }
+}
+
+- (void)click3:(UIButton *)btn {
+    if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
+        [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSOval];
+    }
+}
+
+- (void)addBtnWithTarget:(id)target action:(NSString *)action {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [btn addTarget:target action:NSSelectorFromString(action) forControlEvents:UIControlEventTouchDown];
+    [self addSubview:btn];
 }
 
 - (void)layoutSubviews {

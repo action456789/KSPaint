@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100C627B1B95A83C000AD009 /* KSBlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 100C627A1B95A83C000AD009 /* KSBlockButton.m */; };
 		101438751B56448700607B9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 101438741B56448700607B9C /* main.m */; };
 		101438781B56448700607B9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 101438771B56448700607B9C /* AppDelegate.m */; };
 		1014387B1B56448700607B9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014387A1B56448700607B9C /* ViewController.m */; };
@@ -17,6 +18,7 @@
 		1014389A1B5656E600607B9C /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 101438991B5656E600607B9C /* BottomItemView.m */; };
 		104092FB1B7399EA00EF9B1A /* KSPaintBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */; };
 		10A077FD1B759772001DCB86 /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A077FC1B759772001DCB86 /* KSToolScrollView.m */; };
+		10BF97C91B8F1391003BC335 /* KSRectPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BF97C81B8F1391003BC335 /* KSRectPath.m */; };
 		10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E356A31B574DB400AF3FA6 /* ButtonItem.m */; };
 		10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3C111B6B61BA005D058B /* KSPaintView.m */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		100C62791B95A83C000AD009 /* KSBlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBlockButton.h; sourceTree = "<group>"; };
+		100C627A1B95A83C000AD009 /* KSBlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBlockButton.m; sourceTree = "<group>"; };
 		1014386F1B56448700607B9C /* KSPaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSPaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		101438731B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		101438741B56448700607B9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 		104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintBezierPath.m; sourceTree = "<group>"; };
 		10A077FB1B759772001DCB86 /* KSToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToolScrollView.h; sourceTree = "<group>"; };
 		10A077FC1B759772001DCB86 /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
+		10BF97C71B8F1391003BC335 /* KSRectPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSRectPath.h; sourceTree = "<group>"; };
+		10BF97C81B8F1391003BC335 /* KSRectPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSRectPath.m; sourceTree = "<group>"; };
 		10E356A21B574DB400AF3FA6 /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
 		10E356A31B574DB400AF3FA6 /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
 		10F0254B1B8DB9E6000689CE /* KSPaint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSPaint.h; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 				10FA3C111B6B61BA005D058B /* KSPaintView.m */,
 				104092F91B7399EA00EF9B1A /* KSPaintBezierPath.h */,
 				104092FA1B7399EA00EF9B1A /* KSPaintBezierPath.m */,
+				10BF97C71B8F1391003BC335 /* KSRectPath.h */,
+				10BF97C81B8F1391003BC335 /* KSRectPath.m */,
 			);
 			name = Paint;
 			sourceTree = "<group>";
@@ -155,6 +163,8 @@
 				101438991B5656E600607B9C /* BottomItemView.m */,
 				10A077FB1B759772001DCB86 /* KSToolScrollView.h */,
 				10A077FC1B759772001DCB86 /* KSToolScrollView.m */,
+				100C62791B95A83C000AD009 /* KSBlockButton.h */,
+				100C627A1B95A83C000AD009 /* KSBlockButton.m */,
 			);
 			name = Bottom;
 			sourceTree = "<group>";
@@ -271,6 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BF97C91B8F1391003BC335 /* KSRectPath.m in Sources */,
+				100C627B1B95A83C000AD009 /* KSBlockButton.m in Sources */,
 				1014387B1B56448700607B9C /* ViewController.m in Sources */,
 				10FA3C121B6B61BA005D058B /* KSPaintView.m in Sources */,
 				10E356A41B574DB400AF3FA6 /* ButtonItem.m in Sources */,

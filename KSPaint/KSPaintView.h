@@ -14,6 +14,6 @@ typedef void (^paintViewTapBlock)();
 @interface KSPaintView : UIView
 
 @property (nonatomic, copy) paintViewTapBlock tapBlock;
-@property (nonatomic, assign) KSSelectedForm selectedFrom;
+@property (nonatomic, assign) KSSelectedForm selectedForm;
 
 @end
