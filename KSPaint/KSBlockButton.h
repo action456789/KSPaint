@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@class KSBlockButton;
 
-
-typedef void (^Buttomblock)();
+typedef void (^ButtomClickblock)(KSBlockButton *sender);
 
 @interface KSBlockButton : UIButton
 
-@property (nonatomic, copy) Buttomblock btnBlock;
+/**
+ *  按钮点击时 block
+ */
+@property (nonatomic, copy) ButtomClickblock btnBlock;
+
+- (instancetype)initWithImageName:(NSString *)normal selected:(NSString *)selected block:(ButtomClickblock)block;
+
++ (instancetype)buttonWithImageName:(NSString *)normal selected:(NSString *)selected block:(ButtomClickblock)block;
+
 
 @end

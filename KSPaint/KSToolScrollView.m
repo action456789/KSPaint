@@ -7,6 +7,7 @@
 //  画笔工具条
 
 #import "KSToolScrollView.h"
+#import "KSBlockButton.h"
 
 #define kItemW 44
 #define kItemH kItemW
@@ -32,35 +33,30 @@
 - (void)initSet {
     self.backgroundColor = [UIColor redColor];
     
-    [self addBtnWithTarget:self action:@"click1:"];
+    // 点击按钮时画线
+    KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:nil selected:nil block:^(KSBlockButton *sender) {
+        if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
+            [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSLine];
+        }
+    }];
+    [self addSubview:btnLine];
     
-    [self addBtnWithTarget:self action:@"click2:"];
+    // 点击按钮时画矩形
+    KSBlockButton *btnRect = [KSBlockButton buttonWithImageName:nil selected:nil block:^(KSBlockButton *sender) {
+        if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
+            [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSRect];
+        }
+    }];
+    [self addSubview:btnRect];
     
-    [self addBtnWithTarget:self action:@"click3:"];
-}
-
-- (void)click1:(UIButton *)btn {
-    if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
-        [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSLine];
-    }
-}
-
-- (void)click2:(UIButton *)btn {
-    if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
-        [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSRect];
-    }
-}
-
-- (void)click3:(UIButton *)btn {
-    if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
-        [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSOval];
-    }
-}
-
-- (void)addBtnWithTarget:(id)target action:(NSString *)action {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [btn addTarget:target action:NSSelectorFromString(action) forControlEvents:UIControlEventTouchDown];
-    [self addSubview:btn];
+    // 点击按钮时画圆
+    KSBlockButton *btnOral = [KSBlockButton buttonWithImageName:nil selected:nil block:^(KSBlockButton *sender) {
+        if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedForm:)]) {
+            [self.tollScrolViewDelegate toolScrolView:self selectedForm:KSOval];
+        }
+    }];
+    [self addSubview:btnOral];
+    
 }
 
 - (void)layoutSubviews {
