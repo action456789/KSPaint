@@ -9,19 +9,20 @@
 #import "ViewController.h"
 #import "BottomItemView.h"
 #import "KSPaintView.h"
-#import "KSToolScrollView.h"
+#import "KSPanToolScrollView.h"
+#import "KSColorToolScrollView.h"
 #import "ButtonItem.h"
 #import "KSPaint.h"
 
-#define kBrusherViewH 44
 
 
 @interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate>
 
-@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;
-@property (weak, nonatomic) IBOutlet UIButton *mainBtn;
-@property (weak, nonatomic) IBOutlet KSPaintView *paintView;
-@property (nonatomic, strong) KSToolScrollView *brusherView;
+@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;  // 最底部的工具条
+@property (weak, nonatomic) IBOutlet UIButton *mainBtn;  // 主按钮
+@property (weak, nonatomic) IBOutlet KSPaintView *paintView;  // 画布视图
+@property (nonatomic, strong) KSPanToolScrollView *brusherView; // 画笔工具条
+@property (nonatomic, strong) KSColorToolScrollView *colorView; // 颜色工具条
 
 @end
 
@@ -37,11 +38,14 @@
     
     [self.view insertSubview:self.bottomItemView aboveSubview:self.paintView];
     
+    
     self.paintView.tapBlock = ^{
         if (self.bottomItemView.show) {
             [self hideBottomView];
         }
     };
+
+//    NSLog(@"\n self.view.bounds:%@\n applicationFrame:%@\n [UIScreen mainScreen].bounds:%@\n", NSStringFromCGRect(self.view.bounds), NSStringFromCGRect([UIScreen mainScreen].applicationFrame), NSStringFromCGRect([UIScreen mainScreen].bounds));
 }
 
 - (void)addBtns {
@@ -58,6 +62,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.bottomItemView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.bottomItemView.frame.size.height);
         self.mainBtn.hidden = YES;
+
     }];
 }
 
@@ -88,14 +93,11 @@
 /**
  *  底部ItemView中，点击画笔按钮时出现的工具条
  */
-- (KSToolScrollView *)brusherView {
+- (KSPanToolScrollView *)brusherView {
     if (_brusherView == nil) {
-        KSToolScrollView *brusherView = [[KSToolScrollView alloc] init];
+        KSPanToolScrollView *brusherView = [[KSPanToolScrollView alloc] init];
         brusherView.tollScrolViewDelegate = self;
-        
-        CGFloat brusherViewW = self.view.bounds.size.width;
-        CGFloat brusherViewY = self.view.bounds.size.height - self.bottomItemView.bounds.size.height - kBrusherViewH;
-        brusherView.frame = CGRectMake(0, brusherViewY, brusherViewW, kBrusherViewH);
+      
         [UIView animateWithDuration:0.5 animations:^{
             [self.view addSubview:brusherView];
         }];
@@ -103,6 +105,19 @@
         _brusherView = brusherView;
     }
     return _brusherView;
+}
+
+- (KSColorToolScrollView *)colorView {
+    if (_colorView == nil) {
+        KSColorToolScrollView *colorView = [[KSColorToolScrollView alloc] init];
+        colorView.tollScrolViewDelegate = self;
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view addSubview:colorView];
+        }];
+        
+        _colorView = colorView;
+    }
+    return _colorView;
 }
 
 - (void)bottomItemView:(BottomItemView *)bottomItemView didSelectItemFrom:(NSInteger)from to:(NSInteger)to {
@@ -115,6 +130,7 @@
         }
         case 1: {   //颜色
             self.brusherView.hidden = YES;
+            self.colorView;
             break;
         }
         case 2: {   //背景

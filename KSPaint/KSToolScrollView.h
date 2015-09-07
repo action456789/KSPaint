@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "KSPaint.h"
+
+@class KSBlockButton;
 @class KSToolScrollView;
 
 
@@ -23,5 +25,8 @@
 
 @property (nonatomic, getter=isShow) BOOL show;
 @property (nonatomic, assign) id <KSToolScrolViewDelegate> tollScrolViewDelegate;
+@property (nonatomic, weak) KSBlockButton *selectedBtn; // 选中的按钮
+
+- (void)selectedButton:(KSBlockButton *)sender;
 
 @end

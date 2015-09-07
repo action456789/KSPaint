@@ -15,4 +15,8 @@ typedef NS_ENUM(NSInteger, KSSelectedForm) {
     KSOval
 };
 
+
+#define kBrusherViewH 44 // 画笔按钮宽度
+#define kBottomItemViweH 60 // 底部按钮的高度
+
 #endif

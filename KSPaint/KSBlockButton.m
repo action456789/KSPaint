@@ -26,11 +26,10 @@
 
 - (instancetype)initWithImageName:(NSString *)normal selected:(NSString *)selected block:(ButtomClickblock)block {
     
-    //    KSBlockButton *btn = [[KSBlockButton alloc] init];
-    //    [btn setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
-    //    [btn setImage:[UIImage imageNamed:selectedImageName] forState:UIControlStateSelected];
+    KSBlockButton *btn = [[KSBlockButton alloc] init];
+    [btn setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:selected] forState:UIControlStateSelected];
     
-    KSBlockButton *btn = [KSBlockButton buttonWithType:UIButtonTypeDetailDisclosure];
     btn.btnBlock = block;
     
     return btn;
@@ -46,7 +45,6 @@
 
 
 - (void)btnClick:(KSBlockButton *)sender {
-    
     if (sender.btnBlock) {
         sender.btnBlock(sender);
     }
