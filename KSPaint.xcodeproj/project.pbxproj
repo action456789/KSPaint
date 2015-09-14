@@ -11,17 +11,21 @@
 		101438801B56448700607B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1014387F1B56448700607B9C /* Images.xcassets */; };
 		101438831B56448700607B9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101438811B56448700607B9C /* LaunchScreen.xib */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
+		10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */; };
+		10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */; };
+		10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA291BA6798100C96C9F /* MBProgressHUD.m */; };
+		10B7CA511BA6C62000C96C9F /* KSColorToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */; };
+		10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */; };
+		10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */; };
+		10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA641BA6C86C00C96C9F /* BottomItemView.m */; };
+		10B7CA681BA6CC1600C96C9F /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA671BA6CC1600C96C9F /* TopView.m */; };
+		10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA6A1BA6CFD400C96C9F /* ButtonItem.m */; };
+		10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA6C1BA6CFD400C96C9F /* KSBlockButton.m */; };
 		10C2016E1BA2B49C00DC6D66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201531BA2B49C00DC6D66 /* ViewController.m */; };
 		10C2016F1BA2B49C00DC6D66 /* KSPaintPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201561BA2B49C00DC6D66 /* KSPaintPath.m */; };
 		10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201591BA2B49C00DC6D66 /* AppDelegate.m */; };
 		10C201711BA2B49C00DC6D66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2015B1BA2B49C00DC6D66 /* main.m */; };
-		10C201721BA2B49C00DC6D66 /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2015F1BA2B49C00DC6D66 /* ButtonItem.m */; };
-		10C201731BA2B49C00DC6D66 /* KSBlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201611BA2B49C00DC6D66 /* KSBlockButton.m */; };
 		10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201641BA2B49C00DC6D66 /* KSPaintView.m */; };
-		10C201751BA2B49C00DC6D66 /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201671BA2B49C00DC6D66 /* BottomItemView.m */; };
-		10C201761BA2B49C00DC6D66 /* KSColorToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201691BA2B49C00DC6D66 /* KSColorToolScrollView.m */; };
-		10C201771BA2B49C00DC6D66 /* KSPanToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2016B1BA2B49C00DC6D66 /* KSPanToolScrollView.m */; };
-		10C201781BA2B49C00DC6D66 /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2016D1BA2B49C00DC6D66 /* KSToolScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,25 @@
 		101438881B56448700607B9C /* KSPaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSPaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1014388D1B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
+		10B7CA251BA6798100C96C9F /* MBProgressHUD+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+KS.h"; sourceTree = "<group>"; };
+		10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+KS.m"; sourceTree = "<group>"; };
+		10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		10B7CA281BA6798100C96C9F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		10B7CA291BA6798100C96C9F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		10B7CA4A1BA6C62000C96C9F /* KSColorToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSColorToolScrollView.h; sourceTree = "<group>"; };
+		10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSColorToolScrollView.m; sourceTree = "<group>"; };
+		10B7CA4C1BA6C62000C96C9F /* KSPanToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPanToolScrollView.h; sourceTree = "<group>"; };
+		10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPanToolScrollView.m; sourceTree = "<group>"; };
+		10B7CA5C1BA6C79C00C96C9F /* KSToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToolScrollView.h; sourceTree = "<group>"; };
+		10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
+		10B7CA631BA6C86C00C96C9F /* BottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomItemView.h; sourceTree = "<group>"; };
+		10B7CA641BA6C86C00C96C9F /* BottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomItemView.m; sourceTree = "<group>"; };
+		10B7CA661BA6CC1600C96C9F /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		10B7CA671BA6CC1600C96C9F /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		10B7CA691BA6CFD400C96C9F /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
+		10B7CA6A1BA6CFD400C96C9F /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
+		10B7CA6B1BA6CFD400C96C9F /* KSBlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBlockButton.h; sourceTree = "<group>"; };
+		10B7CA6C1BA6CFD400C96C9F /* KSBlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBlockButton.m; sourceTree = "<group>"; };
 		10C201521BA2B49C00DC6D66 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		10C201531BA2B49C00DC6D66 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10C201551BA2B49C00DC6D66 /* KSPaintPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintPath.h; sourceTree = "<group>"; };
@@ -51,20 +74,8 @@
 		10C201591BA2B49C00DC6D66 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		10C2015A1BA2B49C00DC6D66 /* KSPaint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaint.h; sourceTree = "<group>"; };
 		10C2015B1BA2B49C00DC6D66 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		10C2015E1BA2B49C00DC6D66 /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
-		10C2015F1BA2B49C00DC6D66 /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
-		10C201601BA2B49C00DC6D66 /* KSBlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBlockButton.h; sourceTree = "<group>"; };
-		10C201611BA2B49C00DC6D66 /* KSBlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBlockButton.m; sourceTree = "<group>"; };
 		10C201631BA2B49C00DC6D66 /* KSPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintView.h; sourceTree = "<group>"; };
 		10C201641BA2B49C00DC6D66 /* KSPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintView.m; sourceTree = "<group>"; };
-		10C201661BA2B49C00DC6D66 /* BottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomItemView.h; sourceTree = "<group>"; };
-		10C201671BA2B49C00DC6D66 /* BottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomItemView.m; sourceTree = "<group>"; };
-		10C201681BA2B49C00DC6D66 /* KSColorToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSColorToolScrollView.h; sourceTree = "<group>"; };
-		10C201691BA2B49C00DC6D66 /* KSColorToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSColorToolScrollView.m; sourceTree = "<group>"; };
-		10C2016A1BA2B49C00DC6D66 /* KSPanToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPanToolScrollView.h; sourceTree = "<group>"; };
-		10C2016B1BA2B49C00DC6D66 /* KSPanToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPanToolScrollView.m; sourceTree = "<group>"; };
-		10C2016C1BA2B49C00DC6D66 /* KSToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToolScrollView.h; sourceTree = "<group>"; };
-		10C2016D1BA2B49C00DC6D66 /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +152,61 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		10B7CA231BA6798100C96C9F /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				10B7CA241BA6798100C96C9F /* MBProgressHUD */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		10B7CA241BA6798100C96C9F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				10B7CA251BA6798100C96C9F /* MBProgressHUD+KS.h */,
+				10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */,
+				10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */,
+				10B7CA281BA6798100C96C9F /* MBProgressHUD.h */,
+				10B7CA291BA6798100C96C9F /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		10B7CA471BA6C62000C96C9F /* BottomToolView */ = {
+			isa = PBXGroup;
+			children = (
+				10B7CA5C1BA6C79C00C96C9F /* KSToolScrollView.h */,
+				10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */,
+				10B7CA4A1BA6C62000C96C9F /* KSColorToolScrollView.h */,
+				10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */,
+				10B7CA4C1BA6C62000C96C9F /* KSPanToolScrollView.h */,
+				10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */,
+			);
+			path = BottomToolView;
+			sourceTree = "<group>";
+		};
+		10B7CA541BA6C63B00C96C9F /* TopToolView */ = {
+			isa = PBXGroup;
+			children = (
+				10B7CA661BA6CC1600C96C9F /* TopView.h */,
+				10B7CA671BA6CC1600C96C9F /* TopView.m */,
+			);
+			path = TopToolView;
+			sourceTree = "<group>";
+		};
+		10B7CA621BA6C86C00C96C9F /* ToolView */ = {
+			isa = PBXGroup;
+			children = (
+				10B7CA691BA6CFD400C96C9F /* ButtonItem.h */,
+				10B7CA6A1BA6CFD400C96C9F /* ButtonItem.m */,
+				10B7CA6B1BA6CFD400C96C9F /* KSBlockButton.h */,
+				10B7CA6C1BA6CFD400C96C9F /* KSBlockButton.m */,
+				10B7CA631BA6C86C00C96C9F /* BottomItemView.h */,
+				10B7CA641BA6C86C00C96C9F /* BottomItemView.m */,
+			);
+			path = ToolView;
+			sourceTree = "<group>";
+		};
 		10C201501BA2B49C00DC6D66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +214,7 @@
 				10C201541BA2B49C00DC6D66 /* Modal */,
 				10C2015C1BA2B49C00DC6D66 /* View */,
 				10C201571BA2B49C00DC6D66 /* Others */,
+				10B7CA231BA6798100C96C9F /* Lib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -184,22 +251,12 @@
 		10C2015C1BA2B49C00DC6D66 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10C2015D1BA2B49C00DC6D66 /* Bottom */,
+				10B7CA621BA6C86C00C96C9F /* ToolView */,
+				10B7CA541BA6C63B00C96C9F /* TopToolView */,
+				10B7CA471BA6C62000C96C9F /* BottomToolView */,
 				10C201621BA2B49C00DC6D66 /* Paint */,
-				10C201651BA2B49C00DC6D66 /* ToolVIew */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		10C2015D1BA2B49C00DC6D66 /* Bottom */ = {
-			isa = PBXGroup;
-			children = (
-				10C2015E1BA2B49C00DC6D66 /* ButtonItem.h */,
-				10C2015F1BA2B49C00DC6D66 /* ButtonItem.m */,
-				10C201601BA2B49C00DC6D66 /* KSBlockButton.h */,
-				10C201611BA2B49C00DC6D66 /* KSBlockButton.m */,
-			);
-			path = Bottom;
 			sourceTree = "<group>";
 		};
 		10C201621BA2B49C00DC6D66 /* Paint */ = {
@@ -209,21 +266,6 @@
 				10C201641BA2B49C00DC6D66 /* KSPaintView.m */,
 			);
 			path = Paint;
-			sourceTree = "<group>";
-		};
-		10C201651BA2B49C00DC6D66 /* ToolVIew */ = {
-			isa = PBXGroup;
-			children = (
-				10C201661BA2B49C00DC6D66 /* BottomItemView.h */,
-				10C201671BA2B49C00DC6D66 /* BottomItemView.m */,
-				10C201681BA2B49C00DC6D66 /* KSColorToolScrollView.h */,
-				10C201691BA2B49C00DC6D66 /* KSColorToolScrollView.m */,
-				10C2016A1BA2B49C00DC6D66 /* KSPanToolScrollView.h */,
-				10C2016B1BA2B49C00DC6D66 /* KSPanToolScrollView.m */,
-				10C2016C1BA2B49C00DC6D66 /* KSToolScrollView.h */,
-				10C2016D1BA2B49C00DC6D66 /* KSToolScrollView.m */,
-			);
-			path = ToolVIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1014387E1B56448700607B9C /* Main.storyboard in Resources */,
+				10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */,
 				101438831B56448700607B9C /* LaunchScreen.xib in Resources */,
 				101438801B56448700607B9C /* Images.xcassets in Resources */,
 			);
@@ -326,17 +369,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10B7CA681BA6CC1600C96C9F /* TopView.m in Sources */,
 				10C201711BA2B49C00DC6D66 /* main.m in Sources */,
 				10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */,
-				10C201751BA2B49C00DC6D66 /* BottomItemView.m in Sources */,
-				10C201731BA2B49C00DC6D66 /* KSBlockButton.m in Sources */,
-				10C201771BA2B49C00DC6D66 /* KSPanToolScrollView.m in Sources */,
-				10C201721BA2B49C00DC6D66 /* ButtonItem.m in Sources */,
+				10B7CA511BA6C62000C96C9F /* KSColorToolScrollView.m in Sources */,
 				10C2016E1BA2B49C00DC6D66 /* ViewController.m in Sources */,
-				10C201781BA2B49C00DC6D66 /* KSToolScrollView.m in Sources */,
+				10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */,
+				10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */,
 				10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */,
-				10C201761BA2B49C00DC6D66 /* KSColorToolScrollView.m in Sources */,
 				10C2016F1BA2B49C00DC6D66 /* KSPaintPath.m in Sources */,
+				10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */,
+				10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */,
+				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
+				10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */,
+				10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

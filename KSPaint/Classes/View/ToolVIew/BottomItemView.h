@@ -17,14 +17,19 @@
 
 @end
 
+typedef void (^ItemBlock)(id sender);
+
 @interface BottomItemView : UIView
 
 @property (nonatomic, getter=isShow) BOOL show;
 
 @property (nonatomic, weak) id <BottomItemViewDelegate>delegate;
 
+// 通过代理添加一个按钮
 - (void)addButtonItemWithName:(NSString *)imgName selectedImgName:(NSString *) selectedName titleName:(NSString *)titleName;
 
+// 通过 block 添加一个按钮
+- (void)addButtonItemWithImgName:(NSString *)imgName selectedImgName:(NSString *) selectedName titleName:(NSString *)titleName block:(ItemBlock)block;
 
 
 @end

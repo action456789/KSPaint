@@ -23,4 +23,18 @@ typedef void (^paintViewTapBlock)();
 
 @property (nonatomic, assign) KSSelectedForm selectedForm;
 
+/**
+ *  存放所有路径数组
+ */
+@property (nonatomic, strong) NSMutableArray *paths;
+
+/**
+ *  存放一次绘图时，其他形状的路径
+ */
+@property (nonatomic, strong) NSMutableArray *graphs;
+/**
+ *  存放被撤销的路径
+ */
+@property (nonatomic, strong) NSMutableArray *undoPaths;
+
 @end

@@ -13,12 +13,16 @@
 #import "KSColorToolScrollView.h"
 #import "ButtonItem.h"
 #import "KSPaint.h"
+#import "MBProgressHUD+KS.h"
 
-@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate>
+@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;  // 最底部的工具条
+@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;  // 底部的工具条
+@property (weak, nonatomic) IBOutlet BottomItemView *TopItemView; // 顶部工具条
 @property (weak, nonatomic) IBOutlet UIButton *mainBtn;  // 主按钮
 @property (weak, nonatomic) IBOutlet KSPaintView *paintView;  // 画布视图
+@property (weak, nonatomic) IBOutlet UIButton *undoBtn;  // 撤销按钮
+@property (weak, nonatomic) IBOutlet UIButton *redoBtn;  // 取消撤销按钮
 
 @property (nonatomic, strong) KSPanToolScrollView *panView; // 画笔工具条
 @property (nonatomic, strong) KSColorToolScrollView *colorView; // 颜色工具条
@@ -38,9 +42,13 @@
     
     self.bottomItemView.delegate = self;
     
-    [self addBtns];
+    [self addBottomItemViewBtns];
+    
+    [self addTopItemViewBtns];
     
     [self.view insertSubview:self.bottomItemView aboveSubview:self.paintView];
+    
+    [self.view insertSubview:self.TopItemView aboveSubview:self.paintView];
     
     __weak typeof(self) weakSelf = self;
     self.paintView.tapBlock = ^{
@@ -58,12 +66,59 @@
                 // 显示主按钮
                 weakSelf.mainBtn.transform = CGAffineTransformIdentity;
                 weakSelf.mainBtn.hidden = NO;
+                
+                // 隐藏 undo, redo 按钮
+                self.redoBtn.transform = CGAffineTransformIdentity;
+                self.undoBtn.transform = CGAffineTransformIdentity;
             }];
         }
     };
 }
 
-#pragma mark - 点击了主按钮
+// 添加底部按钮
+- (void)addBottomItemViewBtns {
+    
+    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"画笔"];
+    [self.bottomItemView addButtonItemWithName:@"btn_colorpicker" selectedImgName:@"btn_colorpicker" titleName:@"颜色"];
+    [self.bottomItemView addButtonItemWithName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"背景"];
+    [self.bottomItemView addButtonItemWithName:@"btn_fillpel_normal" selectedImgName:@"btn_fillpel_pressed" titleName:@"填充"];
+}
+
+// 添加顶部按钮
+- (void)addTopItemViewBtns {
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 添加保存按钮
+    [self.TopItemView addButtonItemWithImgName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"画笔" block:^(id sender) {
+        
+        // 截屏即可保存
+        UIGraphicsBeginImageContextWithOptions(self.paintView.frame.size, NO, 0);
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        [weakSelf.paintView.layer renderInContext:ctx];
+        UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // 保存到相册，只能是这个方法
+        UIImageWriteToSavedPhotosAlbum(newImg, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }];
+}
+
+- (void)didReceiveMemoryWarning {
+    [self.paintView.graphs removeAllObjects];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (!error) {
+        [MBProgressHUD showSuccess:@"保存成功"];
+    }else {
+        [MBProgressHUD showError:@"保存失败"];
+    }
+}
+
+#pragma mark - 按钮点击
+// 点击了主按钮
 - (IBAction)mainButtonClick:(id)sender {
     // 显示最底部工具条
     if (!self.bottomItemView.show) {
@@ -79,17 +134,14 @@
             // 隐藏主按钮
             self.mainBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.mainBtn.hidden = YES;
+            
+            // 显示 undo, redo 按钮
+            CGFloat undoBtnDeltaX = self.undoBtn.frame.size.width + kUndoBtnMargin;
+            CGFloat redoBtnDeltaX = self.redoBtn.frame.size.width + kRedoBtnMargin;
+            self.undoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, undoBtnDeltaX, 0);
+            self.redoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, -redoBtnDeltaX, 0);
         }];
     }
-}
-
-// 添加底部按钮
-- (void)addBtns {
-    
-    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"画笔"];
-    [self.bottomItemView addButtonItemWithName:@"btn_colorpicker" selectedImgName:@"btn_colorpicker" titleName:@"颜色"];
-    [self.bottomItemView addButtonItemWithName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"背景"];
-    [self.bottomItemView addButtonItemWithName:@"btn_fillpel_normal" selectedImgName:@"btn_fillpel_pressed" titleName:@"填充"];
 }
 
 #pragma mark - getter 方法
@@ -183,5 +235,4 @@
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedColor:(UIColor *)color {
     self.paintView.color = color;
 }
-
 @end

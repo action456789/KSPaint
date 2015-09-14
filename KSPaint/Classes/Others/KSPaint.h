@@ -19,4 +19,6 @@ typedef NS_ENUM(NSInteger, KSSelectedForm) {
 #define kBrusherViewH 44 // 画笔按钮宽度
 #define kBottomItemViweH 60 // 底部按钮的高度
 
+#define kRedoBtnMargin 12 // 隐藏的按钮距离边框的间隙
+#define kUndoBtnMargin kRedoBtnMargin
 #endif

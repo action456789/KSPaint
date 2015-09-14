@@ -67,6 +67,22 @@
 //    }
 }
 
+- (void)addButtonItemWithImgName:(NSString *)imgName selectedImgName:(NSString *)selectedName titleName:(NSString *)titleName block:(ItemBlock)block {
+    
+    ButtonItem *drawBtn = [ButtonItem buttonWithType:UIButtonTypeCustom];
+    
+    [drawBtn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [drawBtn setImage:[UIImage imageNamed:selectedName] forState:UIControlStateSelected];
+    
+    [drawBtn setTitle:titleName forState:UIControlStateNormal];
+    [drawBtn setTitle:titleName forState:UIControlStateSelected];
+    
+    drawBtn.btnBlock = block;
+    
+    [self addSubview:drawBtn];
+    
+}
+
 - (void)btnClick:(ButtonItem *)button {
     
     if ([self.delegate respondsToSelector:@selector(bottomItemView:didSelectItemFrom:to:)]) {

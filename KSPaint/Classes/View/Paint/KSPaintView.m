@@ -15,21 +15,16 @@
     CGPoint _startPoint; // 起点
 }
 /**
- *  存放所有路径数组
- */
-@property (nonatomic, strong) NSMutableArray *paths;
-/**
  *  矩形路径
  */
 @property (nonatomic, strong) KSPaintPath *rectPath;
-/**
- *  存放一次绘图时，其他形状的路径
- */
-@property (nonatomic, strong) NSMutableArray *graphs;
+
 /**
  *  椭圆
  */
 @property (nonatomic, strong) KSPaintPath *ovalPath;
+
+
 
 @end
 
@@ -137,6 +132,11 @@
     }
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touches cancelled!");
+    [self.graphs removeLastObject];
+}
+
 - (void)drawRect:(CGRect)rect {
     // 画线
     for (KSPaintPath *p in self.paths) {
@@ -150,5 +150,43 @@
         [lastGraph.pathColor set];
         [lastGraph.bezierPath stroke];
     }
+}
+
+- (NSMutableArray *)undoPaths {
+    if (_undoPaths == nil) {
+        _undoPaths = [NSMutableArray array];
+    }
+    return _undoPaths;
+}
+
+// 点击了撤销按钮
+- (IBAction)undoClick:(UIButton *)sender{
+    if (self.paths.count == 0) {
+        return;
+    }
+    KSPaintPath *path = [self.paths lastObject];
+    [self.undoPaths addObject:path];
+    
+    [self.paths removeLastObject];
+    
+    [self.graphs removeAllObjects];
+    
+    [self setNeedsDisplay];
+//    NSLog(@"%@, %@", self.paths, self.graphs);
+}
+
+// 点击了取消撤销按钮
+- (IBAction)redoClick:(UIButton *)sender {
+    if (self.undoPaths.count == 0) {
+        return;
+    }
+    KSPaintPath *path = [self.undoPaths objectAtIndex:0];
+    [self.paths addObject:path];
+    
+    [self.undoPaths removeObjectAtIndex:0];
+    
+    [self.graphs removeAllObjects];
+    
+    [self setNeedsDisplay];
 }
 @end
