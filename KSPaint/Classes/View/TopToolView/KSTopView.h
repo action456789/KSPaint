@@ -8,6 +8,6 @@
 
 #import "BottomItemView.h"
 
-@interface TopView : BottomItemView
+@interface KSTopView : BottomItemView
 
 @end

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,14 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKR-4i-7Ko" userLabel="TopView" customClass="BottomItemView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-Dc-bLX" userLabel="前进">
+                                <rect key="frame" x="600" y="280" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="DGq-Xn-mW8"/>
+                                    <constraint firstAttribute="height" constant="40" id="M0T-5J-E9v"/>
+                                </constraints>
+                                <state key="normal" image="btn_redo_highlight">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btn_redo"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DGq-Xn-mW8"/>
+                                        <exclude reference="M0T-5J-E9v"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="redoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1xQ-9O-MMv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dva-JG-8fW" userLabel="后退">
+                                <rect key="frame" x="-40" y="280" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="7Zu-Dv-yOt"/>
+                                    <constraint firstAttribute="height" constant="40" id="u10-aV-I5n"/>
+                                </constraints>
+                                <state key="normal" image="btn_undo_highlight">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="btn_undo"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Zu-Dv-yOt"/>
+                                        <exclude reference="u10-aV-I5n"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="undoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EhJ-Tk-BDA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6a-KC-Ggo" userLabel="主按钮">
+                                <rect key="frame" x="289" y="518" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mainButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8T0-a8-vvq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKR-4i-7Ko" userLabel="TopView" customClass="KSTopView">
+                                <rect key="frame" x="0.0" y="-70" width="600" height="70"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1BD-np-4OY"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="OjT-bo-3oh"/>
                                     <constraint firstAttribute="width" constant="600" id="Ujf-GO-0lE"/>
-                                    <constraint firstAttribute="height" constant="60" id="wMb-qY-WzU"/>
+                                    <constraint firstAttribute="height" constant="70" id="wMb-qY-WzU"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -45,68 +94,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gnt-yS-lEa" customClass="KSPaintView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <userGuides>
-                                    <userLayoutGuide location="294" affinity="minY"/>
+                                    <userLayoutGuide location="305" affinity="minY"/>
                                     <userLayoutGuide location="575" affinity="minX"/>
                                 </userGuides>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6a-KC-Ggo" userLabel="主按钮">
-                                        <rect key="frame" x="289" y="529" width="22" height="22"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mainButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8T0-a8-vvq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dva-JG-8fW" userLabel="后退">
-                                        <rect key="frame" x="-60" y="280" width="48" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="7Zu-Dv-yOt"/>
-                                            <constraint firstAttribute="height" constant="40" id="u10-aV-I5n"/>
-                                        </constraints>
-                                        <state key="normal" image="btn_undo_highlight">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" image="btn_undo"/>
-                                        <connections>
-                                            <action selector="undoClick:" destination="Gnt-yS-lEa" eventType="touchUpInside" id="Q2L-aw-1Hw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-Dc-bLX" userLabel="前进">
-                                        <rect key="frame" x="612" y="280" width="48" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="DGq-Xn-mW8"/>
-                                            <constraint firstAttribute="height" constant="40" id="M0T-5J-E9v"/>
-                                        </constraints>
-                                        <state key="normal" image="btn_redo_highlight">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" image="btn_redo"/>
-                                        <connections>
-                                            <action selector="redoClick:" destination="Gnt-yS-lEa" eventType="touchUpInside" id="0wF-Zz-XCm"/>
-                                        </connections>
-                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-GS-FfJ">
+                                        <rect key="frame" x="352" y="459" width="240" height="128"/>
+                                    </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="t6a-KC-Ggo" secondAttribute="centerY" constant="60" id="29x-s9-Czs"/>
-                                    <constraint firstAttribute="trailing" secondItem="9bk-Dc-bLX" secondAttribute="trailing" constant="-60" id="ATu-T2-qsx"/>
-                                    <constraint firstAttribute="centerY" secondItem="Dva-JG-8fW" secondAttribute="centerY" id="HtQ-se-XJl"/>
-                                    <constraint firstAttribute="centerY" secondItem="9bk-Dc-bLX" secondAttribute="centerY" id="gWx-3S-cd3"/>
-                                    <constraint firstItem="Dva-JG-8fW" firstAttribute="leading" secondItem="Gnt-yS-lEa" secondAttribute="leading" constant="-60" id="i1o-ND-lWh"/>
-                                    <constraint firstAttribute="centerX" secondItem="t6a-KC-Ggo" secondAttribute="centerX" id="m7r-pD-QHC"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Dva-JG-8fW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5E7-mq-vxr"/>
+                            <constraint firstItem="9bk-Dc-bLX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="60B-B7-1My"/>
+                            <constraint firstItem="Dva-JG-8fW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-60" id="6QV-wk-wWM"/>
                             <constraint firstItem="Gnt-yS-lEa" firstAttribute="leading" secondItem="g6J-qw-VZY" secondAttribute="leading" id="7qw-ea-zH7"/>
                             <constraint firstAttribute="trailing" secondItem="g6J-qw-VZY" secondAttribute="trailing" id="9Lx-VD-BlJ"/>
                             <constraint firstAttribute="bottom" secondItem="g6J-qw-VZY" secondAttribute="bottom" constant="-60" id="9s5-Gh-fYV"/>
                             <constraint firstItem="Gnt-yS-lEa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EBP-jF-SdH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gnt-yS-lEa" secondAttribute="bottom" id="JLs-Sx-geE"/>
                             <constraint firstItem="g6J-qw-VZY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MF6-xB-0p1"/>
+                            <constraint firstItem="t6a-KC-Ggo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mw9-Gd-1EV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="t6a-KC-Ggo" secondAttribute="bottom" constant="60" id="NIV-sq-25E"/>
                             <constraint firstItem="LKR-4i-7Ko" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QEU-Ao-TSo"/>
-                            <constraint firstItem="LKR-4i-7Ko" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="X7i-Im-Ftv"/>
+                            <constraint firstItem="LKR-4i-7Ko" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-90" id="X7i-Im-Ftv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9bk-Dc-bLX" secondAttribute="trailing" constant="-60" id="YXH-Jh-82R"/>
                             <constraint firstItem="Gnt-yS-lEa" firstAttribute="trailing" secondItem="g6J-qw-VZY" secondAttribute="trailing" id="lEp-3y-nOR"/>
                             <constraint firstItem="Gnt-yS-lEa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mET-UB-XYb"/>
                             <constraint firstAttribute="trailing" secondItem="Gnt-yS-lEa" secondAttribute="trailing" id="t79-4O-dbZ"/>
@@ -122,11 +135,11 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="TopItemView" destination="LKR-4i-7Ko" id="xTQ-Bg-8l4"/>
                         <outlet property="bottomItemView" destination="g6J-qw-VZY" id="f3R-1f-4Bs"/>
                         <outlet property="mainBtn" destination="t6a-KC-Ggo" id="8Bt-Li-TtL"/>
                         <outlet property="paintView" destination="Gnt-yS-lEa" id="1ps-J3-Ixf"/>
                         <outlet property="redoBtn" destination="9bk-Dc-bLX" id="AKO-RN-gY9"/>
+                        <outlet property="topView" destination="LKR-4i-7Ko" id="joS-zk-ztK"/>
                         <outlet property="undoBtn" destination="Dva-JG-8fW" id="MYQ-Da-3T3"/>
                     </connections>
                 </viewController>

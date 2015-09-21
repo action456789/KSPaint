@@ -11,6 +11,7 @@
 		101438801B56448700607B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1014387F1B56448700607B9C /* Images.xcassets */; };
 		101438831B56448700607B9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101438811B56448700607B9C /* LaunchScreen.xib */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
+		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; settings = {ASSET_TAGS = (); }; };
 		10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */; };
 		10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */; };
 		10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA291BA6798100C96C9F /* MBProgressHUD.m */; };
@@ -18,7 +19,7 @@
 		10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */; };
 		10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */; };
 		10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA641BA6C86C00C96C9F /* BottomItemView.m */; };
-		10B7CA681BA6CC1600C96C9F /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA671BA6CC1600C96C9F /* TopView.m */; };
+		10B7CA681BA6CC1600C96C9F /* KSTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA671BA6CC1600C96C9F /* KSTopView.m */; };
 		10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA6A1BA6CFD400C96C9F /* ButtonItem.m */; };
 		10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA6C1BA6CFD400C96C9F /* KSBlockButton.m */; };
 		10C2016E1BA2B49C00DC6D66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201531BA2B49C00DC6D66 /* ViewController.m */; };
@@ -26,6 +27,7 @@
 		10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201591BA2B49C00DC6D66 /* AppDelegate.m */; };
 		10C201711BA2B49C00DC6D66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2015B1BA2B49C00DC6D66 /* main.m */; };
 		10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201641BA2B49C00DC6D66 /* KSPaintView.m */; };
+		10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		101438881B56448700607B9C /* KSPaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSPaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1014388D1B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
+		1042AF551BAFA18600A232DE /* KSHandleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHandleImageView.h; sourceTree = "<group>"; };
+		1042AF561BAFA18600A232DE /* KSHandleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHandleImageView.m; sourceTree = "<group>"; };
 		10B7CA251BA6798100C96C9F /* MBProgressHUD+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+KS.h"; sourceTree = "<group>"; };
 		10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+KS.m"; sourceTree = "<group>"; };
 		10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -60,8 +64,8 @@
 		10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
 		10B7CA631BA6C86C00C96C9F /* BottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomItemView.h; sourceTree = "<group>"; };
 		10B7CA641BA6C86C00C96C9F /* BottomItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomItemView.m; sourceTree = "<group>"; };
-		10B7CA661BA6CC1600C96C9F /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
-		10B7CA671BA6CC1600C96C9F /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		10B7CA661BA6CC1600C96C9F /* KSTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTopView.h; sourceTree = "<group>"; };
+		10B7CA671BA6CC1600C96C9F /* KSTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTopView.m; sourceTree = "<group>"; };
 		10B7CA691BA6CFD400C96C9F /* ButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItem.h; sourceTree = "<group>"; };
 		10B7CA6A1BA6CFD400C96C9F /* ButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItem.m; sourceTree = "<group>"; };
 		10B7CA6B1BA6CFD400C96C9F /* KSBlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBlockButton.h; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		10C2015B1BA2B49C00DC6D66 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		10C201631BA2B49C00DC6D66 /* KSPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintView.h; sourceTree = "<group>"; };
 		10C201641BA2B49C00DC6D66 /* KSPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintView.m; sourceTree = "<group>"; };
+		10D4D3D41BAFE3FF0010A2AE /* UIImage+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KS.h"; sourceTree = "<group>"; };
+		10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,8 @@
 		10B7CA231BA6798100C96C9F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				10D4D3D41BAFE3FF0010A2AE /* UIImage+KS.h */,
+				10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */,
 				10B7CA241BA6798100C96C9F /* MBProgressHUD */,
 			);
 			path = Lib;
@@ -188,8 +196,8 @@
 		10B7CA541BA6C63B00C96C9F /* TopToolView */ = {
 			isa = PBXGroup;
 			children = (
-				10B7CA661BA6CC1600C96C9F /* TopView.h */,
-				10B7CA671BA6CC1600C96C9F /* TopView.m */,
+				10B7CA661BA6CC1600C96C9F /* KSTopView.h */,
+				10B7CA671BA6CC1600C96C9F /* KSTopView.m */,
 			);
 			path = TopToolView;
 			sourceTree = "<group>";
@@ -264,6 +272,8 @@
 			children = (
 				10C201631BA2B49C00DC6D66 /* KSPaintView.h */,
 				10C201641BA2B49C00DC6D66 /* KSPaintView.m */,
+				1042AF551BAFA18600A232DE /* KSHandleImageView.h */,
+				1042AF561BAFA18600A232DE /* KSHandleImageView.m */,
 			);
 			path = Paint;
 			sourceTree = "<group>";
@@ -369,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B7CA681BA6CC1600C96C9F /* TopView.m in Sources */,
+				10B7CA681BA6CC1600C96C9F /* KSTopView.m in Sources */,
+				10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */,
 				10C201711BA2B49C00DC6D66 /* main.m in Sources */,
 				10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */,
 				10B7CA511BA6C62000C96C9F /* KSColorToolScrollView.m in Sources */,
@@ -379,6 +390,7 @@
 				10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */,
 				10C2016F1BA2B49C00DC6D66 /* KSPaintPath.m in Sources */,
 				10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */,
+				1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */,
 				10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */,
 				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
 				10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */,
@@ -512,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
 				INFOPLIST_FILE = KSPaint/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -524,7 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
 				INFOPLIST_FILE = KSPaint/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

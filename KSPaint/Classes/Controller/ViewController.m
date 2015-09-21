@@ -14,23 +14,27 @@
 #import "ButtonItem.h"
 #import "KSPaint.h"
 #import "MBProgressHUD+KS.h"
+#import "KSTopView.h"
+#import "KSHandleImageView.h"
+#import "UIImage+KS.h"
 
-@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet BottomItemView *bottomItemView;  // 底部的工具条
-@property (weak, nonatomic) IBOutlet BottomItemView *TopItemView; // 顶部工具条
-@property (weak, nonatomic) IBOutlet UIButton *mainBtn;  // 主按钮
-@property (weak, nonatomic) IBOutlet KSPaintView *paintView;  // 画布视图
-@property (weak, nonatomic) IBOutlet UIButton *undoBtn;  // 撤销按钮
-@property (weak, nonatomic) IBOutlet UIButton *redoBtn;  // 取消撤销按钮
+#define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
-@property (nonatomic, strong) KSPanToolScrollView *panView; // 画笔工具条
-@property (nonatomic, strong) KSColorToolScrollView *colorView; // 颜色工具条
-@property (nonatomic, strong) KSColorToolScrollView *bgToolView; // 画笔工具条
-@property (nonatomic, strong) KSColorToolScrollView *fillToolView; // 画笔工具条
+@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, strong) KSToolScrollView *showingToolView; // 正在显示的工具条
-@property (nonatomic, strong) NSMutableArray *tools; // 存放所有工具条
+@property (weak, nonatomic  ) IBOutlet BottomItemView        *bottomItemView;// 底部的工具条
+@property (weak, nonatomic  ) IBOutlet KSTopView             *topView;// 顶部工具条
+@property (weak, nonatomic  ) IBOutlet UIButton              *mainBtn;// 主按钮
+@property (weak, nonatomic  ) IBOutlet KSPaintView           *paintView;// 画布视图
+@property (weak, nonatomic  ) IBOutlet UIButton              *undoBtn;// 撤销按钮
+@property (weak, nonatomic  ) IBOutlet UIButton              *redoBtn;// 取消撤销按钮
+
+@property (nonatomic, strong) KSPanToolScrollView   *panView;// 画笔工具条
+@property (nonatomic, strong) KSColorToolScrollView *colorView;// 颜色工具条
+@property (nonatomic, strong) KSColorToolScrollView *bgToolView;// 画笔工具条
+@property (nonatomic, strong) KSColorToolScrollView *fillToolView;// 画笔工具条
+@property (nonatomic, strong) KSToolScrollView      *showingToolView;// 正在显示的工具条
 
 @end
 
@@ -46,33 +50,20 @@
     
     [self addTopItemViewBtns];
     
-    [self.view insertSubview:self.bottomItemView aboveSubview:self.paintView];
+    [self.view insertSubview:self.bottomItemView aboveSubview:kShowingView];
+    [self.view insertSubview:self.topView aboveSubview:kShowingView];
+    [self.view insertSubview:self.mainBtn aboveSubview:kShowingView];
+    [self.view insertSubview:self.redoBtn aboveSubview:kShowingView];
+    [self.view insertSubview:self.undoBtn aboveSubview:kShowingView];
     
-    [self.view insertSubview:self.TopItemView aboveSubview:self.paintView];
-    
-    __weak typeof(self) weakSelf = self;
     self.paintView.tapBlock = ^{
-        if (weakSelf.bottomItemView.show) {
-            // 隐藏最底部工具条
-            weakSelf.bottomItemView.show = NO;
-            [UIView animateWithDuration:0.2 animations:^{
-                weakSelf.bottomItemView.transform = CGAffineTransformIdentity;
-                
-                if (weakSelf.showingToolView) {
-                    CGFloat H = [UIScreen mainScreen].bounds.size.height - weakSelf.showingToolView.frame.origin.y;
-                    weakSelf.showingToolView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, H);
-                }
-
-                // 显示主按钮
-                weakSelf.mainBtn.transform = CGAffineTransformIdentity;
-                weakSelf.mainBtn.hidden = NO;
-                
-                // 隐藏 undo, redo 按钮
-                self.redoBtn.transform = CGAffineTransformIdentity;
-                self.undoBtn.transform = CGAffineTransformIdentity;
-            }];
+        
+        if (self.bottomItemView.show) {
+            
+            [self showAnim];
         }
     };
+   
 }
 
 // 添加底部按钮
@@ -87,34 +78,116 @@
 // 添加顶部按钮
 - (void)addTopItemViewBtns {
     
-    __weak typeof(self) weakSelf = self;
-    
     // 添加保存按钮
-    [self.TopItemView addButtonItemWithImgName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"画笔" block:^(id sender) {
+    [self.topView addButtonItemWithImgName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"保存" block:^(id sender) {
+       
+        [self saveImg];
+    }];
+    
+    // 添加从相册选择图片按钮
+    [self.topView addButtonItemWithImgName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"照片" block:^(id sender) {
         
-        // 截屏即可保存
-        UIGraphicsBeginImageContextWithOptions(self.paintView.frame.size, NO, 0);
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        [weakSelf.paintView.layer renderInContext:ctx];
-        UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        // 保存到相册，只能是这个方法
-        UIImageWriteToSavedPhotosAlbum(newImg, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        [self selectImgFormAlbum];
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [self.paintView.graphs removeAllObjects];
+# pragma mark - 从相册选择图片
+- (void)selectImgFormAlbum {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - 保存图片
+- (void)saveImg {
+    
+    if (self.paintView.paths.count == 0) return;
+    
+    // 截屏即可保存
+    UIImage *newImg = [UIImage imageWithCaptureView:self.paintView];
+    
+    // 保存到相册，只能是这个方法
+    UIImageWriteToSavedPhotosAlbum(newImg, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+// 完成图片选择一定要是这个方法
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (!error) {
         [MBProgressHUD showSuccess:@"保存成功"];
     }else {
         [MBProgressHUD showError:@"保存失败"];
     }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    KSHandleImageView *handle = [[KSHandleImageView alloc] initWithFrame:self.paintView.frame];
+    handle.image = info[@"UIImagePickerControllerOriginalImage"];
+    
+    handle.block = ^(UIImage *img){
+        self.paintView.image = img;
+    };
+    
+    [self.view addSubview:handle];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - set 方法
+
+
+#pragma mark - 动画
+- (void)showAnim{
+    // 隐藏最底部工具条
+    self.bottomItemView.show = NO;
+    
+    [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.bottomItemView.transform = CGAffineTransformIdentity;
+        
+        if (self.showingToolView) {
+            CGFloat H = [UIScreen mainScreen].bounds.size.height - self.showingToolView.frame.origin.y;
+            self.showingToolView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, H);
+        }
+        
+        // 显示主按钮
+        self.mainBtn.transform = CGAffineTransformIdentity;
+        self.mainBtn.hidden = NO;
+        
+        // 隐藏 undo, redo 按钮
+        self.redoBtn.transform = CGAffineTransformIdentity;
+        self.undoBtn.transform = CGAffineTransformIdentity;
+        
+        // 显示 顶部工具条
+        self.topView.transform = CGAffineTransformIdentity;
+    } completion:nil];
+}
+
+// 隐藏动画
+- (void)hideAnim {
+    [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.bottomItemView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.bottomItemView.frame.size.height);
+        
+        if (self.showingToolView) {
+            self.showingToolView.transform = CGAffineTransformIdentity;
+        }
+        
+        // 隐藏主按钮
+        self.mainBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
+        self.mainBtn.hidden = YES;
+        
+        // 显示 undo, redo 按钮
+        CGFloat undoBtnDeltaX = self.undoBtn.frame.size.width + kUndoBtnMargin;
+        CGFloat redoBtnDeltaX = self.redoBtn.frame.size.width + kRedoBtnMargin;
+        self.undoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, undoBtnDeltaX, 0);
+        self.redoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, -redoBtnDeltaX, 0);
+        
+        // 显示顶部按钮
+        CGFloat topViewDeltaY = self.topView.frame.size.height;
+        self.topView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, topViewDeltaY);
+    } completion:nil];
 }
 
 #pragma mark - 按钮点击
@@ -124,39 +197,26 @@
     if (!self.bottomItemView.show) {
         self.bottomItemView.show = YES;
         
-        [UIView animateWithDuration:0.2 animations:^{
-            self.bottomItemView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.bottomItemView.frame.size.height);
-            
-            if (self.showingToolView) {
-                self.showingToolView.transform = CGAffineTransformIdentity;
-            }
-            
-            // 隐藏主按钮
-            self.mainBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
-            self.mainBtn.hidden = YES;
-            
-            // 显示 undo, redo 按钮
-            CGFloat undoBtnDeltaX = self.undoBtn.frame.size.width + kUndoBtnMargin;
-            CGFloat redoBtnDeltaX = self.redoBtn.frame.size.width + kRedoBtnMargin;
-            self.undoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, undoBtnDeltaX, 0);
-            self.redoBtn.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, -redoBtnDeltaX, 0);
-        }];
+        // 隐藏动画
+        [self hideAnim];
     }
+}
+
+// 点击了撤销按钮
+- (IBAction)undoClick:(UIButton *)sender {
+    [self.paintView undo];
+}
+
+// 点击了取消撤销按钮
+- (IBAction)redoClick:(UIButton *)sender {
+    [self.paintView redo];
 }
 
 #pragma mark - getter 方法
-- (NSMutableArray *)tools {
-    if (_tools == nil) {
-        _tools = [NSMutableArray array];
-    }
-    return _tools;
-}
-
 - (KSPanToolScrollView *)panView {
     if (_panView == nil) {
         KSPanToolScrollView *panView = [[KSPanToolScrollView alloc] init];
         panView.tollScrolViewDelegate = self;
-        [self.tools addObject:panView];
         _panView = panView;
     }
     return _panView;
@@ -166,7 +226,6 @@
     if (_colorView == nil) {
         KSColorToolScrollView *colorView = [[KSColorToolScrollView alloc] init];
         colorView.tollScrolViewDelegate = self;
-        [self.tools addObject:colorView];
         _colorView = colorView;
     }
     return _colorView;
@@ -176,7 +235,6 @@
     if (_bgToolView == nil) {
         KSColorToolScrollView *bgTollView = [[KSColorToolScrollView alloc] init];
         bgTollView.tollScrolViewDelegate = self;
-        [self.tools addObject:bgTollView];
         _bgToolView = bgTollView;
         bgTollView.backgroundColor = [UIColor blackColor];
     }
@@ -187,7 +245,6 @@
     if (_fillToolView == nil) {
         KSColorToolScrollView *fillTollView = [[KSColorToolScrollView alloc] init];
         fillTollView.tollScrolViewDelegate = self;
-        [self.tools addObject:fillTollView];
         _fillToolView = fillTollView;
         fillTollView.backgroundColor = [UIColor greenColor];
     }
@@ -201,24 +258,24 @@
     
     switch (to) {
         case 0: {   //画笔
-            [self.paintView addSubview:self.panView];
+            [self.view insertSubview:self.panView aboveSubview:kShowingView];
             self.showingToolView = self.panView;
 
             break;
         }
         case 1: {   //颜色
-            [self.paintView addSubview:self.colorView];
+            [self.paintView insertSubview:self.colorView aboveSubview:kShowingView];
             self.showingToolView = self.colorView;
 
             break;
         }
         case 2: {   //背景
-            [self.paintView addSubview:self.bgToolView];
+            [self.paintView insertSubview:self.bgToolView aboveSubview:kShowingView];
             self.showingToolView = self.bgToolView;
             break;
         }
         case 3: {   //填充
-            [self.paintView addSubview:self.fillToolView];
+            [self.view insertSubview:self.fillToolView aboveSubview:kShowingView];
             self.showingToolView = self.fillToolView;
             break;
         }
@@ -234,5 +291,11 @@
 
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedColor:(UIColor *)color {
     self.paintView.color = color;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    [self.paintView.graphs removeAllObjects];
 }
 @end

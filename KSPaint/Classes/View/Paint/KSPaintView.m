@@ -70,6 +70,13 @@
     return _graphs;
 }
 
+- (void)setImage:(UIImage *)image {
+    
+    _image = image;
+    [self.paths addObject:image];
+    [self setNeedsDisplay];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     if (self.tapBlock) {
@@ -140,8 +147,14 @@
 - (void)drawRect:(CGRect)rect {
     // 画线
     for (KSPaintPath *p in self.paths) {
-        [p.pathColor set];
-        [p.bezierPath stroke];
+        
+        if ([p isKindOfClass:[UIImage class]]) {
+            UIImage *img = (UIImage *)p;
+            [img drawInRect:rect];
+        }else {
+            [p.pathColor set];
+            [p.bezierPath stroke];
+        }
     }
     
     // 画其他
@@ -160,7 +173,7 @@
 }
 
 // 点击了撤销按钮
-- (IBAction)undoClick:(UIButton *)sender{
+- (void)undo {
     if (self.paths.count == 0) {
         return;
     }
@@ -172,11 +185,10 @@
     [self.graphs removeAllObjects];
     
     [self setNeedsDisplay];
-//    NSLog(@"%@, %@", self.paths, self.graphs);
 }
 
 // 点击了取消撤销按钮
-- (IBAction)redoClick:(UIButton *)sender {
+- (void)redo {
     if (self.undoPaths.count == 0) {
         return;
     }

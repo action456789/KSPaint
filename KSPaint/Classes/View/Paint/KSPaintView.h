@@ -13,28 +13,27 @@ typedef void (^paintViewTapBlock)();
 
 @interface KSPaintView : UIView
 
-@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat           width;
 
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) UIColor           *color;
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage           *image;
 
-@property (nonatomic, copy) paintViewTapBlock tapBlock;
+@property (nonatomic, copy  ) paintViewTapBlock tapBlock;
 
-@property (nonatomic, assign) KSSelectedForm selectedForm;
+@property (nonatomic, assign) KSSelectedForm    selectedForm;
 
-/**
- *  存放所有路径数组
- */
-@property (nonatomic, strong) NSMutableArray *paths;
+/***  存放所有路径数组 */
+@property (nonatomic, strong) NSMutableArray    *paths;
 
-/**
- *  存放一次绘图时，其他形状的路径
- */
-@property (nonatomic, strong) NSMutableArray *graphs;
-/**
- *  存放被撤销的路径
- */
-@property (nonatomic, strong) NSMutableArray *undoPaths;
+/***  存放一次绘图时，其他形状的路径*/
+@property (nonatomic, strong) NSMutableArray    *graphs;
+
+/***  存放被撤销的路径*/
+@property (nonatomic, strong) NSMutableArray    *undoPaths;
+
+
+- (void)redo;
+- (void)undo;
 
 @end
