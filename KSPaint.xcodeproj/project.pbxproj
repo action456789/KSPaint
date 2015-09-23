@@ -12,11 +12,25 @@
 		101438831B56448700607B9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101438811B56448700607B9C /* LaunchScreen.xib */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
 		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; settings = {ASSET_TAGS = (); }; };
+		1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */; settings = {ASSET_TAGS = (); }; };
+		1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
+		1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
+		1097201D1BB250A900873229 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720101BB250A900873229 /* UMSCommentDetailController.xib */; settings = {ASSET_TAGS = (); }; };
+		1097201E1BB250A900873229 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720111BB250A900873229 /* UMSCommentInputController.xib */; settings = {ASSET_TAGS = (); }; };
+		1097201F1BB250A900873229 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720121BB250A900873229 /* UMSCommentInputControlleriPad.xib */; settings = {ASSET_TAGS = (); }; };
+		109720201BB250A900873229 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720131BB250A900873229 /* UMShareEditViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		109720211BB250A900873229 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720141BB250A900873229 /* UMShareEditViewControlleriPad.xib */; settings = {ASSET_TAGS = (); }; };
+		109720221BB250A900873229 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720151BB250A900873229 /* UMSLoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		109720231BB250A900873229 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720161BB250A900873229 /* UMSnsAccountViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		109720241BB250A900873229 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720171BB250A900873229 /* UMSShareListController.xib */; settings = {ASSET_TAGS = (); }; };
+		109720251BB250A900873229 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 109720181BB250A900873229 /* UMSocialSDKResourcesNew.bundle */; settings = {ASSET_TAGS = (); }; };
+		109720271BB2519E00873229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 109720261BB2519E00873229 /* SystemConfiguration.framework */; };
+		1097202D1BB25B2900873229 /* KSUMShareToolVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097202C1BB25B2900873229 /* KSUMShareToolVc.m */; settings = {ASSET_TAGS = (); }; };
 		10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */; };
 		10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */; };
 		10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA291BA6798100C96C9F /* MBProgressHUD.m */; };
-		10B7CA511BA6C62000C96C9F /* KSColorToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */; };
-		10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */; };
+		10B7CA511BA6C62000C96C9F /* KSPenToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4B1BA6C62000C96C9F /* KSPenToolView.m */; };
+		10B7CA521BA6C62000C96C9F /* KSSharpToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA4D1BA6C62000C96C9F /* KSSharpToolView.m */; };
 		10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */; };
 		10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA641BA6C86C00C96C9F /* BottomItemView.m */; };
 		10B7CA681BA6CC1600C96C9F /* KSTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA671BA6CC1600C96C9F /* KSTopView.m */; };
@@ -28,6 +42,9 @@
 		10C201711BA2B49C00DC6D66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2015B1BA2B49C00DC6D66 /* main.m */; };
 		10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201641BA2B49C00DC6D66 /* KSPaintView.m */; };
 		10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */; settings = {ASSET_TAGS = (); }; };
+		10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2461BB1446B00A1AA59 /* KSTopButton.m */; settings = {ASSET_TAGS = (); }; };
+		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; settings = {ASSET_TAGS = (); }; };
+		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +68,43 @@
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
 		1042AF551BAFA18600A232DE /* KSHandleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHandleImageView.h; sourceTree = "<group>"; };
 		1042AF561BAFA18600A232DE /* KSHandleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHandleImageView.m; sourceTree = "<group>"; };
+		109720001BB250A900873229 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
+		109720021BB250A900873229 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
+		109720031BB250A900873229 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
+		109720041BB250A900873229 /* UMSocialBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialBar.h; sourceTree = "<group>"; };
+		109720051BB250A900873229 /* UMSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialConfig.h; sourceTree = "<group>"; };
+		109720061BB250A900873229 /* UMSocialControllerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerService.h; sourceTree = "<group>"; };
+		109720071BB250A900873229 /* UMSocialControllerServiceComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerServiceComment.h; sourceTree = "<group>"; };
+		109720081BB250A900873229 /* UMSocialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialData.h; sourceTree = "<group>"; };
+		109720091BB250A900873229 /* UMSocialDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialDataService.h; sourceTree = "<group>"; };
+		1097200A1BB250A900873229 /* UMSocialSnsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsData.h; sourceTree = "<group>"; };
+		1097200B1BB250A900873229 /* UMSocialSnsPlatformManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsPlatformManager.h; sourceTree = "<group>"; };
+		1097200C1BB250A900873229 /* UMSocialSnsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsService.h; sourceTree = "<group>"; };
+		1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.2.3.a; sourceTree = "<group>"; };
+		1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_Comment_4.2.3.a; sourceTree = "<group>"; };
+		109720101BB250A900873229 /* UMSCommentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentDetailController.xib; sourceTree = "<group>"; };
+		109720111BB250A900873229 /* UMSCommentInputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputController.xib; sourceTree = "<group>"; };
+		109720121BB250A900873229 /* UMSCommentInputControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputControlleriPad.xib; sourceTree = "<group>"; };
+		109720131BB250A900873229 /* UMShareEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewController.xib; sourceTree = "<group>"; };
+		109720141BB250A900873229 /* UMShareEditViewControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewControlleriPad.xib; sourceTree = "<group>"; };
+		109720151BB250A900873229 /* UMSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSLoginViewController.xib; sourceTree = "<group>"; };
+		109720161BB250A900873229 /* UMSnsAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSnsAccountViewController.xib; sourceTree = "<group>"; };
+		109720171BB250A900873229 /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
+		109720181BB250A900873229 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
+		109720191BB250A900873229 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
+		109720261BB2519E00873229 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1097202B1BB25B2900873229 /* KSUMShareToolVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUMShareToolVc.h; sourceTree = "<group>"; };
+		1097202C1BB25B2900873229 /* KSUMShareToolVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUMShareToolVc.m; sourceTree = "<group>"; };
+		1097202E1BB2A25C00873229 /* KSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSingleton.h; sourceTree = "<group>"; };
 		10B7CA251BA6798100C96C9F /* MBProgressHUD+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+KS.h"; sourceTree = "<group>"; };
 		10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+KS.m"; sourceTree = "<group>"; };
 		10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		10B7CA281BA6798100C96C9F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		10B7CA291BA6798100C96C9F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		10B7CA4A1BA6C62000C96C9F /* KSColorToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSColorToolScrollView.h; sourceTree = "<group>"; };
-		10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSColorToolScrollView.m; sourceTree = "<group>"; };
-		10B7CA4C1BA6C62000C96C9F /* KSPanToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPanToolScrollView.h; sourceTree = "<group>"; };
-		10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPanToolScrollView.m; sourceTree = "<group>"; };
+		10B7CA4A1BA6C62000C96C9F /* KSPenToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPenToolView.h; sourceTree = "<group>"; };
+		10B7CA4B1BA6C62000C96C9F /* KSPenToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPenToolView.m; sourceTree = "<group>"; };
+		10B7CA4C1BA6C62000C96C9F /* KSSharpToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSharpToolView.h; sourceTree = "<group>"; };
+		10B7CA4D1BA6C62000C96C9F /* KSSharpToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSharpToolView.m; sourceTree = "<group>"; };
 		10B7CA5C1BA6C79C00C96C9F /* KSToolScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToolScrollView.h; sourceTree = "<group>"; };
 		10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToolScrollView.m; sourceTree = "<group>"; };
 		10B7CA631BA6C86C00C96C9F /* BottomItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomItemView.h; sourceTree = "<group>"; };
@@ -82,6 +127,12 @@
 		10C201641BA2B49C00DC6D66 /* KSPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintView.m; sourceTree = "<group>"; };
 		10D4D3D41BAFE3FF0010A2AE /* UIImage+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KS.h"; sourceTree = "<group>"; };
 		10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KS.m"; sourceTree = "<group>"; };
+		10EEC2451BB1446B00A1AA59 /* KSTopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTopButton.h; sourceTree = "<group>"; };
+		10EEC2461BB1446B00A1AA59 /* KSTopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTopButton.m; sourceTree = "<group>"; };
+		10EEC24B1BB155ED00A1AA59 /* KSBgToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBgToolView.h; sourceTree = "<group>"; };
+		10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBgToolView.m; sourceTree = "<group>"; };
+		10EEC24F1BB15D6300A1AA59 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		10EEC2501BB15D6300A1AA59 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +140,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109720271BB2519E00873229 /* SystemConfiguration.framework in Frameworks */,
+				1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
+				1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +190,7 @@
 		101438721B56448700607B9C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				109720261BB2519E00873229 /* SystemConfiguration.framework */,
 				101438731B56448700607B9C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -158,11 +213,60 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		10971FFE1BB250A900873229 /* UMSocial_Sdk_4.2.3 */ = {
+			isa = PBXGroup;
+			children = (
+				10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */,
+				109720011BB250A900873229 /* Header */,
+				1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */,
+				1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */,
+				1097200F1BB250A900873229 /* SocialSDKXib */,
+				109720181BB250A900873229 /* UMSocialSDKResourcesNew.bundle */,
+			);
+			path = UMSocial_Sdk_4.2.3;
+			sourceTree = "<group>";
+		};
+		109720011BB250A900873229 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				109720021BB250A900873229 /* UMSocial.h */,
+				109720031BB250A900873229 /* UMSocialAccountManager.h */,
+				109720041BB250A900873229 /* UMSocialBar.h */,
+				109720051BB250A900873229 /* UMSocialConfig.h */,
+				109720061BB250A900873229 /* UMSocialControllerService.h */,
+				109720071BB250A900873229 /* UMSocialControllerServiceComment.h */,
+				109720081BB250A900873229 /* UMSocialData.h */,
+				109720091BB250A900873229 /* UMSocialDataService.h */,
+				1097200A1BB250A900873229 /* UMSocialSnsData.h */,
+				1097200B1BB250A900873229 /* UMSocialSnsPlatformManager.h */,
+				1097200C1BB250A900873229 /* UMSocialSnsService.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		1097200F1BB250A900873229 /* SocialSDKXib */ = {
+			isa = PBXGroup;
+			children = (
+				109720101BB250A900873229 /* UMSCommentDetailController.xib */,
+				109720111BB250A900873229 /* UMSCommentInputController.xib */,
+				109720121BB250A900873229 /* UMSCommentInputControlleriPad.xib */,
+				109720131BB250A900873229 /* UMShareEditViewController.xib */,
+				109720141BB250A900873229 /* UMShareEditViewControlleriPad.xib */,
+				109720151BB250A900873229 /* UMSLoginViewController.xib */,
+				109720161BB250A900873229 /* UMSnsAccountViewController.xib */,
+				109720171BB250A900873229 /* UMSShareListController.xib */,
+			);
+			path = SocialSDKXib;
+			sourceTree = "<group>";
+		};
 		10B7CA231BA6798100C96C9F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				1097202E1BB2A25C00873229 /* KSingleton.h */,
 				10D4D3D41BAFE3FF0010A2AE /* UIImage+KS.h */,
 				10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */,
+				10971FFE1BB250A900873229 /* UMSocial_Sdk_4.2.3 */,
+				10EEC24E1BB15D6300A1AA59 /* Colours */,
 				10B7CA241BA6798100C96C9F /* MBProgressHUD */,
 			);
 			path = Lib;
@@ -185,10 +289,12 @@
 			children = (
 				10B7CA5C1BA6C79C00C96C9F /* KSToolScrollView.h */,
 				10B7CA5D1BA6C79C00C96C9F /* KSToolScrollView.m */,
-				10B7CA4A1BA6C62000C96C9F /* KSColorToolScrollView.h */,
-				10B7CA4B1BA6C62000C96C9F /* KSColorToolScrollView.m */,
-				10B7CA4C1BA6C62000C96C9F /* KSPanToolScrollView.h */,
-				10B7CA4D1BA6C62000C96C9F /* KSPanToolScrollView.m */,
+				10B7CA4A1BA6C62000C96C9F /* KSPenToolView.h */,
+				10B7CA4B1BA6C62000C96C9F /* KSPenToolView.m */,
+				10B7CA4C1BA6C62000C96C9F /* KSSharpToolView.h */,
+				10B7CA4D1BA6C62000C96C9F /* KSSharpToolView.m */,
+				10EEC24B1BB155ED00A1AA59 /* KSBgToolView.h */,
+				10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */,
 			);
 			path = BottomToolView;
 			sourceTree = "<group>";
@@ -196,6 +302,8 @@
 		10B7CA541BA6C63B00C96C9F /* TopToolView */ = {
 			isa = PBXGroup;
 			children = (
+				10EEC2451BB1446B00A1AA59 /* KSTopButton.h */,
+				10EEC2461BB1446B00A1AA59 /* KSTopButton.m */,
 				10B7CA661BA6CC1600C96C9F /* KSTopView.h */,
 				10B7CA671BA6CC1600C96C9F /* KSTopView.m */,
 			);
@@ -232,6 +340,8 @@
 			children = (
 				10C201521BA2B49C00DC6D66 /* ViewController.h */,
 				10C201531BA2B49C00DC6D66 /* ViewController.m */,
+				1097202B1BB25B2900873229 /* KSUMShareToolVc.h */,
+				1097202C1BB25B2900873229 /* KSUMShareToolVc.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +388,15 @@
 			path = Paint;
 			sourceTree = "<group>";
 		};
+		10EEC24E1BB15D6300A1AA59 /* Colours */ = {
+			isa = PBXGroup;
+			children = (
+				10EEC24F1BB15D6300A1AA59 /* Colours.h */,
+				10EEC2501BB15D6300A1AA59 /* Colours.m */,
+			);
+			path = Colours;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,11 +441,12 @@
 		101438671B56448700607B9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = KeSen;
 				TargetAttributes = {
 					1014386E1B56448700607B9C = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 33UJTTK2KL;
 					};
 					101438871B56448700607B9C = {
 						CreatedOnToolsVersion = 6.4;
@@ -341,6 +461,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 101438661B56448700607B9C;
 			productRefGroup = 101438701B56448700607B9C /* Products */;
@@ -358,10 +479,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109720211BB250A900873229 /* UMShareEditViewControlleriPad.xib in Resources */,
+				109720231BB250A900873229 /* UMSnsAccountViewController.xib in Resources */,
+				1097201E1BB250A900873229 /* UMSCommentInputController.xib in Resources */,
+				1097201D1BB250A900873229 /* UMSCommentDetailController.xib in Resources */,
 				1014387E1B56448700607B9C /* Main.storyboard in Resources */,
 				10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */,
+				109720251BB250A900873229 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				1097201F1BB250A900873229 /* UMSCommentInputControlleriPad.xib in Resources */,
+				109720201BB250A900873229 /* UMShareEditViewController.xib in Resources */,
+				109720241BB250A900873229 /* UMSShareListController.xib in Resources */,
+				1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */,
 				101438831B56448700607B9C /* LaunchScreen.xib in Resources */,
 				101438801B56448700607B9C /* Images.xcassets in Resources */,
+				109720221BB250A900873229 /* UMSLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,19 +513,23 @@
 				10B7CA681BA6CC1600C96C9F /* KSTopView.m in Sources */,
 				10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */,
 				10C201711BA2B49C00DC6D66 /* main.m in Sources */,
+				10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */,
 				10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */,
-				10B7CA511BA6C62000C96C9F /* KSColorToolScrollView.m in Sources */,
+				10B7CA511BA6C62000C96C9F /* KSPenToolView.m in Sources */,
+				1097202D1BB25B2900873229 /* KSUMShareToolVc.m in Sources */,
 				10C2016E1BA2B49C00DC6D66 /* ViewController.m in Sources */,
 				10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */,
 				10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */,
 				10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */,
 				10C2016F1BA2B49C00DC6D66 /* KSPaintPath.m in Sources */,
+				10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */,
 				10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */,
 				1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */,
 				10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */,
 				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
-				10B7CA521BA6C62000C96C9F /* KSPanToolScrollView.m in Sources */,
+				10B7CA521BA6C62000C96C9F /* KSSharpToolView.m in Sources */,
 				10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */,
+				10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +568,15 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				109720001BB250A900873229 /* en */,
+				109720191BB250A900873229 /* zh-Hans */,
+			);
+			name = UMSocialLocalizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -457,6 +601,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -472,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -510,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -521,24 +666,45 @@
 		101438931B56448700607B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KSPaint/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KSPaint/Classes/Lib/UMSocial_Sdk_4.2.3",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = KS.KSPaint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		101438941B56448700607B9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: HOU Wei Feng (7788DNMK64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KSPaint/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KSPaint/Classes/Lib/UMSocial_Sdk_4.2.3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = KS.KSPaint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -556,6 +722,7 @@
 				);
 				INFOPLIST_FILE = KSPaintTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KS.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KSPaint.app/KSPaint";
 			};
@@ -571,6 +738,7 @@
 				);
 				INFOPLIST_FILE = KSPaintTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KS.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KSPaint.app/KSPaint";
 			};

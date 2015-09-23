@@ -7,7 +7,7 @@
 //
 
 #import "KSTopView.h"
-#import "ButtonItem.h"
+#import "KSTopButton.h"
 #import "KSPaint.h"
 
 @implementation KSTopView
@@ -19,9 +19,7 @@
     NSUInteger count = self.subviews.count;
     for (int i=0; i<count; i++) {
         
-        ButtonItem *btn = self.subviews[i];
-        btn.tag = i;
-        
+        KSTopButton *btn = self.subviews[i];
         CGFloat buttonY = StatusBarHeight;
         CGFloat buttonW = self.frame.size.width / count;
         CGFloat buttonH = self.frame.size.height - StatusBarHeight;
@@ -30,4 +28,19 @@
     }
 }
 
+
+- (void)addButtonWithImgName:(NSString *)imgName highlightImgName:(NSString *)highlightImgName titleName:(NSString *)titleName block:(ItemBlock)block {
+    
+    KSTopButton *drawBtn = [KSTopButton buttonWithType:UIButtonTypeCustom];
+    
+    [drawBtn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [drawBtn setImage:[UIImage imageNamed:highlightImgName] forState:UIControlStateHighlighted];
+    
+    [drawBtn setTitle:titleName forState:UIControlStateNormal];
+    [drawBtn setTitle:titleName forState:UIControlStateHighlighted];
+    
+    drawBtn.btnBlock = block;
+    
+    [self addSubview:drawBtn];
+}
 @end

@@ -17,18 +17,27 @@
 @protocol KSToolScrolViewDelegate <NSObject>
 
 @optional
+/**
+ *  选中了某个形状时调用
+ */
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedForm:(KSSelectedForm)form;
+
+/**
+ *  选中了某个颜色时调用
+ */
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedColor:(UIColor *)color;
 
 @end
 
 @interface KSToolScrollView : UIScrollView
 
-@property (nonatomic, getter=isShow) BOOL show;
+@property (nonatomic, getter = isShow) BOOL show;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, weak) KSBlockButton *selectedBtn; // 选中的按钮
 
 @property (nonatomic, assign) id <KSToolScrolViewDelegate> tollScrolViewDelegate;
-@property (nonatomic, weak) KSBlockButton *selectedBtn; // 选中的按钮
+
+
 
 - (void)selectedButton:(KSBlockButton *)sender;
 

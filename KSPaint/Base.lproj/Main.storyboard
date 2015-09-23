@@ -69,7 +69,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKR-4i-7Ko" userLabel="TopView" customClass="KSTopView">
                                 <rect key="frame" x="0.0" y="-70" width="600" height="70"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1BD-np-4OY"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="OjT-bo-3oh"/>
@@ -86,7 +86,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6J-qw-VZY" userLabel="BottomView" customClass="BottomItemView">
                                 <rect key="frame" x="0.0" y="600" width="600" height="60"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Pjy-zZ-2fG"/>
                                 </constraints>
@@ -97,11 +97,6 @@
                                     <userLayoutGuide location="305" affinity="minY"/>
                                     <userLayoutGuide location="575" affinity="minX"/>
                                 </userGuides>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-GS-FfJ">
-                                        <rect key="frame" x="352" y="459" width="240" height="128"/>
-                                    </imageView>
-                                </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -139,13 +134,13 @@
                         <outlet property="mainBtn" destination="t6a-KC-Ggo" id="8Bt-Li-TtL"/>
                         <outlet property="paintView" destination="Gnt-yS-lEa" id="1ps-J3-Ixf"/>
                         <outlet property="redoBtn" destination="9bk-Dc-bLX" id="AKO-RN-gY9"/>
-                        <outlet property="topView" destination="LKR-4i-7Ko" id="joS-zk-ztK"/>
+                        <outlet property="topView" destination="LKR-4i-7Ko" id="QIy-qJ-uh3"/>
                         <outlet property="undoBtn" destination="Dva-JG-8fW" id="MYQ-Da-3T3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202" y="78"/>
+            <point key="canvasLocation" x="-594" y="25"/>
         </scene>
     </scenes>
     <resources>

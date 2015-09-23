@@ -8,7 +8,7 @@
 
 #import "BottomItemView.h"
 #import "ButtonItem.h"
-
+#import "Colours.h"
 
 @interface BottomItemView()
 
@@ -30,7 +30,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        _show = NO;
+        [self initSet];
     }
     return self;
 }
@@ -39,9 +39,14 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _show = NO;
+        [self initSet];
     }
     return self;
+}
+
+- (void) initSet {
+    _show = NO;
+    self.backgroundColor = [UIColor black25PercentColor];
 }
 
 - (void)addButtonItemWithName:(NSString *)imgName selectedImgName:(NSString *) selectedName titleName:(NSString *)titleName{
@@ -54,8 +59,7 @@
     [drawBtn setTitle:titleName forState:UIControlStateNormal];
     [drawBtn setTitle:titleName forState:UIControlStateSelected];
 
-    //[drawBtn setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-    //[drawBtn setBackgroundImage:[UIImage imageNamed:selName] forState:UIControlStateSelected];
+    
     
     [drawBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     

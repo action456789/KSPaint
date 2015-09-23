@@ -8,6 +8,11 @@
 
 #import "BottomItemView.h"
 
-@interface KSTopView : BottomItemView
+@interface KSTopView : UIView
+
+typedef void (^ItemBlock)(id sender);
+
+// 通过 block 添加一个按钮
+- (void)addButtonWithImgName:(NSString *)imgName highlightImgName:(NSString *) highlightImgName titleName:(NSString *)titleName block:(ItemBlock)block;
 
 @end

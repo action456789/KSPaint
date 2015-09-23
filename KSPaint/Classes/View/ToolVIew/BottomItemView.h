@@ -31,5 +31,4 @@ typedef void (^ItemBlock)(id sender);
 // 通过 block 添加一个按钮
 - (void)addButtonItemWithImgName:(NSString *)imgName selectedImgName:(NSString *) selectedName titleName:(NSString *)titleName block:(ItemBlock)block;
 
-
 @end

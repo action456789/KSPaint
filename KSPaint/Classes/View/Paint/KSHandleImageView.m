@@ -8,6 +8,8 @@
 
 #import "KSHandleImageView.h"
 #import "UIImage+KS.h"
+#import "KSPaint.h"
+
 
 @interface KSHandleImageView () <UIGestureRecognizerDelegate>
 @property (nonatomic, strong)UIImageView *imageView;
@@ -30,6 +32,9 @@
         
         // 添加手势
         [self addGestures];
+        
+        // 添加通知
+        [self addNotification];
     }
     return self;
 }
@@ -38,6 +43,13 @@
     
     _image = image;
     self.imageView.image = image;
+}
+
+- (void)addNotification {
+    
+    // 发出通知
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:kHandleImageNotification object:self];
 }
 
 - (void)addGestures {

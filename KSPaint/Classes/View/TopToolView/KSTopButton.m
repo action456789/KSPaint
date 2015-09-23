@@ -1,13 +1,12 @@
 //
-//  ButtonItem.m
+//  KSTopButton.m
 //  KSPaint
 //
-//  Created by KeSen on 15/7/16.
-//  Copyright (c) 2015年 KeSen. All rights reserved.
+//  Created by KeSen on 15/9/22.
+//  Copyright © 2015年 KeSen. All rights reserved.
 //
 
-#import "ButtonItem.h"
-#import "KSToolScrollView.h"
+#import "KSTopButton.h"
 
 // 按钮 img 与 title 宽度比例
 #define kButtonItemImgRatio 0.6
@@ -19,26 +18,52 @@
 #define kButtonItemTitleSelectedColor kColor(0, 147, 221)
 
 // 按钮 title 的字体
-#define kButtonItemTitleFont [UIFont systemFontOfSize:14]
+#define kButtonItemTitleFont [UIFont systemFontOfSize:13]
 
-@implementation ButtonItem
+
+@implementation KSTopButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     if (self) {
         self.imageView.contentMode = UIViewContentModeCenter;
-
+        
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         
         self.titleLabel.font = kButtonItemTitleFont;
         
         [self setTitleColor:kButtonItemTitleColor forState:UIControlStateNormal];
-        [self setTitleColor:kButtonItemTitleSelectedColor forState:UIControlStateSelected];
-
-        [self setBackgroundImage:[UIImage imageNamed:@"tabbar_slider"] forState:UIControlStateSelected];
+        [self setTitleColor:kButtonItemTitleSelectedColor forState:UIControlStateHighlighted];
+        
+        [self addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
+}
+
+- (instancetype)initWithImageName:(NSString *)normal highlight:(NSString *)highlight block:(ButtomClickblock)block {
+    
+    KSTopButton *btn = [[KSTopButton alloc] init];
+    [btn setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:highlight] forState:UIControlStateHighlighted];
+
+    btn.btnBlock = block;
+    
+    return btn;
+    
+}
+
++ (instancetype)buttonWithImageName:(NSString *)normal highlight:(NSString *)highlight block:(ButtomClickblock)block {
+    
+    KSTopButton *btn = [[KSTopButton alloc] initWithImageName:normal highlight:highlight block:block];
+    
+    return btn;
+}
+
+- (void)btnClick:(KSTopButton *)sender {
+    if (sender.btnBlock) {
+        sender.btnBlock(sender);
+    }
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
@@ -57,8 +82,5 @@
     
     return CGRectMake(0, Y, W, H);
 }
-
-- (void)setHighlighted:(BOOL)highlighted {}
-
 
 @end

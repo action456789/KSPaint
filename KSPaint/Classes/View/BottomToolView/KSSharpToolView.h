@@ -8,6 +8,6 @@
 
 #import "KSToolScrollView.h"
 
-@interface KSPanToolScrollView : KSToolScrollView
+@interface KSSharpToolView : KSToolScrollView
 
 @end

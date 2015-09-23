@@ -9,15 +9,16 @@
 #import "ViewController.h"
 #import "BottomItemView.h"
 #import "KSPaintView.h"
-#import "KSPanToolScrollView.h"
-#import "KSColorToolScrollView.h"
+#import "KSSharpToolView.h"
+#import "KSPenToolView.h"
 #import "ButtonItem.h"
 #import "KSPaint.h"
 #import "MBProgressHUD+KS.h"
 #import "KSTopView.h"
 #import "KSHandleImageView.h"
 #import "UIImage+KS.h"
-
+#import "UMSocial.h"
+#import "KSUMShareToolVc.h"
 
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
@@ -30,11 +31,13 @@
 @property (weak, nonatomic  ) IBOutlet UIButton              *undoBtn;// 撤销按钮
 @property (weak, nonatomic  ) IBOutlet UIButton              *redoBtn;// 取消撤销按钮
 
-@property (nonatomic, strong) KSPanToolScrollView   *panView;// 画笔工具条
-@property (nonatomic, strong) KSColorToolScrollView *colorView;// 颜色工具条
-@property (nonatomic, strong) KSColorToolScrollView *bgToolView;// 画笔工具条
-@property (nonatomic, strong) KSColorToolScrollView *fillToolView;// 画笔工具条
-@property (nonatomic, strong) KSToolScrollView      *showingToolView;// 正在显示的工具条
+@property (nonatomic, strong) KSSharpToolView  *sharpView;// 形状工具条
+@property (nonatomic, strong) KSPenToolView    *penView;
+@property (nonatomic, strong) KSPenToolView    *bgToolView;
+@property (nonatomic, strong) KSPenToolView    *fillToolView;
+@property (nonatomic, strong) KSToolScrollView *showingToolView;// 正在显示的工具条
+
+@property (nonatomic, strong) KSUMShareToolVc  *shareVc;
 
 @end
 
@@ -64,31 +67,59 @@
         }
     };
    
+    // 监听添加图片通知
+    [[NSNotificationCenter defaultCenter] addObserverForName:kHandleImageNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        
+        [self showAnim];
+    }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 // 添加底部按钮
 - (void)addBottomItemViewBtns {
     
-    [self.bottomItemView addButtonItemWithName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"画笔"];
+    [self.bottomItemView addButtonItemWithName:@"btn_freehand" selectedImgName:@"btn_freehand_highlight" titleName:@"笔触"];
+    [self.bottomItemView addButtonItemWithName:@"btn_rect" selectedImgName:@"btn_rect_highlight" titleName:@"形状"];
     [self.bottomItemView addButtonItemWithName:@"btn_colorpicker" selectedImgName:@"btn_colorpicker" titleName:@"颜色"];
-    [self.bottomItemView addButtonItemWithName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"背景"];
-    [self.bottomItemView addButtonItemWithName:@"btn_fillpel_normal" selectedImgName:@"btn_fillpel_pressed" titleName:@"填充"];
+    [self.bottomItemView addButtonItemWithName:@"btn_fillpel_normal" selectedImgName:@"btn_fillpel_pressed" titleName:@"背景"];
 }
 
 // 添加顶部按钮
 - (void)addTopItemViewBtns {
     
     // 添加保存按钮
-    [self.topView addButtonItemWithImgName:@"btn_freehand_normal" selectedImgName:@"btn_freehand_highlight" titleName:@"保存" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"btn_freehand_normal" highlightImgName:@"btn_freehand_highlight" titleName:@"保存" block:^(id sender) {
        
         [self saveImg];
     }];
     
     // 添加从相册选择图片按钮
-    [self.topView addButtonItemWithImgName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"照片" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"照片" block:^(id sender) {
         
         [self selectImgFormAlbum];
     }];
+    
+    // 添加分享按钮
+    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"分享" block:^(id sender) {
+        
+        [self share];
+    }];
+}
+
+# pragma mark - 友盟分享
+
+- (void)share {
+    
+    KSUMShareToolVc *umShareVc = [[KSUMShareToolVc alloc] init];
+    
+    UIImage *sharedImage = [UIImage imageWithCaptureView:self.paintView ];
+    
+    [umShareVc shareImage:sharedImage text:@"友盟分享" target:self];
+    
+    _shareVc = umShareVc;
 }
 
 # pragma mark - 从相册选择图片
@@ -115,7 +146,7 @@
 // 完成图片选择一定要是这个方法
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (!error) {
-        [MBProgressHUD showSuccess:@"保存成功"];
+        [MBProgressHUD showSuccess:@"已保存到相册"];
     }else {
         [MBProgressHUD showError:@"保存失败"];
     }
@@ -128,6 +159,7 @@
     handle.image = info[@"UIImagePickerControllerOriginalImage"];
     
     handle.block = ^(UIImage *img){
+        
         self.paintView.image = img;
     };
     
@@ -141,6 +173,7 @@
 
 #pragma mark - 动画
 - (void)showAnim{
+    
     // 隐藏最底部工具条
     self.bottomItemView.show = NO;
     
@@ -213,27 +246,27 @@
 }
 
 #pragma mark - getter 方法
-- (KSPanToolScrollView *)panView {
-    if (_panView == nil) {
-        KSPanToolScrollView *panView = [[KSPanToolScrollView alloc] init];
-        panView.tollScrolViewDelegate = self;
-        _panView = panView;
+- (KSSharpToolView *)sharpView {
+    if (_sharpView == nil) {
+        KSSharpToolView *sharpView = [[KSSharpToolView alloc] init];
+        sharpView.tollScrolViewDelegate = self;
+        _sharpView = sharpView;
     }
-    return _panView;
+    return _sharpView;
 }
 
-- (KSColorToolScrollView *)colorView {
-    if (_colorView == nil) {
-        KSColorToolScrollView *colorView = [[KSColorToolScrollView alloc] init];
-        colorView.tollScrolViewDelegate = self;
-        _colorView = colorView;
+- (KSPenToolView *)penView {
+    if (_penView == nil) {
+        KSPenToolView *penView = [[KSPenToolView alloc] init];
+        penView.tollScrolViewDelegate = self;
+        _penView = penView;
     }
-    return _colorView;
+    return _penView;
 }
 
-- (KSColorToolScrollView *)bgToolView {
+- (KSPenToolView *)bgToolView {
     if (_bgToolView == nil) {
-        KSColorToolScrollView *bgTollView = [[KSColorToolScrollView alloc] init];
+        KSPenToolView *bgTollView = [[KSPenToolView alloc] init];
         bgTollView.tollScrolViewDelegate = self;
         _bgToolView = bgTollView;
         bgTollView.backgroundColor = [UIColor blackColor];
@@ -241,9 +274,9 @@
     return _bgToolView;
 }
 
-- (KSColorToolScrollView *)fillToolView {
+- (KSPenToolView *)fillToolView {
     if (_fillToolView == nil) {
-        KSColorToolScrollView *fillTollView = [[KSColorToolScrollView alloc] init];
+        KSPenToolView *fillTollView = [[KSPenToolView alloc] init];
         fillTollView.tollScrolViewDelegate = self;
         _fillToolView = fillTollView;
         fillTollView.backgroundColor = [UIColor greenColor];
@@ -257,24 +290,24 @@
     [self.showingToolView removeFromSuperview];
     
     switch (to) {
-        case 0: {   //画笔
-            [self.view insertSubview:self.panView aboveSubview:kShowingView];
-            self.showingToolView = self.panView;
+        case 0: {// 画笔
+            [self.view insertSubview:self.penView aboveSubview:kShowingView];
+            self.showingToolView = self.penView;
 
             break;
         }
-        case 1: {   //颜色
-            [self.paintView insertSubview:self.colorView aboveSubview:kShowingView];
-            self.showingToolView = self.colorView;
+        case 1: {   //形状
+            [self.view insertSubview:self.sharpView aboveSubview:kShowingView];
+            self.showingToolView = self.sharpView;
 
             break;
         }
-        case 2: {   //背景
+        case 2: {   //颜色
             [self.paintView insertSubview:self.bgToolView aboveSubview:kShowingView];
             self.showingToolView = self.bgToolView;
             break;
         }
-        case 3: {   //填充
+        case 3: {   //背景
             [self.view insertSubview:self.fillToolView aboveSubview:kShowingView];
             self.showingToolView = self.fillToolView;
             break;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 KeSen. All rights reserved.
 //  颜色工具条
 
-#import "KSColorToolScrollView.h"
+#import "KSPenToolView.h"
 #import "KSBlockButton.h"
 
-@implementation KSColorToolScrollView
+@implementation KSPenToolView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

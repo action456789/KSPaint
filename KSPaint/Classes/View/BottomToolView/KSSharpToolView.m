@@ -6,10 +6,11 @@
 //  Copyright (c) 2015年 KeSen. All rights reserved.
 //  画笔工具条
 
-#import "KSPanToolScrollView.h"
+#import "KSSharpToolView.h"
 #import "KSBlockButton.h"
+#import "Colours.h"
 
-@implementation KSPanToolScrollView
+@implementation KSSharpToolView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -32,7 +33,7 @@
 }
 
 - (void)initSet {
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor cardTableColor];
     
     // 点击按钮时画线
     KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:@"btn_freehand" selected:@"btn_freehand_highlight" block:^(KSBlockButton *sender) {

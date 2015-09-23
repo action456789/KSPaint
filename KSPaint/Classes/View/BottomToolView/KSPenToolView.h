@@ -8,6 +8,8 @@
 
 #import "KSToolScrollView.h"
 
-@interface KSColorToolScrollView : KSToolScrollView
+@interface KSPenToolView : KSToolScrollView
+
+@property (nonatomic, strong) UIColor *tollViewColor;
 
 @end
