@@ -19,6 +19,8 @@
 #import "UIImage+KS.h"
 #import "UMSocial.h"
 #import "KSUMShareToolVc.h"
+#import "KSColorToolView.h"
+#import "KSBgToolView.h"
 
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
@@ -32,9 +34,9 @@
 @property (weak, nonatomic  ) IBOutlet UIButton              *redoBtn;// 取消撤销按钮
 
 @property (nonatomic, strong) KSSharpToolView  *sharpView;// 形状工具条
-@property (nonatomic, strong) KSPenToolView    *penView;
-@property (nonatomic, strong) KSPenToolView    *bgToolView;
-@property (nonatomic, strong) KSPenToolView    *fillToolView;
+@property (nonatomic, strong) KSPenToolView    *penView;// 画笔工具条
+@property (nonatomic, strong) KSBgToolView     *bgToolView;// 背景色工具条
+@property (nonatomic, strong) KSColorToolView  *colorToollView;// 颜色工具条
 @property (nonatomic, strong) KSToolScrollView *showingToolView;// 正在显示的工具条
 
 @property (nonatomic, strong) KSUMShareToolVc  *shareVc;
@@ -72,6 +74,8 @@
         
         [self showAnim];
     }];
+    
+//    [NSThread sleepForTimeInterval:1.0];
 }
 
 - (void)dealloc {
@@ -264,9 +268,9 @@
     return _penView;
 }
 
-- (KSPenToolView *)bgToolView {
+- (KSBgToolView *)bgToolView {
     if (_bgToolView == nil) {
-        KSPenToolView *bgTollView = [[KSPenToolView alloc] init];
+        KSBgToolView *bgTollView = [[KSBgToolView alloc] init];
         bgTollView.tollScrolViewDelegate = self;
         _bgToolView = bgTollView;
         bgTollView.backgroundColor = [UIColor blackColor];
@@ -274,14 +278,14 @@
     return _bgToolView;
 }
 
-- (KSPenToolView *)fillToolView {
-    if (_fillToolView == nil) {
-        KSPenToolView *fillTollView = [[KSPenToolView alloc] init];
-        fillTollView.tollScrolViewDelegate = self;
-        _fillToolView = fillTollView;
-        fillTollView.backgroundColor = [UIColor greenColor];
+- (KSColorToolView *)colorToollView {
+    if (_colorToollView == nil) {
+        KSColorToolView *colorToolView = [[KSColorToolView alloc] init];
+        colorToolView.tollScrolViewDelegate = self;
+        _colorToollView = colorToolView;
+        colorToolView.backgroundColor = [UIColor blackColor];
     }
-    return _fillToolView;
+    return _colorToollView;
 }
 
 # pragma mark - bottomItemView delegate
@@ -303,13 +307,15 @@
             break;
         }
         case 2: {   //颜色
-            [self.paintView insertSubview:self.bgToolView aboveSubview:kShowingView];
-            self.showingToolView = self.bgToolView;
+            [self.view insertSubview:self.colorToollView aboveSubview:kShowingView];
+            self.showingToolView = self.colorToollView;
+            NSLog(@"%@", self.colorToollView);
             break;
         }
         case 3: {   //背景
-            [self.view insertSubview:self.fillToolView aboveSubview:kShowingView];
-            self.showingToolView = self.fillToolView;
+            [self.paintView insertSubview:self.bgToolView aboveSubview:kShowingView];
+            self.showingToolView = self.bgToolView;
+            
             break;
         }
         default:
@@ -326,6 +332,9 @@
     self.paintView.color = color;
 }
 
+- (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedPen:(KSPen)pen {
+    self.paintView.pen = pen;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

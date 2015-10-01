@@ -89,6 +89,13 @@
     // 画线
     if (self.selectedForm == KSLine) {
         KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color];
+        
+        // 虚线
+        if (self.pen == KSPenDash) {
+            CGFloat dashs[3] = {10.0, 10.0};
+            [path.bezierPath setLineDash:dashs count:2 phase:0];
+        }
+        
         [path.bezierPath moveToPoint:startP];
         [self.paths addObject:path];
         _path = path;

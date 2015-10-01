@@ -27,18 +27,23 @@
  */
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedColor:(UIColor *)color;
 
+/**
+ *  选中了某个画笔时调用
+ */
+- (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedPen:(KSPen)pen;
+
 @end
 
 @interface KSToolScrollView : UIScrollView
 
 @property (nonatomic, getter = isShow) BOOL show;
 @property (nonatomic, assign) NSInteger index;
-@property (nonatomic, weak) KSBlockButton *selectedBtn; // 选中的按钮
+@property (nonatomic, weak) UIButton *selectedBtn; // 选中的按钮
 
 @property (nonatomic, assign) id <KSToolScrolViewDelegate> tollScrolViewDelegate;
 
 
 
-- (void)selectedButton:(KSBlockButton *)sender;
+- (void)selectedButton:(UIButton *)sender;
 
 @end

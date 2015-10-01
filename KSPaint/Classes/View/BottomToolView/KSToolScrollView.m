@@ -19,7 +19,7 @@
 @implementation KSToolScrollView
 
 
-- (void)selectedButton:(KSBlockButton *)sender {
+- (void)selectedButton:(UIButton *)sender {
     self.selectedBtn.selected = NO;
     sender.selected = YES;
     self.selectedBtn = sender;
@@ -29,8 +29,14 @@
     NSInteger count = self.subviews.count;
     for (NSInteger i=0; i<count; i++) {
         UIButton *btn = self.subviews[i];
+        btn.tag = i;
         CGFloat X = i*kItemW;
         btn.frame = CGRectMake(X, 0, kItemW, kItemH);
+        
+        // 默认选中第一个按钮
+        if (i == 0 && [self.subviews[i] isKindOfClass:[UIButton class]]) {
+            [self selectedButton:btn];
+        }
     }
 }
 

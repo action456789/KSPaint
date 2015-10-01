@@ -21,7 +21,11 @@ typedef void (^paintViewTapBlock)();
 
 @property (nonatomic, copy  ) paintViewTapBlock tapBlock;
 
+/***  选中的形状 */
 @property (nonatomic, assign) KSSelectedForm    selectedForm;
+
+/***  选中的画笔 */
+@property (nonatomic, assign) KSPen     pen;
 
 /***  存放所有路径数组 */
 @property (nonatomic, strong) NSMutableArray    *paths;

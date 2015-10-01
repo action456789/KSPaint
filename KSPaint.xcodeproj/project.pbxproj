@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		1014387E1B56448700607B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1014387C1B56448700607B9C /* Main.storyboard */; };
 		101438801B56448700607B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1014387F1B56448700607B9C /* Images.xcassets */; };
-		101438831B56448700607B9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 101438811B56448700607B9C /* LaunchScreen.xib */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
 		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; settings = {ASSET_TAGS = (); }; };
+		10565D7F1BB973580064E7C8 /* KSColorToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10565D7E1BB973580064E7C8 /* KSColorToolView.m */; settings = {ASSET_TAGS = (); }; };
 		1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */; settings = {ASSET_TAGS = (); }; };
 		1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
 		1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +45,7 @@
 		10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2461BB1446B00A1AA59 /* KSTopButton.m */; settings = {ASSET_TAGS = (); }; };
 		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; settings = {ASSET_TAGS = (); }; };
 		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; settings = {ASSET_TAGS = (); }; };
+		10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +63,13 @@
 		101438731B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1014387D1B56448700607B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1014387F1B56448700607B9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		101438821B56448700607B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		101438881B56448700607B9C /* KSPaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSPaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1014388D1B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
 		1042AF551BAFA18600A232DE /* KSHandleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHandleImageView.h; sourceTree = "<group>"; };
 		1042AF561BAFA18600A232DE /* KSHandleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHandleImageView.m; sourceTree = "<group>"; };
+		10565D7D1BB973580064E7C8 /* KSColorToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSColorToolView.h; sourceTree = "<group>"; };
+		10565D7E1BB973580064E7C8 /* KSColorToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSColorToolView.m; sourceTree = "<group>"; };
 		109720001BB250A900873229 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		109720021BB250A900873229 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		109720031BB250A900873229 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBgToolView.m; sourceTree = "<group>"; };
 		10EEC24F1BB15D6300A1AA59 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		10EEC2501BB15D6300A1AA59 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +182,8 @@
 			children = (
 				10C201501BA2B49C00DC6D66 /* Classes */,
 				1014387F1B56448700607B9C /* Images.xcassets */,
-				101438811B56448700607B9C /* LaunchScreen.xib */,
 				1014387C1B56448700607B9C /* Main.storyboard */,
+				10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */,
 				101438721B56448700607B9C /* Supporting Files */,
 				101438701B56448700607B9C /* Products */,
 			);
@@ -295,6 +298,8 @@
 				10B7CA4D1BA6C62000C96C9F /* KSSharpToolView.m */,
 				10EEC24B1BB155ED00A1AA59 /* KSBgToolView.h */,
 				10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */,
+				10565D7D1BB973580064E7C8 /* KSColorToolView.h */,
+				10565D7E1BB973580064E7C8 /* KSColorToolView.m */,
 			);
 			path = BottomToolView;
 			sourceTree = "<group>";
@@ -489,8 +494,8 @@
 				1097201F1BB250A900873229 /* UMSCommentInputControlleriPad.xib in Resources */,
 				109720201BB250A900873229 /* UMShareEditViewController.xib in Resources */,
 				109720241BB250A900873229 /* UMSShareListController.xib in Resources */,
+				10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */,
 				1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */,
-				101438831B56448700607B9C /* LaunchScreen.xib in Resources */,
 				101438801B56448700607B9C /* Images.xcassets in Resources */,
 				109720221BB250A900873229 /* UMSLoginViewController.xib in Resources */,
 			);
@@ -522,6 +527,7 @@
 				10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */,
 				10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */,
 				10C2016F1BA2B49C00DC6D66 /* KSPaintPath.m in Sources */,
+				10565D7F1BB973580064E7C8 /* KSColorToolView.m in Sources */,
 				10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */,
 				10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */,
 				1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */,
@@ -558,14 +564,6 @@
 				1014387D1B56448700607B9C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		101438811B56448700607B9C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				101438821B56448700607B9C /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */ = {
@@ -668,6 +666,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -691,6 +690,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
