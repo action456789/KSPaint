@@ -28,7 +28,7 @@
 }
 
 - (void)initSet {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = kToolViewColor;
     
     // 点击按钮时画线
     KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:@"btn_colorpicker" selected:@"btn_fillpel_normal" block:^(KSBlockButton *sender) {
@@ -58,4 +58,6 @@
     }];
     [self addSubview:btnOral];
 
+    [self selectedButton:btnLine];
+    
 }@end

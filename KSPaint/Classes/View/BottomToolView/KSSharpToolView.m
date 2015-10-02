@@ -8,7 +8,6 @@
 
 #import "KSSharpToolView.h"
 #import "KSBlockButton.h"
-#import "Colours.h"
 
 @implementation KSSharpToolView
 
@@ -33,7 +32,7 @@
 }
 
 - (void)initSet {
-    self.backgroundColor = [UIColor cardTableColor];
+    self.backgroundColor = kToolViewColor;
     
     // 点击按钮时画线
     KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:@"btn_freehand" selected:@"btn_freehand_highlight" block:^(KSBlockButton *sender) {
@@ -62,5 +61,8 @@
         }
     }];
     [self addSubview:btnOral];
+    
+    [self selectedButton:btnLine];
+    
 }
 @end

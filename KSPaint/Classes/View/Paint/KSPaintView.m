@@ -9,6 +9,9 @@
 #import "KSPaintView.h"
 #import "KSPaintPath.h"
 
+
+static CGFloat dashs[3] = {10.0, 10.0};
+
 @interface KSPaintView ()
 {
     KSPaintPath *_path; // 画线的路径
@@ -92,7 +95,6 @@
         
         // 虚线
         if (self.pen == KSPenDash) {
-            CGFloat dashs[3] = {10.0, 10.0};
             [path.bezierPath setLineDash:dashs count:2 phase:0];
         }
         
@@ -124,6 +126,11 @@
     // 画矩形
     if (self.selectedForm == KSRect) {
         UIBezierPath *bezierP = [UIBezierPath bezierPathWithRect:preRect];
+        
+        // 虚线
+        if (self.pen == KSPenDash) {
+            [bezierP setLineDash:dashs count:2 phase:0];
+        }
         KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color];
         [self.graphs addObject:rectPath];
     }
@@ -131,6 +138,10 @@
     // 画椭圆
     if (self.selectedForm == KSOval) {
         UIBezierPath *bezierP = [UIBezierPath bezierPathWithOvalInRect:preRect];
+        // 虚线
+        if (self.pen == KSPenDash) {
+            [bezierP setLineDash:dashs count:2 phase:0];
+        }
         KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color];
         [self.graphs addObject:ovalPath];
     }

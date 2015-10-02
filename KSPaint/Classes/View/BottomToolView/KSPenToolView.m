@@ -9,6 +9,7 @@
 #import "KSPenToolView.h"
 #import "KSBlockButton.h"
 
+
 @implementation KSPenToolView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -29,10 +30,10 @@
 
 
 - (void)initSet {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = kToolViewColor;
     
     // 点击按钮时画虚线
-    KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:@"btn_colorpicker" selected:@"btn_fillpel_normal" block:^(KSBlockButton *sender) {
+    KSBlockButton *btnLine = [[KSBlockButton alloc] initWithImageName:@"btn_line" selected:@"btn_line_highlight" block:^(KSBlockButton *sender) {
         
         [self selectedButton:sender];
         
@@ -43,7 +44,7 @@
     [self addSubview:btnLine];
     
     // 点击按钮时画虚线
-    KSBlockButton *btnDash = [[KSBlockButton alloc] initWithImageName:@"btn_colorpicker" selected:@"btn_fillpel_normal" block:^(KSBlockButton *sender) {
+    KSBlockButton *btnDash = [[KSBlockButton alloc] initWithImageName:@"dash_normal" selected:@"dash_high" block:^(KSBlockButton *sender) {
         
         [self selectedButton:sender];
         
@@ -53,6 +54,7 @@
     }];
     [self addSubview:btnDash];
 
+    [self selectedButton:btnLine];
 }
 
 @end
