@@ -10,22 +10,22 @@
 		1014387E1B56448700607B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1014387C1B56448700607B9C /* Main.storyboard */; };
 		101438801B56448700607B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1014387F1B56448700607B9C /* Images.xcassets */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
-		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; settings = {ASSET_TAGS = (); }; };
-		10565D7F1BB973580064E7C8 /* KSColorToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10565D7E1BB973580064E7C8 /* KSColorToolView.m */; settings = {ASSET_TAGS = (); }; };
-		1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */; settings = {ASSET_TAGS = (); }; };
-		1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
-		1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */; settings = {ASSET_TAGS = (); }; };
-		1097201D1BB250A900873229 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720101BB250A900873229 /* UMSCommentDetailController.xib */; settings = {ASSET_TAGS = (); }; };
-		1097201E1BB250A900873229 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720111BB250A900873229 /* UMSCommentInputController.xib */; settings = {ASSET_TAGS = (); }; };
-		1097201F1BB250A900873229 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720121BB250A900873229 /* UMSCommentInputControlleriPad.xib */; settings = {ASSET_TAGS = (); }; };
-		109720201BB250A900873229 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720131BB250A900873229 /* UMShareEditViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		109720211BB250A900873229 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720141BB250A900873229 /* UMShareEditViewControlleriPad.xib */; settings = {ASSET_TAGS = (); }; };
-		109720221BB250A900873229 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720151BB250A900873229 /* UMSLoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		109720231BB250A900873229 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720161BB250A900873229 /* UMSnsAccountViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		109720241BB250A900873229 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720171BB250A900873229 /* UMSShareListController.xib */; settings = {ASSET_TAGS = (); }; };
-		109720251BB250A900873229 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 109720181BB250A900873229 /* UMSocialSDKResourcesNew.bundle */; settings = {ASSET_TAGS = (); }; };
+		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; };
+		10565D7F1BB973580064E7C8 /* KSColorToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10565D7E1BB973580064E7C8 /* KSColorToolView.m */; };
+		1097201A1BB250A900873229 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10971FFF1BB250A900873229 /* UMSocialLocalizable.strings */; };
+		1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200D1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a */; };
+		1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1097200E1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a */; };
+		1097201D1BB250A900873229 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720101BB250A900873229 /* UMSCommentDetailController.xib */; };
+		1097201E1BB250A900873229 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720111BB250A900873229 /* UMSCommentInputController.xib */; };
+		1097201F1BB250A900873229 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720121BB250A900873229 /* UMSCommentInputControlleriPad.xib */; };
+		109720201BB250A900873229 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720131BB250A900873229 /* UMShareEditViewController.xib */; };
+		109720211BB250A900873229 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720141BB250A900873229 /* UMShareEditViewControlleriPad.xib */; };
+		109720221BB250A900873229 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720151BB250A900873229 /* UMSLoginViewController.xib */; };
+		109720231BB250A900873229 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720161BB250A900873229 /* UMSnsAccountViewController.xib */; };
+		109720241BB250A900873229 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109720171BB250A900873229 /* UMSShareListController.xib */; };
+		109720251BB250A900873229 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 109720181BB250A900873229 /* UMSocialSDKResourcesNew.bundle */; };
 		109720271BB2519E00873229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 109720261BB2519E00873229 /* SystemConfiguration.framework */; };
-		1097202D1BB25B2900873229 /* KSUMShareToolVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097202C1BB25B2900873229 /* KSUMShareToolVc.m */; settings = {ASSET_TAGS = (); }; };
+		1097202D1BB25B2900873229 /* KSUMShareToolVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097202C1BB25B2900873229 /* KSUMShareToolVc.m */; };
 		10B7CA2A1BA6798100C96C9F /* MBProgressHUD+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA261BA6798100C96C9F /* MBProgressHUD+KS.m */; };
 		10B7CA2B1BA6798100C96C9F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10B7CA271BA6798100C96C9F /* MBProgressHUD.bundle */; };
 		10B7CA2C1BA6798100C96C9F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B7CA291BA6798100C96C9F /* MBProgressHUD.m */; };
@@ -41,11 +41,12 @@
 		10C201701BA2B49C00DC6D66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201591BA2B49C00DC6D66 /* AppDelegate.m */; };
 		10C201711BA2B49C00DC6D66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C2015B1BA2B49C00DC6D66 /* main.m */; };
 		10C201741BA2B49C00DC6D66 /* KSPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C201641BA2B49C00DC6D66 /* KSPaintView.m */; };
-		10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */; settings = {ASSET_TAGS = (); }; };
-		10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2461BB1446B00A1AA59 /* KSTopButton.m */; settings = {ASSET_TAGS = (); }; };
-		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; settings = {ASSET_TAGS = (); }; };
-		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; settings = {ASSET_TAGS = (); }; };
-		10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		10D4D3D61BAFE3FF0010A2AE /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */; };
+		10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2461BB1446B00A1AA59 /* KSTopButton.m */; };
+		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; };
+		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; };
+		10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */; };
+		774594327DE986C5CE8DE30E /* libPods-KSPaint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,9 @@
 		10EEC24F1BB15D6300A1AA59 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		10EEC2501BB15D6300A1AA59 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 		10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		4EDF7BFE487FD55D5FECF8B9 /* Pods-KSPaint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSPaint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint.debug.xcconfig"; sourceTree = "<group>"; };
+		531373DF0ECD060F075BE589 /* Pods-KSPaint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSPaint.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint.release.xcconfig"; sourceTree = "<group>"; };
+		F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KSPaint.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				109720271BB2519E00873229 /* SystemConfiguration.framework in Frameworks */,
 				1097201B1BB250A900873229 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				1097201C1BB250A900873229 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */,
+				774594327DE986C5CE8DE30E /* libPods-KSPaint.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,8 @@
 			children = (
 				101438711B56448700607B9C /* KSPaint */,
 				1014388B1B56448700607B9C /* KSPaintTests */,
+				C4C2F17CFE28DAE715193D69 /* Pods */,
+				AC81A9327C0B59F0BE01DD05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,7 +277,6 @@
 				10D4D3D51BAFE3FF0010A2AE /* UIImage+KS.m */,
 				10971FFE1BB250A900873229 /* UMSocial_Sdk_4.2.3 */,
 				10EEC24E1BB15D6300A1AA59 /* Colours */,
-				10B7CA241BA6798100C96C9F /* MBProgressHUD */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -284,7 +290,8 @@
 				10B7CA281BA6798100C96C9F /* MBProgressHUD.h */,
 				10B7CA291BA6798100C96C9F /* MBProgressHUD.m */,
 			);
-			path = MBProgressHUD;
+			name = MBProgressHUD;
+			path = ../MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		10B7CA471BA6C62000C96C9F /* BottomToolView */ = {
@@ -396,10 +403,28 @@
 		10EEC24E1BB15D6300A1AA59 /* Colours */ = {
 			isa = PBXGroup;
 			children = (
+				10B7CA241BA6798100C96C9F /* MBProgressHUD */,
 				10EEC24F1BB15D6300A1AA59 /* Colours.h */,
 				10EEC2501BB15D6300A1AA59 /* Colours.m */,
 			);
 			path = Colours;
+			sourceTree = "<group>";
+		};
+		AC81A9327C0B59F0BE01DD05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4C2F17CFE28DAE715193D69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EDF7BFE487FD55D5FECF8B9 /* Pods-KSPaint.debug.xcconfig */,
+				531373DF0ECD060F075BE589 /* Pods-KSPaint.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,9 +434,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 101438921B56448700607B9C /* Build configuration list for PBXNativeTarget "KSPaint" */;
 			buildPhases = (
+				85D0874A84DDE81C3A6CB442 /* Check Pods Manifest.lock */,
 				1014386B1B56448700607B9C /* Sources */,
 				1014386C1B56448700607B9C /* Frameworks */,
 				1014386D1B56448700607B9C /* Resources */,
+				B1AB46B928BD38B54FE49D44 /* Embed Pods Frameworks */,
+				9B6A1BE029BDD436C56F0DFE /* Copy Pods Resources */,
+				10F1E0DC1C5717A4003AEEDF /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -446,7 +475,7 @@
 		101438671B56448700607B9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = KeSen;
 				TargetAttributes = {
 					1014386E1B56448700607B9C = {
@@ -509,6 +538,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10F1E0DC1C5717A4003AEEDF /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 993924c6988b835fea59d2051fcfb2587f5ab1e0 119e6e628b4de393b25b3db3459a6d3d98896bd4747da4489b025d6288abdfd8";
+		};
+		85D0874A84DDE81C3A6CB442 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B6A1BE029BDD436C56F0DFE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1AB46B928BD38B54FE49D44 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1014386B1B56448700607B9C /* Sources */ = {
@@ -663,15 +754,15 @@
 		};
 		101438931B56448700607B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EDF7BFE487FD55D5FECF8B9 /* Pods-KSPaint.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KSPaint/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,15 +778,15 @@
 		};
 		101438941B56448700607B9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 531373DF0ECD060F075BE589 /* Pods-KSPaint.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KSPaint/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

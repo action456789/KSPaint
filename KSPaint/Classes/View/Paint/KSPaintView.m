@@ -163,6 +163,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
 }
 
 - (void)drawRect:(CGRect)rect {
+
+//TODO 使用 CASharpLayer 代替在 drawRect 方法中渲染效率更高，可以改进
     // 画线
     for (KSPaintPath *p in self.paths) {
         

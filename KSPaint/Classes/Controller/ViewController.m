@@ -22,6 +22,9 @@
 #import "KSColorToolView.h"
 #import "KSBgToolView.h"
 
+#import <Crashlytics/Crashlytics.h>
+
+
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
 @interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -75,8 +78,17 @@
         [self showAnim];
     }];
     
-//    [NSThread sleepForTimeInterval:1.0];
+    // crashlytics
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(20, 50, 100, 30);
+    [button setTitle:@"Crash" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
+
+//- (IBAction)crashButtonTapped:(id)sender {
+//    [[Crashlytics sharedInstance] crash];
+//}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -111,6 +123,18 @@
         
         [self share];
     }];
+    
+    // 添加支持按钮
+    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"支持" block:^(id sender) {
+        
+        [self donate];
+    }];
+}
+
+# pragma mark - 支付
+- (void)donate {
+    NSURL *url = [NSURL URLWithString:@"https://api.mch.weixin.qq.com/pay/unifiedorder?"];
+    
 }
 
 # pragma mark - 友盟分享
