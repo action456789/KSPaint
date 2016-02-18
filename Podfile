@@ -6,6 +6,7 @@
 target 'KSPaint' do
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'Masonry'
 end
 
 target 'KSPaintTests' do

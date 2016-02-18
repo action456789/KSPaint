@@ -21,6 +21,8 @@
 #import "KSUMShareToolVc.h"
 #import "KSColorToolView.h"
 #import "KSBgToolView.h"
+#import <Masonry.h>
+#import "KSPenWeightToolView.h"
 
 #import <Crashlytics/Crashlytics.h>
 
@@ -44,13 +46,23 @@
 
 @property (nonatomic, strong) KSUMShareToolVc  *shareVc;
 
+@property (nonatomic, assign) BOOL isToolViewShowing;
+
+@property (nonatomic, strong) KSPenWeightToolView *penWeightToolView;
+
 @end
 
 @implementation ViewController
 
+#pragma mark - lifecycle
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+
+    [self.view addSubview:self.penWeightToolView];
+    
+    self.isToolViewShowing = NO;
     
     self.bottomItemView.delegate = self;
     
@@ -69,6 +81,9 @@
         if (self.bottomItemView.show) {
             
             [self showAnim];
+            if (self.showingToolView) {
+                [self hideToolView:self.showingToolView animate:YES];
+            }
         }
     };
    
@@ -78,21 +93,13 @@
         [self showAnim];
     }];
     
-    // crashlytics
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(20, 50, 100, 30);
-    [button setTitle:@"Crash" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(crashButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
 }
-
-//- (IBAction)crashButtonTapped:(id)sender {
-//    [[Crashlytics sharedInstance] crash];
-//}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
+
+#pragma mark - private method
 
 // 添加底部按钮
 - (void)addBottomItemViewBtns {
@@ -131,14 +138,13 @@
     }];
 }
 
-# pragma mark - 支付
+// 支付
 - (void)donate {
-    NSURL *url = [NSURL URLWithString:@"https://api.mch.weixin.qq.com/pay/unifiedorder?"];
+//    NSURL *url = [NSURL URLWithString:@"https://api.mch.weixin.qq.com/pay/unifiedorder?"];
     
 }
 
-# pragma mark - 友盟分享
-
+// 友盟分享
 - (void)share {
     
     KSUMShareToolVc *umShareVc = [[KSUMShareToolVc alloc] init];
@@ -150,7 +156,7 @@
     _shareVc = umShareVc;
 }
 
-# pragma mark - 从相册选择图片
+// 从相册选择图片
 - (void)selectImgFormAlbum {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -159,7 +165,7 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark - 保存图片
+// 保存图片
 - (void)saveImg {
     
     if (self.paintView.paths.count == 0) return;
@@ -196,22 +202,13 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - set 方法
-
-
 #pragma mark - 动画
-- (void)showAnim{
-    
+- (void)showAnim {
     // 隐藏最底部工具条
     self.bottomItemView.show = NO;
     
     [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.bottomItemView.transform = CGAffineTransformIdentity;
-        
-        if (self.showingToolView) {
-            CGFloat H = [UIScreen mainScreen].bounds.size.height - self.showingToolView.frame.origin.y;
-            self.showingToolView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, H);
-        }
         
         // 显示主按钮
         self.mainBtn.transform = CGAffineTransformIdentity;
@@ -224,17 +221,15 @@
         // 显示 顶部工具条
         self.topView.transform = CGAffineTransformIdentity;
     } completion:nil];
+    
+    [self hideToolView:self.showingToolView animate:YES];
+    
 }
 
-// 隐藏动画
 - (void)hideAnim {
     [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.bottomItemView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.bottomItemView.frame.size.height);
-        
-        if (self.showingToolView) {
-            self.showingToolView.transform = CGAffineTransformIdentity;
-        }
-        
+    
         // 隐藏主按钮
         self.mainBtn.transform = CGAffineTransformMakeRotation(M_PI_2);
         self.mainBtn.hidden = YES;
@@ -249,6 +244,49 @@
         CGFloat topViewDeltaY = self.topView.frame.size.height;
         self.topView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, topViewDeltaY);
     } completion:nil];
+    
+    if (self.showingToolView) {
+        [self showToolView:self.showingToolView animate:YES];
+    }
+    
+}
+
+- (void)showToolView:(KSToolScrollView *)toolView animate:(BOOL) animate {
+    if (animate) {
+        [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            CGFloat H =  kBottomItemViweH + kBrusherViewH;
+            toolView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -H);
+            self.isToolViewShowing = YES;
+        } completion:^(BOOL finished) {
+            [self.view insertSubview:toolView aboveSubview:kShowingView];
+            self.showingToolView = toolView;
+        }];
+    } else {
+        CGFloat H =  kBottomItemViweH + kBrusherViewH;
+        toolView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -H);
+        self.isToolViewShowing = YES;
+        [self.view insertSubview:toolView aboveSubview:kShowingView];
+        self.showingToolView = toolView;
+    }
+    
+    [self.penWeightToolView showWithAnimate:animate];
+}
+
+- (void)hideToolView:(KSToolScrollView *)toolView animate:(BOOL) animate {
+    if (animate) {
+        [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            toolView.transform = CGAffineTransformIdentity;
+            self.isToolViewShowing = NO;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    } else {
+        toolView.transform = CGAffineTransformIdentity;
+        self.isToolViewShowing = NO;
+    }
+    
+    [self.penWeightToolView hideWithAnimate:animate];
 }
 
 #pragma mark - 按钮点击
@@ -274,6 +312,13 @@
 }
 
 #pragma mark - getter 方法
+- (KSPenWeightToolView *)penWeightToolView {
+    if (!_penWeightToolView) {
+        _penWeightToolView = [[KSPenWeightToolView alloc] initWithFrame:CGRectZero];
+    }
+    return _penWeightToolView;
+}
+
 - (KSSharpToolView *)sharpView {
     if (_sharpView == nil) {
         KSSharpToolView *sharpView = [[KSSharpToolView alloc] init];
@@ -312,34 +357,39 @@
     return _colorToollView;
 }
 
+#pragma mark - set 方法
+- (void)setIsToolViewShowing:(BOOL)isToolViewShowing {
+    _isToolViewShowing = isToolViewShowing;
+    
+    NSLog(@"%d", isToolViewShowing);
+    if (isToolViewShowing) {
+        
+    }
+}
+
+
 # pragma mark - bottomItemView delegate
 - (void)bottomItemView:(BottomItemView *)bottomItemView didSelectItemFrom:(NSInteger)from to:(NSInteger)to {
    
     [self.showingToolView removeFromSuperview];
     
+    BOOL animate = (self.showingToolView == nil);
+    
     switch (to) {
         case 0: {// 画笔
-            [self.view insertSubview:self.penView aboveSubview:kShowingView];
-            self.showingToolView = self.penView;
-
+            [self showToolView:self.penView animate:animate];
             break;
         }
         case 1: {   //形状
-            [self.view insertSubview:self.sharpView aboveSubview:kShowingView];
-            self.showingToolView = self.sharpView;
-
+            [self showToolView:self.sharpView animate:animate];
             break;
         }
         case 2: {   //颜色
-            [self.view insertSubview:self.colorToollView aboveSubview:kShowingView];
-            self.showingToolView = self.colorToollView;
-            NSLog(@"%@", self.colorToollView);
+            [self showToolView:self.colorToollView animate:animate];
             break;
         }
         case 3: {   //背景
-            [self.paintView insertSubview:self.bgToolView aboveSubview:kShowingView];
-            self.showingToolView = self.bgToolView;
-            
+            [self showToolView:self.bgToolView animate:animate];
             break;
         }
         default:

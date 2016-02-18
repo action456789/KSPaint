@@ -46,6 +46,7 @@
 		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; };
 		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; };
 		10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */; };
+		10FAB18D1C759F92009264FE /* KSPenWeightToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FAB18C1C759F92009264FE /* KSPenWeightToolView.m */; };
 		774594327DE986C5CE8DE30E /* libPods-KSPaint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,8 @@
 		10EEC24F1BB15D6300A1AA59 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		10EEC2501BB15D6300A1AA59 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 		10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		10FAB18B1C759F92009264FE /* KSPenWeightToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPenWeightToolView.h; sourceTree = "<group>"; };
+		10FAB18C1C759F92009264FE /* KSPenWeightToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPenWeightToolView.m; sourceTree = "<group>"; };
 		4EDF7BFE487FD55D5FECF8B9 /* Pods-KSPaint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSPaint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint.debug.xcconfig"; sourceTree = "<group>"; };
 		531373DF0ECD060F075BE589 /* Pods-KSPaint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSPaint.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSPaint/Pods-KSPaint.release.xcconfig"; sourceTree = "<group>"; };
 		F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KSPaint.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +310,8 @@
 				10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */,
 				10565D7D1BB973580064E7C8 /* KSColorToolView.h */,
 				10565D7E1BB973580064E7C8 /* KSColorToolView.m */,
+				10FAB18B1C759F92009264FE /* KSPenWeightToolView.h */,
+				10FAB18C1C759F92009264FE /* KSPenWeightToolView.m */,
 			);
 			path = BottomToolView;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
 				10B7CA521BA6C62000C96C9F /* KSSharpToolView.m in Sources */,
 				10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */,
+				10FAB18D1C759F92009264FE /* KSPenWeightToolView.m in Sources */,
 				10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

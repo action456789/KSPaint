@@ -13,7 +13,6 @@
 @class KSToolScrollView;
 
 
-
 @protocol KSToolScrolViewDelegate <NSObject>
 
 @optional
@@ -41,8 +40,6 @@
 @property (nonatomic, weak) UIButton *selectedBtn; // 选中的按钮
 
 @property (nonatomic, assign) id <KSToolScrolViewDelegate> tollScrolViewDelegate;
-
-
 
 - (void)selectedButton:(UIButton *)sender;
 

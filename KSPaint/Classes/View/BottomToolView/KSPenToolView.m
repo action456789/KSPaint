@@ -28,7 +28,6 @@
     return self;
 }
 
-
 - (void)initSet {
     self.backgroundColor = kToolViewColor;
     

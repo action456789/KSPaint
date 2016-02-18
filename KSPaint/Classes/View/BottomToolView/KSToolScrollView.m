@@ -37,7 +37,7 @@
 - (void)setFrame:(CGRect)frame {
     
     CGFloat brusherViewW = [UIScreen mainScreen].applicationFrame.size.width;
-    CGFloat brusherViewY = [UIScreen mainScreen].bounds.size.height - kBottomItemViweH - kBrusherViewH;
+    CGFloat brusherViewY = [UIScreen mainScreen].bounds.size.height;
     frame = CGRectMake(0, brusherViewY, brusherViewW, kBrusherViewH);
     
     [super setFrame:frame];
