@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIBezierPath *bezierPath;
 
-+ (instancetype)paintpathWithBezierpath:(UIBezierPath *)path color:(UIColor *)color;
+@property (nonatomic, assign) CGFloat width;
+
++ (instancetype)paintpathWithBezierpath:(UIBezierPath *)path color:(UIColor *)color width:(CGFloat)width;
 
 @end

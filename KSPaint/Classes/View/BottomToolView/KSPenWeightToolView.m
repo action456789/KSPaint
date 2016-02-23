@@ -12,12 +12,12 @@
 
 @interface KSPenWeightToolView()
 @property (nonatomic, strong) UIView *sliderBarview;
-@property (nonatomic, strong) UISlider *slider;
-
 @property (nonatomic, strong) UIScrollView *colorsBarView;
 @end
 
 @implementation KSPenWeightToolView
+
+#pragma mark - lifecycle
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -38,10 +38,10 @@
 - (void)initSet {
     self.backgroundColor = [UIColor purpleColor];
     
-    // 添加 slider
     _sliderBarview = [[UIView alloc] init];
-    _slider = [[UISlider alloc] init];
-    [_sliderBarview addSubview:_slider];
+    
+    // 添加 slider
+    [_sliderBarview addSubview:self.slider];
     _sliderBarview.backgroundColor = [UIColor grayColor];
     [self addSubview:_sliderBarview];
     
@@ -76,6 +76,26 @@
     }];
 }
 
+#pragma mark - getter 
+- (UISlider *)slider {
+    if (!_slider) {
+        _slider = [[UISlider alloc] init];
+        _slider.minimumValue = 1.f;
+        _slider.maximumValue = 20.f;
+        [_slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _slider;
+}
+
+#pragma mark - private method
+- (void)sliderValueChanged:(UISlider *)sender {
+    //    NSLog(@"sliderValueChanged: %f", sender.value);
+    if ([self.delegate respondsToSelector:@selector(penWeightToolView:sliderValueDidChanged:)]) {
+        [self.delegate penWeightToolView:self sliderValueDidChanged:self.slider.value];
+    }
+}
+
+#pragma mark - public method
 - (void)showWithAnimate:(BOOL)animate {
     if (animate) {
         [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:1.0 initialSpringVelocity:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{

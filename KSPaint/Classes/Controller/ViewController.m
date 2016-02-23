@@ -29,7 +29,7 @@
 
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
-@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController () <BottomItemViewDelegate, KSToolScrolViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KSPenWeightToolViewDelegate>
 
 @property (weak, nonatomic  ) IBOutlet BottomItemView        *bottomItemView;// 底部的工具条
 @property (weak, nonatomic  ) IBOutlet KSTopView             *topView;// 顶部工具条
@@ -61,6 +61,7 @@
     [super viewDidLoad];
 
     [self.view addSubview:self.penWeightToolView];
+    self.penWeightToolView.delegate = self;
     
     self.isToolViewShowing = NO;
     
@@ -200,6 +201,11 @@
     [self.view addSubview:handle];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - KSPenWeightToolView Delegate
+- (void)penWeightToolView:(KSPenWeightToolView *)view sliderValueDidChanged:(CGFloat)value {
+    self.paintView.width = value;
 }
 
 #pragma mark - 动画

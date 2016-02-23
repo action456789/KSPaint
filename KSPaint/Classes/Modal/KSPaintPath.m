@@ -10,10 +10,11 @@
 
 @implementation KSPaintPath
 
-+ (instancetype)paintpathWithBezierpath:(UIBezierPath *)path color:(UIColor *)color {
++ (instancetype)paintpathWithBezierpath:(UIBezierPath *)path color:(UIColor *)color width:(CGFloat)width {
     KSPaintPath *paintPath = [[KSPaintPath alloc] init];
     paintPath.pathColor = color;
     paintPath.bezierPath = path;
+    paintPath.width = width;
     return paintPath;
 }
 

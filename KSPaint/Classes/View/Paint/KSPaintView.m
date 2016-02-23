@@ -33,6 +33,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
 @implementation KSPaintView
 
+
+#pragma mark - lifecycle
 - (instancetype)initWithCoder:(NSCoder *)coder {
     
     self = [super initWithCoder:coder];
@@ -55,29 +57,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
 - (void)initSet {
     
     self.backgroundColor = [UIColor clearColor];
+    _width = 1.0;
     
-}
-
-- (NSMutableArray *)paths {
-    
-    if (_paths == nil) {
-        _paths = [NSMutableArray array];
-    }
-    return _paths;
-}
-
-- (NSMutableArray *)graphs {
-    if (_graphs == nil) {
-        _graphs = [NSMutableArray array];
-    }
-    return _graphs;
-}
-
-- (void)setImage:(UIImage *)image {
-    
-    _image = image;
-    [self.paths addObject:image];
-    [self setNeedsDisplay];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -91,7 +72,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
     
     // 画线
     if (self.selectedForm == KSLine) {
-        KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color];
+        KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color width:self.width];
         
         // 虚线
         if (self.pen == KSPenDash) {
@@ -131,7 +112,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
         if (self.pen == KSPenDash) {
             [bezierP setLineDash:dashs count:2 phase:0];
         }
-        KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color];
+        KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
         [self.graphs addObject:rectPath];
     }
     
@@ -142,7 +123,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
         if (self.pen == KSPenDash) {
             [bezierP setLineDash:dashs count:2 phase:0];
         }
-        KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color];
+        KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
         [self.graphs addObject:ovalPath];
     }
     
@@ -172,6 +153,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
             UIImage *img = (UIImage *)p;
             [img drawInRect:rect];
         }else {
+            NSLog(@"%f", _width);
+            p.bezierPath.lineWidth = p.width;
             [p.pathColor set];
             [p.bezierPath stroke];
         }
@@ -180,6 +163,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
     // 画其他
     KSPaintPath *lastGraph = self.graphs.lastObject;
     if (lastGraph) {
+        lastGraph.bezierPath.lineWidth = lastGraph.width;
         [lastGraph.pathColor set];
         [lastGraph.bezierPath stroke];
     }
@@ -191,6 +175,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
     }
     return _undoPaths;
 }
+
+#pragma mark - event
 
 // 点击了撤销按钮
 - (void)undo {
@@ -219,6 +205,33 @@ static CGFloat dashs[3] = {10.0, 10.0};
     
     [self.graphs removeAllObjects];
     
+    [self setNeedsDisplay];
+}
+
+#pragma mark - getter
+- (NSMutableArray *)paths {
+    
+    if (_paths == nil) {
+        _paths = [NSMutableArray array];
+    }
+    return _paths;
+}
+
+- (NSMutableArray *)graphs {
+    if (_graphs == nil) {
+        _graphs = [NSMutableArray array];
+    }
+    return _graphs;
+}
+
+
+
+
+#pragma mark - setter
+- (void)setImage:(UIImage *)image {
+    
+    _image = image;
+    [self.paths addObject:image];
     [self setNeedsDisplay];
 }
 @end

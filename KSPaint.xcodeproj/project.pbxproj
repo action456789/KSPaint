@@ -121,8 +121,8 @@
 		10B7CA6C1BA6CFD400C96C9F /* KSBlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBlockButton.m; sourceTree = "<group>"; };
 		10C201521BA2B49C00DC6D66 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		10C201531BA2B49C00DC6D66 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		10C201551BA2B49C00DC6D66 /* KSPaintPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaintPath.h; sourceTree = "<group>"; };
-		10C201561BA2B49C00DC6D66 /* KSPaintPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPaintPath.m; sourceTree = "<group>"; };
+		10C201551BA2B49C00DC6D66 /* KSPaintPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSPaintPath.h; path = ../../Modal/KSPaintPath.h; sourceTree = "<group>"; };
+		10C201561BA2B49C00DC6D66 /* KSPaintPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSPaintPath.m; path = ../../Modal/KSPaintPath.m; sourceTree = "<group>"; };
 		10C201581BA2B49C00DC6D66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		10C201591BA2B49C00DC6D66 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		10C2015A1BA2B49C00DC6D66 /* KSPaint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPaint.h; sourceTree = "<group>"; };
@@ -344,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				10C201511BA2B49C00DC6D66 /* Controller */,
-				10C201541BA2B49C00DC6D66 /* Modal */,
 				10C2015C1BA2B49C00DC6D66 /* View */,
 				10C201571BA2B49C00DC6D66 /* Others */,
 				10B7CA231BA6798100C96C9F /* Lib */,
@@ -361,15 +360,6 @@
 				1097202C1BB25B2900873229 /* KSUMShareToolVc.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		10C201541BA2B49C00DC6D66 /* Modal */ = {
-			isa = PBXGroup;
-			children = (
-				10C201551BA2B49C00DC6D66 /* KSPaintPath.h */,
-				10C201561BA2B49C00DC6D66 /* KSPaintPath.m */,
-			);
-			path = Modal;
 			sourceTree = "<group>";
 		};
 		10C201571BA2B49C00DC6D66 /* Others */ = {
@@ -397,6 +387,8 @@
 		10C201621BA2B49C00DC6D66 /* Paint */ = {
 			isa = PBXGroup;
 			children = (
+				10C201551BA2B49C00DC6D66 /* KSPaintPath.h */,
+				10C201561BA2B49C00DC6D66 /* KSPaintPath.m */,
 				10C201631BA2B49C00DC6D66 /* KSPaintView.h */,
 				10C201641BA2B49C00DC6D66 /* KSPaintView.m */,
 				1042AF551BAFA18600A232DE /* KSHandleImageView.h */,
