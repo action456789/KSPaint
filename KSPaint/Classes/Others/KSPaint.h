@@ -37,10 +37,6 @@ typedef NS_ENUM(NSInteger, KSPen) {
 
 #define kToolViewColor [UIColor cardTableColor];
 
-// 友盟分享
-#define kAppKey @"5601fdf967e58e5731001bbd"
-
-
 // 自定义Log
 #ifdef DEBUG
 #define KSLog(...) NSLog(__VA_ARGS__)

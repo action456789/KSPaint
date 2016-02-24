@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '70CD0112D20C4E92AEAB86E3'
+               BlueprintIdentifier = 'E4107D084C6CC4BF5E7B9B90'
                BlueprintName = 'Pods-KSPaint'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-KSPaint.a'>

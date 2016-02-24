@@ -15,6 +15,7 @@
 
 @end
 
+
 @implementation KSUMShareToolVc
 
 - (void)viewDidLoad {
@@ -25,10 +26,10 @@
 - (void)shareImage:(UIImage *)image text:(NSString *)text target:(id)target {
     
     //注意：分享到微信好友、微信朋友圈、微信收藏、QQ空间、QQ好友、来往好友、来往朋友圈、易信好友、易信朋友圈、Facebook、Twitter、Instagram等平台需要参考各自的集成方法
-    NSArray *snsNames = [NSArray arrayWithObjects:UMShareToSina, UMShareToTencent, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToWechatFavorite, UMShareToQzone, UMShareToQQ, UMShareToRenren, UMShareToDouban,  UMShareToEmail, UMShareToSms, UMShareToFacebook, UMShareToTwitter, nil];
+    NSArray *snsNames = [NSArray arrayWithObjects:UMShareToSina, UMShareToWechatTimeline, UMShareToQzone, UMShareToQQ, nil];
     
     [UMSocialSnsService presentSnsIconSheetView:target
-                                         appKey:kAppKey
+                                         appKey:@"5601fdf967e58e5731001bbd"
                                       shareText:text
                                      shareImage:image
                                 shareToSnsNames:snsNames

@@ -23,6 +23,7 @@
 #import "KSBgToolView.h"
 #import <Masonry.h>
 #import "KSPenWeightToolView.h"
+#import "KSMobShareToolVC.h"
 
 #import <Crashlytics/Crashlytics.h>
 
@@ -145,16 +146,20 @@
     
 }
 
-// 友盟分享
+// 分享
 - (void)share {
     
-    KSUMShareToolVc *umShareVc = [[KSUMShareToolVc alloc] init];
+//    KSUMShareToolVc *umShareVc = [[KSUMShareToolVc alloc] init];
+//    
+//    UIImage *sharedImage = [UIImage imageWithCaptureView:self.paintView ];
+//    
+//    [umShareVc shareImage:sharedImage text:@"友盟分享" target:self];
+//    
+//    _shareVc = umShareVc;
     
-    UIImage *sharedImage = [UIImage imageWithCaptureView:self.paintView ];
+    [[KSMobShareToolVC sharedInstance] shareImage:@[[UIImage imageNamed:@"btn_ok_highlight"]] text:@"分享测试" target:self];
     
-    [umShareVc shareImage:sharedImage text:@"友盟分享" target:self];
     
-    _shareVc = umShareVc;
 }
 
 // 从相册选择图片
