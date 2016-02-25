@@ -51,14 +51,14 @@
     [self addSubview:_colorsBarView];
 }
 
-- (void)setFrame:(CGRect)frame {
-    frame.size.height = 44;
-    frame.size.width = [UIScreen mainScreen].bounds.size.width;
-    frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-    frame.origin.x = 0;
-    
-    [super setFrame:frame];
-}
+//- (void)setFrame:(CGRect)frame {
+//    frame.size.height = 44;
+//    frame.size.width = [UIScreen mainScreen].bounds.size.width;
+//    frame.origin.y = [UIScreen mainScreen].bounds.size.height;
+//    frame.origin.x = 0;
+//    
+//    [super setFrame:frame];
+//}
 
 - (void)layoutSubviews {
     [self.sliderBarview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,6 +66,12 @@
         make.top.equalTo(self);
         make.width.equalTo(self).multipliedBy(0.33);
         make.height.equalTo(self);
+    }];
+    
+    [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.sliderBarview.mas_left).offset(10);
+        make.centerY.equalTo(self.sliderBarview);
+        make.right.equalTo(self.sliderBarview.mas_right).offset(-10);
     }];
     
     [self.colorsBarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -89,7 +95,6 @@
 
 #pragma mark - private method
 - (void)sliderValueChanged:(UISlider *)sender {
-    //    NSLog(@"sliderValueChanged: %f", sender.value);
     if ([self.delegate respondsToSelector:@selector(penWeightToolView:sliderValueDidChanged:)]) {
         [self.delegate penWeightToolView:self sliderValueDidChanged:self.slider.value];
     }

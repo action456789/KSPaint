@@ -45,6 +45,8 @@
 @property (nonatomic, strong) KSColorToolView  *colorToollView;// 颜色工具条
 @property (nonatomic, strong) KSToolScrollView *showingToolView;// 正在显示的工具条
 
+@property (nonatomic, strong) NSArray *toolViews;
+
 @property (nonatomic, strong) KSUMShareToolVc  *shareVc;
 
 @property (nonatomic, assign) BOOL isToolViewShowing;
@@ -72,6 +74,17 @@
     
     [self addTopItemViewBtns];
     
+    [self.view addSubview:self.penView];
+    [self.view addSubview:self.sharpView];
+    [self.view addSubview:self.colorToollView];
+    [self.view addSubview:self.bgToolView];
+    
+    self.toolViews = @[self.penView, self.sharpView, self.colorToollView, self.bgToolView];
+    
+    [self.view addSubview:self.penWeightToolView];
+    
+    [self autoLayout];
+    
     [self.view insertSubview:self.bottomItemView aboveSubview:kShowingView];
     [self.view insertSubview:self.topView aboveSubview:kShowingView];
     [self.view insertSubview:self.mainBtn aboveSubview:kShowingView];
@@ -81,24 +94,47 @@
     self.paintView.tapBlock = ^{
         
         if (self.bottomItemView.show) {
-            
-            [self showAnim];
-            if (self.showingToolView) {
-                [self hideToolView:self.showingToolView animate:YES];
-            }
+            [self hide];
         }
     };
    
     // 监听添加图片通知
     [[NSNotificationCenter defaultCenter] addObserverForName:kHandleImageNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        
-        [self showAnim];
+        [self show];
     }];
-    
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)autoLayout {
+    [self.sharpView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(kBrusherViewH));
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+    }];
+    
+    [self.penView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.sharpView);
+        make.size.equalTo(self.sharpView);
+    }];
+    
+    [self.bgToolView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.sharpView);
+        make.size.equalTo(self.sharpView);
+    }];
+    
+    [self.colorToollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.sharpView);
+        make.size.equalTo(self.sharpView);
+    }];
+    
+    [self.penWeightToolView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.sharpView);
+        make.size.equalTo(self.sharpView);
+    }];
 }
 
 #pragma mark - private method
@@ -214,7 +250,7 @@
 }
 
 #pragma mark - 动画
-- (void)showAnim {
+- (void)hide {
     // 隐藏最底部工具条
     self.bottomItemView.show = NO;
     
@@ -237,7 +273,7 @@
     
 }
 
-- (void)hideAnim {
+- (void)show {
     [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.bottomItemView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -self.bottomItemView.frame.size.height);
     
@@ -307,8 +343,7 @@
     if (!self.bottomItemView.show) {
         self.bottomItemView.show = YES;
         
-        // 隐藏动画
-        [self hideAnim];
+        [self show];
     }
 }
 
@@ -369,43 +404,13 @@
 }
 
 #pragma mark - set 方法
-- (void)setIsToolViewShowing:(BOOL)isToolViewShowing {
-    _isToolViewShowing = isToolViewShowing;
-    
-    NSLog(@"%d", isToolViewShowing);
-    if (isToolViewShowing) {
-        
-    }
-}
-
 
 # pragma mark - bottomItemView delegate
 - (void)bottomItemView:(BottomItemView *)bottomItemView didSelectItemFrom:(NSInteger)from to:(NSInteger)to {
-   
-    [self.showingToolView removeFromSuperview];
-    
     BOOL animate = (self.showingToolView == nil);
     
-    switch (to) {
-        case 0: {// 画笔
-            [self showToolView:self.penView animate:animate];
-            break;
-        }
-        case 1: {   //形状
-            [self showToolView:self.sharpView animate:animate];
-            break;
-        }
-        case 2: {   //颜色
-            [self showToolView:self.colorToollView animate:animate];
-            break;
-        }
-        case 3: {   //背景
-            [self showToolView:self.bgToolView animate:animate];
-            break;
-        }
-        default:
-            break;
-    }
+    [self hideToolView:self.toolViews[from] animate:animate];
+    [self showToolView:self.toolViews[to] animate:animate];
 }
 
 #pragma KSTollScrollViewDelegate
@@ -425,4 +430,5 @@
     [super didReceiveMemoryWarning];
     [self.paintView.graphs removeAllObjects];
 }
+
 @end

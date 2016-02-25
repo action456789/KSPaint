@@ -52,7 +52,17 @@
         }
     }];
     [self addSubview:btnDash];
-
+    
+    // 点击时为橡皮擦
+    KSBlockButton *btnEraser = [[KSBlockButton alloc] initWithImageName:@"dash_normal" selected:@"dash_high" block:^(KSBlockButton *sender) {
+        [self selectedButton:sender];
+        
+        if ([self.tollScrolViewDelegate respondsToSelector:@selector(toolScrolView:selectedPen:)]) {
+            [self.tollScrolViewDelegate toolScrolView:self selectedPen:KSPenEraser];
+        }
+    }];
+    [self addSubview:btnEraser];
+    
     [self selectedButton:btnLine];
 }
 

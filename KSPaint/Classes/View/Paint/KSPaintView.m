@@ -79,6 +79,11 @@ static CGFloat dashs[3] = {10.0, 10.0};
             [path.bezierPath setLineDash:dashs count:2 phase:0];
         }
         
+        // 橡皮擦
+        if (self.pen == KSPenEraser) {
+            path.pathColor = [UIColor whiteColor];
+        }
+        
         [path.bezierPath moveToPoint:startP];
         [self.paths addObject:path];
         _path = path;
@@ -139,7 +144,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches cancelled!");
     [self.graphs removeLastObject];
 }
 
@@ -153,7 +157,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
             UIImage *img = (UIImage *)p;
             [img drawInRect:rect];
         }else {
-            NSLog(@"%f", _width);
             p.bezierPath.lineWidth = p.width;
             [p.pathColor set];
             [p.bezierPath stroke];

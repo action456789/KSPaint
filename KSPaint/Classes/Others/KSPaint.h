@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, KSSelectedForm) {
 typedef NS_ENUM(NSInteger, KSPen) {
     KSPenLine,
     KSPenDash,
+    KSPenEraser,
 };
 
 
@@ -50,11 +51,13 @@ typedef NS_ENUM(NSInteger, KSPen) {
 // 判断是否为iOS8
 #define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 
-// 宽度
-#define  Width                             [UIScreen mainScreen].bounds.size.width
+// 判断是否是横屏
+#define Landscape UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)
 
+// 宽度
+#define  Width    (Landscape ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 // 高度
-#define  Height                            [UIScreen mainScreen].bounds.size.height
+#define  Height   (Landscape ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen]  bounds].size.height)
 
 // 状态栏高度
 #define  StatusBarHeight                   20.f
