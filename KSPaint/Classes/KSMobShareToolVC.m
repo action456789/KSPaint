@@ -11,13 +11,21 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 
+// 第三方登录
+#import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
+#import <ShareSDKUI/SSUITypeDef.h>
+#import "KSUser.h"
+
 @interface KSMobShareToolVC ()
+
+@property (nonatomic, strong) KSUser *thirdPartyLoginUser;
 
 @end
 
 static KSMobShareToolVC *sharedInstance = nil;
 
 @implementation KSMobShareToolVC
+
 
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
@@ -71,6 +79,71 @@ static KSMobShareToolVC *sharedInstance = nil;
                        }
                    }
          ];}
+}
+
+- (void)thirdPartyLoginSuccess:(successBlock)success failure:(failureBlock)failure {
+    
+    // QQ的登录
+    // 方式一
+    self.thirdPartyLoginUser = nil;
+    
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
+                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+                                       
+                                       //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
+                                       //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
+                                       associateHandler (user.uid, user, user);
+//                                       NSLog(@"user.rawData:%@",user.rawData);
+//                                       NSLog(@"user.credential:%@",user.credential);
+
+                                       KSUser *tempUser = [[KSUser alloc] init];
+                                       
+                                       tempUser.uid = user.uid;
+                                       tempUser.nickname = user.nickname;
+                                       tempUser.icon = user.icon;
+                                       tempUser.gender = (NSInteger)user.gender;
+                                       
+                                       self.thirdPartyLoginUser = tempUser;
+                                       
+                                   }
+                                onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+                                    
+                                    if (state == SSDKResponseStateSuccess) {
+                                        
+                                    }
+
+                                }];
+    
+    // 方式二
+//    [ShareSDK getUserInfo:SSDKPlatformTypeQQ
+//           onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error)
+//     {
+//         if (state == SSDKResponseStateSuccess) {
+//             
+//             NSLog(@"__uid=%@",user.uid);
+//             NSLog(@"__%@",user.credential);
+//             NSLog(@"__token=%@",user.credential.token);
+//             NSLog(@"__nickname=%@",user.nickname);
+//             
+//             if (success) {
+//                 success(user);
+//             }
+//         } else {
+//             if (failure) {
+//                 failure(error);
+//             }
+//         }
+//         
+//     }];
+}
+
+#pragma mark - getter
+- (void)setThirdPartyLoginUser:(KSUser *)thirdPartyLoginUser {
+    _thirdPartyLoginUser = thirdPartyLoginUser;
+    if (thirdPartyLoginUser != nil) {
+        NSDictionary *info = @{@"thirdPartyLoginUser": thirdPartyLoginUser};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getThiredPartyLoginUserNotificationSuccess" object:self userInfo:info];
+    }
 }
 
 @end

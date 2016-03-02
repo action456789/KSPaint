@@ -27,6 +27,7 @@
 
 #import <Crashlytics/Crashlytics.h>
 
+#import "KSUser.h"
 
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
@@ -170,16 +171,10 @@
     }];
     
     // 添加支持按钮
-    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"支持" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"登录" block:^(id sender) {
         
-        [self donate];
+        [self login];
     }];
-}
-
-// 支付
-- (void)donate {
-//    NSURL *url = [NSURL URLWithString:@"https://api.mch.weixin.qq.com/pay/unifiedorder?"];
-    
 }
 
 // 分享
@@ -194,7 +189,24 @@
 //    _shareVc = umShareVc;
     
     [[KSMobShareToolVC sharedInstance] shareImage:@[[UIImage imageNamed:@"btn_ok_highlight"]] text:@"分享测试" target:self];
+}
+
+// 第三方登录
+- (void)login {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserInfoSuccess) name:@"getThiredPartyLoginUserNotificationSuccess" object:[KSMobShareToolVC sharedInstance]];
+    });
     
+    [[KSMobShareToolVC sharedInstance] thirdPartyLoginSuccess:^(KSUser *user) {
+        NSLog(@"____________________________________________");
+        NSLog(@"KSUser: %@", user.nickname);
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getUserInfoSuccess {
     
 }
 

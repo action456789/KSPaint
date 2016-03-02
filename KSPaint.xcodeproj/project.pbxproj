@@ -64,6 +64,7 @@
 		10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2461BB1446B00A1AA59 /* KSTopButton.m */; };
 		10EEC24D1BB155ED00A1AA59 /* KSBgToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */; };
 		10EEC2511BB15D6300A1AA59 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EEC2501BB15D6300A1AA59 /* Colours.m */; };
+		10F213AC1C8033A4004B0E83 /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F213AB1C8033A4004B0E83 /* KSUser.m */; };
 		10F832811BB3CD6D00E9C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */; };
 		10FAB18D1C759F92009264FE /* KSPenWeightToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FAB18C1C759F92009264FE /* KSPenWeightToolView.m */; };
 		774594327DE986C5CE8DE30E /* libPods-KSPaint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BE801D9ACFAC4AA328D9A0 /* libPods-KSPaint.a */; };
@@ -190,6 +191,8 @@
 		10EEC24C1BB155ED00A1AA59 /* KSBgToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBgToolView.m; sourceTree = "<group>"; };
 		10EEC24F1BB15D6300A1AA59 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		10EEC2501BB15D6300A1AA59 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		10F213AA1C8033A4004B0E83 /* KSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUser.h; sourceTree = "<group>"; };
+		10F213AB1C8033A4004B0E83 /* KSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUser.m; sourceTree = "<group>"; };
 		10F832801BB3CD6D00E9C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		10FAB18B1C759F92009264FE /* KSPenWeightToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPenWeightToolView.h; sourceTree = "<group>"; };
 		10FAB18C1C759F92009264FE /* KSPenWeightToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPenWeightToolView.m; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 				10DDDED11C7D7B8A006B9B15 /* ShareSDK */,
 				10DDDE5F1C7D455D006B9B15 /* KSMobShareToolVC.h */,
 				10DDDE601C7D455D006B9B15 /* KSMobShareToolVC.m */,
+				10F213AA1C8033A4004B0E83 /* KSUser.h */,
+				10F213AB1C8033A4004B0E83 /* KSUser.m */,
 			);
 			name = ModShare;
 			sourceTree = "<group>";
@@ -812,6 +817,7 @@
 				10EEC2471BB1446B00A1AA59 /* KSTopButton.m in Sources */,
 				10B7CA6E1BA6CFD400C96C9F /* KSBlockButton.m in Sources */,
 				1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */,
+				10F213AC1C8033A4004B0E83 /* KSUser.m in Sources */,
 				10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */,
 				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
 				10B7CA521BA6C62000C96C9F /* KSSharpToolView.m in Sources */,

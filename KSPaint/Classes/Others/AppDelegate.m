@@ -26,6 +26,26 @@
 #import "WeiboSDK.h"
 //新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加"-ObjC"
 
+/**
+ *  KSPaint 分享帐号信息
+ 
+ AppKey
+	fb59f9409af6
+ 
+ WeChat
+	AppID: wx19387ca65e96af7e
+	AppSecret: 64020361b8ec4c99936c0e3999a9f249
+ 
+ QQ
+	AppID: 1105201574
+	AppKey: UWsrARpZu2ke7KUq
+ 
+ SinaWeibo
+	AppKey: 568898243
+	AppSecret: 38a4f8204cc784f81f9f0daaf31e02e3
+ 
+ */
+
 @implementation AppDelegate
 
 
@@ -50,6 +70,8 @@
 }
 
 - (void)registerMobShare {
+
+    // 第三方帐号分享
     /**
      *  设置ShareSDK的appKey，如果尚未在ShareSDK官网注册过App，请移步到http://mob.com/login 登录后台进行应用注册
      *  在将生成的AppKey传入到此方法中。
@@ -105,6 +127,9 @@
                  break;
          }
      }];
+    
+    // 第三方帐号登录
+    
 }
 
 - (void) logUser {
@@ -113,29 +138,6 @@
     [CrashlyticsKit setUserIdentifier:@"12345"];
     [CrashlyticsKit setUserEmail:@"user@fabric.io"];
     [CrashlyticsKit setUserName:@"Test User"];
-}
-
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 
