@@ -51,15 +51,6 @@
     [self addSubview:_colorsBarView];
 }
 
-//- (void)setFrame:(CGRect)frame {
-//    frame.size.height = 44;
-//    frame.size.width = [UIScreen mainScreen].bounds.size.width;
-//    frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-//    frame.origin.x = 0;
-//    
-//    [super setFrame:frame];
-//}
-
 - (void)layoutSubviews {
     [self.sliderBarview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);

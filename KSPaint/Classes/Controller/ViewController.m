@@ -28,6 +28,7 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import "KSUser.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 #define kShowingView [[UIApplication sharedApplication].windows lastObject]
 
@@ -213,6 +214,12 @@
 // 从相册选择图片
 - (void)selectImgFormAlbum {
     
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied){
+        [MBProgressHUD showError:@"没有访问照片权限"];
+        return;
+    }
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
@@ -223,6 +230,12 @@
 - (void)saveImg {
     
     if (self.paintView.paths.count == 0) return;
+    
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied){
+        [MBProgressHUD showError:@"没有访问照片权限"];
+        return;
+    }
     
     // 截屏即可保存
     UIImage *newImg = [UIImage imageWithCaptureView:self.paintView];
