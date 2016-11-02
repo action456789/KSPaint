@@ -59,16 +59,9 @@
     [drawBtn setTitle:titleName forState:UIControlStateNormal];
     [drawBtn setTitle:titleName forState:UIControlStateSelected];
 
-    
-    
     [drawBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     
     [self addSubview:drawBtn];
-    
-    // 默认选中第0个按钮
-//    if (self.subviews.count == 1) {
-//        [self btnClick:drawBtn];
-//    }
 }
 
 - (void)addButtonItemWithImgName:(NSString *)imgName selectedImgName:(NSString *)selectedName titleName:(NSString *)titleName block:(ItemBlock)block {

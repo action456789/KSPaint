@@ -20,7 +20,13 @@
 
 - (void)selectedButton:(UIButton *)sender {
     self.selectedBtn.selected = NO;
+    self.selectedBtn.layer.borderWidth = 0.0f;
+    self.selectedBtn.layer.borderColor = nil;
+    
     sender.selected = YES;
+    sender.layer.borderWidth = 1.0;
+    sender.layer.borderColor = [UIColor skyBlueColor].CGColor;
+    
     self.selectedBtn = sender;
 }
 

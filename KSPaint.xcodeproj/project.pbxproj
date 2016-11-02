@@ -10,6 +10,7 @@
 		1014387E1B56448700607B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1014387C1B56448700607B9C /* Main.storyboard */; };
 		101438801B56448700607B9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1014387F1B56448700607B9C /* Images.xcassets */; };
 		1014388F1B56448700607B9C /* KSPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1014388E1B56448700607B9C /* KSPaintTests.m */; };
+		103DBDBE1DB35D0100BEFBBE /* KSShareDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 103DBDBD1DB35D0100BEFBBE /* KSShareDataManager.m */; };
 		1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1042AF561BAFA18600A232DE /* KSHandleImageView.m */; };
 		10565D7F1BB973580064E7C8 /* KSColorToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10565D7E1BB973580064E7C8 /* KSColorToolView.m */; };
 		109720271BB2519E00873229 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 109720261BB2519E00873229 /* SystemConfiguration.framework */; };
@@ -88,6 +89,9 @@
 		101438881B56448700607B9C /* KSPaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSPaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1014388D1B56448700607B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1014388E1B56448700607B9C /* KSPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSPaintTests.m; sourceTree = "<group>"; };
+		103DBDBC1DB35D0100BEFBBE /* KSShareDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSShareDataManager.h; sourceTree = "<group>"; };
+		103DBDBD1DB35D0100BEFBBE /* KSShareDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSShareDataManager.m; sourceTree = "<group>"; };
+		103DBDC01DB35D8800BEFBBE /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		1042AF551BAFA18600A232DE /* KSHandleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHandleImageView.h; sourceTree = "<group>"; };
 		1042AF561BAFA18600A232DE /* KSHandleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHandleImageView.m; sourceTree = "<group>"; };
 		10565D7D1BB973580064E7C8 /* KSColorToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSColorToolView.h; sourceTree = "<group>"; };
@@ -295,6 +299,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		103DBDBF1DB35D8000BEFBBE /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				103DBDC01DB35D8800BEFBBE /* Singleton.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
 		10B7CA231BA6798100C96C9F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +377,7 @@
 		10C201501BA2B49C00DC6D66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				103DBDBF1DB35D8000BEFBBE /* Macro */,
 				10DDDE631C7D4573006B9B15 /* Share */,
 				10C201511BA2B49C00DC6D66 /* Controller */,
 				10C2015C1BA2B49C00DC6D66 /* View */,
@@ -414,6 +427,8 @@
 				10C201641BA2B49C00DC6D66 /* KSPaintView.m */,
 				1042AF551BAFA18600A232DE /* KSHandleImageView.h */,
 				1042AF561BAFA18600A232DE /* KSHandleImageView.m */,
+				103DBDBC1DB35D0100BEFBBE /* KSShareDataManager.h */,
+				103DBDBD1DB35D0100BEFBBE /* KSShareDataManager.m */,
 			);
 			path = Paint;
 			sourceTree = "<group>";
@@ -665,7 +680,7 @@
 		101438671B56448700607B9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = KeSen;
 				TargetAttributes = {
 					1014386E1B56448700607B9C = {
@@ -819,6 +834,7 @@
 				1042AF571BAFA18600A232DE /* KSHandleImageView.m in Sources */,
 				10F213AC1C8033A4004B0E83 /* KSUser.m in Sources */,
 				10B7CA651BA6C86C00C96C9F /* BottomItemView.m in Sources */,
+				103DBDBE1DB35D0100BEFBBE /* KSShareDataManager.m in Sources */,
 				10B7CA6D1BA6CFD400C96C9F /* ButtonItem.m in Sources */,
 				10B7CA521BA6C62000C96C9F /* KSSharpToolView.m in Sources */,
 				10B7CA5E1BA6C79C00C96C9F /* KSToolScrollView.m in Sources */,
@@ -871,6 +887,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -880,8 +897,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -916,6 +935,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -925,8 +945,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

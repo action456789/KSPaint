@@ -107,7 +107,7 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)autoLayout {
@@ -147,32 +147,32 @@
     [self.bottomItemView addButtonItemWithName:@"btn_freehand" selectedImgName:@"btn_freehand_highlight" titleName:@"笔触"];
     [self.bottomItemView addButtonItemWithName:@"btn_rect" selectedImgName:@"btn_rect_highlight" titleName:@"形状"];
     [self.bottomItemView addButtonItemWithName:@"btn_colorpicker" selectedImgName:@"btn_colorpicker" titleName:@"颜色"];
-    [self.bottomItemView addButtonItemWithName:@"btn_fillpel_normal" selectedImgName:@"btn_fillpel_pressed" titleName:@"背景"];
+    [self.bottomItemView addButtonItemWithName:@"btn_setbg_normal" selectedImgName:@"btn_setbg_pressed" titleName:@"背景"];
 }
 
 // 添加顶部按钮
 - (void)addTopItemViewBtns {
     
     // 添加保存按钮
-    [self.topView addButtonWithImgName:@"btn_freehand_normal" highlightImgName:@"btn_freehand_highlight" titleName:@"保存" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"save1" highlightImgName:@"save1" titleName:@"保存" block:^(id sender) {
        
         [self saveImg];
     }];
     
     // 添加从相册选择图片按钮
-    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"照片" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"backg" highlightImgName:@"backg" titleName:@"照片" block:^(id sender) {
         
         [self selectImgFormAlbum];
     }];
     
     // 添加分享按钮
-    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"分享" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"share" highlightImgName:@"share" titleName:@"分享" block:^(id sender) {
         
         [self share];
     }];
     
     // 添加支持按钮
-    [self.topView addButtonWithImgName:@"btn_setbg_normal" highlightImgName:@"btn_setbg_pressed" titleName:@"登录" block:^(id sender) {
+    [self.topView addButtonWithImgName:@"shape" highlightImgName:@"shape" titleName:@"登录" block:^(id sender) {
         
         [self login];
     }];

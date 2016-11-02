@@ -227,9 +227,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
     return _graphs;
 }
 
-
-
-
 #pragma mark - setter
 - (void)setImage:(UIImage *)image {
     

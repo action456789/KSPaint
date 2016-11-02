@@ -33,7 +33,6 @@
     btn.btnBlock = block;
     
     return btn;
-    
 }
 
 + (instancetype)buttonWithImageName:(NSString *)normal selected:(NSString *)selected block:(ButtomClickblock)block {

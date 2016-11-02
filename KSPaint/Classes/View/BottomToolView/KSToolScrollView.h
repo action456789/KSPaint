@@ -31,6 +31,11 @@
  */
 - (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedPen:(KSPen)pen;
 
+/**
+ *  选中了某个北京颜色时调用
+ */
+- (void)toolScrolView:(KSToolScrollView *)toolScrolView selectedBgImage:(UIImage *)image;
+
 @end
 
 @interface KSToolScrollView : UIScrollView
