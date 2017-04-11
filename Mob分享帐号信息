@@ -1,0 +1,21 @@
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+KSPaint
+AppKey 
+	fb59f9409af6
+
+WeChat 
+	AppID: wx19387ca65e96af7e
+	AppSecret: 64020361b8ec4c99936c0e3999a9f249
+
+QQ
+	AppID: 1105201574
+	AppKey: UWsrARpZu2ke7KUq
+
+SinaWeibo
+	AppKey: 568898243
+	AppSecret: 38a4f8204cc784f81f9f0daaf31e02e3
+
+
+第一步：倒入相关库文件
+第二步：AppDelegate 中设置帐号信息
+第三步：设置SSO：添加 URL 
