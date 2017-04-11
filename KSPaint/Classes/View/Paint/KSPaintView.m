@@ -7,19 +7,8 @@
 //
 
 #import "KSPaintView.h"
-#import "KSPaintPath.h"
 
 @interface KSPaintView ()
-
-/**
- *  矩形路径
- */
-@property (nonatomic, strong) KSPaintPath *rectPath;
-
-/**
- *  椭圆
- */
-@property (nonatomic, strong) KSPaintPath *ovalPath;
 
 @property (nonatomic, strong) CAShapeLayer *lineLayer;
 

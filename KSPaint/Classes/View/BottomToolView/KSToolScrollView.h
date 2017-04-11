@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KSPaint.h"
+#import "KSPaintView.h"
 
 @class KSBlockButton;
 @class KSToolScrollView;

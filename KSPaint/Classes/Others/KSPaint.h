@@ -10,19 +10,6 @@
 #define KSPaint_KSPaint_h
 #import "Colours.h"
 
-typedef NS_ENUM(NSInteger, KSSelectedForm) {
-    KSLine,
-    KSRect,
-    KSOval,
-};
-
-typedef NS_ENUM(NSInteger, KSPen) {
-    KSPenLine,
-    KSPenDash,
-    KSPenEraser,
-};
-
-
 #define kBrusherViewH    44            // 画笔按钮宽度
 #define kBottomItemViweH 60            // 底部按钮的高度
 

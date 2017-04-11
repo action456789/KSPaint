@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KSPaint.h"
 
 typedef void (^paintViewTapBlock)();
+
+typedef NS_ENUM(NSInteger, KSSelectedForm) {
+    KSLine,
+    KSRect,
+    KSOval,
+};
+
+typedef NS_ENUM(NSInteger, KSPen) {
+    KSPenLine,
+    KSPenDash,
+    KSPenEraser,
+};
 
 @interface KSPaintView : UIView
 
