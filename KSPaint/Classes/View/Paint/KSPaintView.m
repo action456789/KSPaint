@@ -9,14 +9,8 @@
 #import "KSPaintView.h"
 #import "KSPaintPath.h"
 
-
-static CGFloat dashs[3] = {10.0, 10.0};
-
 @interface KSPaintView ()
-{
-    KSPaintPath *_path; // 画线的路径
-    CGPoint _startPoint; // 起点
-}
+
 /**
  *  矩形路径
  */
@@ -29,9 +23,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
 @property (nonatomic, strong) CAShapeLayer *lineLayer;
 
-/***  存放所有路径数组 */
-@property (nonatomic, strong) NSMutableArray    *paths;
-
 /***  存放可以被撤销的，矩形、圆形状的Layer或图片*/
 @property (nonatomic, strong) NSMutableArray *undoLayers;
 
@@ -40,7 +31,10 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
 @end
 
-@implementation KSPaintView
+@implementation KSPaintView {
+    UIBezierPath *_path; // 画线的路径
+    CGPoint _startPoint; // 起点
+}
 
 
 #pragma mark - lifecycle
@@ -83,20 +77,10 @@ static CGFloat dashs[3] = {10.0, 10.0};
     
     // 画线
     if (self.selectedForm == KSLine) {
-        KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color width:self.width];
+        UIBezierPath *linePath = [UIBezierPath bezierPath];
         
-        [path.bezierPath moveToPoint:startP];
-        _path = path;
-        
-        // 虚线
-        if (self.pen == KSPenDash) {
-            [path.bezierPath setLineDash:dashs count:2 phase:0];
-        }
-        
-        // 橡皮擦
-        if (self.pen == KSPenEraser) {
-            path.pathColor = [UIColor whiteColor];
-        }
+        [linePath moveToPoint:startP];
+        _path = linePath;
     }
 
     // 画矩形、圆
@@ -105,12 +89,28 @@ static CGFloat dashs[3] = {10.0, 10.0};
     }
     
     CAShapeLayer *sharpLayer = [CAShapeLayer layer];
-    sharpLayer.path = _path.bezierPath.CGPath;
+    sharpLayer.path = _path.CGPath;
     sharpLayer.frame = self.layer.frame;
-    sharpLayer.lineWidth = _path.width;
-    sharpLayer.strokeColor = [UIColor blackColor].CGColor;
+    sharpLayer.lineWidth = self.width;
+    
+    // 橡皮擦
+    if (self.pen == KSPenEraser) {
+        sharpLayer.strokeColor = [UIColor whiteColor].CGColor;
+    } else {
+        sharpLayer.strokeColor = self.color.CGColor;
+    }
+    
     sharpLayer.fillColor = [UIColor clearColor].CGColor;
+    
+    // 虚线
+    if (self.pen == KSPenDash) {
+        sharpLayer.lineDashPattern = @[@4];
+    } else {
+        sharpLayer.lineDashPattern = nil;
+    }
+    
     self.lineLayer = sharpLayer;
+    
     [self.layer addSublayer:sharpLayer];
     
     [self.undoLayers addObject:sharpLayer];
@@ -127,46 +127,24 @@ static CGFloat dashs[3] = {10.0, 10.0};
     
     // 画线
     if (self.selectedForm == KSLine) {
-        [_path.bezierPath addLineToPoint:endP];
-        
-        self.lineLayer.path = _path.bezierPath.CGPath;
+        [_path addLineToPoint:endP];
+        self.lineLayer.path = _path.CGPath;
     }
     
     // 画矩形
     if (self.selectedForm == KSRect) {
         UIBezierPath *bezierP = [UIBezierPath bezierPathWithRect:preRect];
-        
-        // 虚线
-        if (self.pen == KSPenDash) {
-            [bezierP setLineDash:dashs count:2 phase:0];
-        }
-        KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
-        
-        self.lineLayer.path = rectPath.bezierPath.CGPath;
+        self.lineLayer.path = bezierP.CGPath;
     }
     
     // 画椭圆
     if (self.selectedForm == KSOval) {
         UIBezierPath *bezierP = [UIBezierPath bezierPathWithOvalInRect:preRect];
-        // 虚线
-        if (self.pen == KSPenDash) {
-            [bezierP setLineDash:dashs count:2 phase:0];
-        }
-        KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
-        
-        self.lineLayer.path = ovalPath.bezierPath.CGPath;
+        self.lineLayer.path = bezierP.CGPath;
     }
     
     // 调用 - (void)drawRect:(CGRect)rect 方法画图，效率比较低
 //    [self setNeedsDisplay];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    
 }
 
 /*
@@ -256,16 +234,16 @@ static CGFloat dashs[3] = {10.0, 10.0};
         
         [self setNeedsDisplay];
     }
-
 }
 
 #pragma mark - getter
-- (NSMutableArray *)paths {
-    
-    if (_paths == nil) {
-        _paths = [NSMutableArray array];
-    }
-    return _paths;
+- (CGFloat)width {
+    // 四舍五入取整
+    return round(_width);
+}
+
+- (UIColor *)color {
+    return _color ? _color : [UIColor blackColor];
 }
 
 #pragma mark - setter
