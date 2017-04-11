@@ -27,7 +27,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
  */
 @property (nonatomic, strong) KSPaintPath *ovalPath;
 
-
+@property (nonatomic, strong) CAShapeLayer *lineLayer;
 
 @end
 
@@ -74,6 +74,10 @@ static CGFloat dashs[3] = {10.0, 10.0};
     if (self.selectedForm == KSLine) {
         KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color width:self.width];
         
+        [path.bezierPath moveToPoint:startP];
+        [self.paths addObject:path];
+        _path = path;
+        
         // 虚线
         if (self.pen == KSPenDash) {
             [path.bezierPath setLineDash:dashs count:2 phase:0];
@@ -83,16 +87,21 @@ static CGFloat dashs[3] = {10.0, 10.0};
         if (self.pen == KSPenEraser) {
             path.pathColor = [UIColor whiteColor];
         }
-        
-        [path.bezierPath moveToPoint:startP];
-        [self.paths addObject:path];
-        _path = path;
     }
 
     // 画矩形、圆
     if (self.selectedForm == KSRect || self.selectedForm == KSOval) {
         [self.graphs removeAllObjects];
     }
+    
+    CAShapeLayer *sharpLayer = [CAShapeLayer layer];
+    sharpLayer.path = _path.bezierPath.CGPath;
+    sharpLayer.frame = self.layer.frame;
+    sharpLayer.lineWidth = _path.width;
+    sharpLayer.strokeColor = [UIColor blackColor].CGColor;
+    sharpLayer.fillColor = [UIColor clearColor].CGColor;
+    self.lineLayer = sharpLayer;
+    [self.layer addSublayer:sharpLayer];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -107,6 +116,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
     // 画线
     if (self.selectedForm == KSLine) {
         [_path.bezierPath addLineToPoint:endP];
+        
+        self.lineLayer.path = _path.bezierPath.CGPath;
     }
     
     // 画矩形
@@ -119,6 +130,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
         }
         KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
         [self.graphs addObject:rectPath];
+        
+        self.lineLayer.path = rectPath.bezierPath.CGPath;
     }
     
     // 画椭圆
@@ -130,9 +143,12 @@ static CGFloat dashs[3] = {10.0, 10.0};
         }
         KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
         [self.graphs addObject:ovalPath];
+        
+        self.lineLayer.path = ovalPath.bezierPath.CGPath;
     }
     
-    [self setNeedsDisplay];
+    // 调用 - (void)drawRect:(CGRect)rect 方法画图，效率比较低
+//    [self setNeedsDisplay];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -147,9 +163,9 @@ static CGFloat dashs[3] = {10.0, 10.0};
     [self.graphs removeLastObject];
 }
 
+/*
 - (void)drawRect:(CGRect)rect {
 
-//TODO 使用 CASharpLayer 代替在 drawRect 方法中渲染效率更高，可以改进
     // 画线
     for (KSPaintPath *p in self.paths) {
         
@@ -171,6 +187,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
         [lastGraph.bezierPath stroke];
     }
 }
+*/
 
 - (NSMutableArray *)undoPaths {
     if (_undoPaths == nil) {
