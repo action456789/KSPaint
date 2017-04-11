@@ -29,6 +29,15 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
 @property (nonatomic, strong) CAShapeLayer *lineLayer;
 
+/***  存放所有路径数组 */
+@property (nonatomic, strong) NSMutableArray    *paths;
+
+/***  存放可以被撤销的，矩形、圆形状的Layer或图片*/
+@property (nonatomic, strong) NSMutableArray *undoLayers;
+
+/***  存放被反撤销了的，矩形、圆形状的Layer或图片*/
+@property (nonatomic, strong) NSMutableArray *redoLayers;
+
 @end
 
 @implementation KSPaintView
@@ -57,6 +66,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
 - (void)initSet {
     
     self.backgroundColor = [UIColor clearColor];
+    _undoLayers = [NSMutableArray array];
+    _redoLayers= [NSMutableArray array];
     _width = 1.0;
     
 }
@@ -75,7 +86,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
         KSPaintPath *path = [KSPaintPath paintpathWithBezierpath:[[UIBezierPath alloc] init] color:self.color width:self.width];
         
         [path.bezierPath moveToPoint:startP];
-        [self.paths addObject:path];
         _path = path;
         
         // 虚线
@@ -91,7 +101,7 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
     // 画矩形、圆
     if (self.selectedForm == KSRect || self.selectedForm == KSOval) {
-        [self.graphs removeAllObjects];
+        
     }
     
     CAShapeLayer *sharpLayer = [CAShapeLayer layer];
@@ -102,6 +112,8 @@ static CGFloat dashs[3] = {10.0, 10.0};
     sharpLayer.fillColor = [UIColor clearColor].CGColor;
     self.lineLayer = sharpLayer;
     [self.layer addSublayer:sharpLayer];
+    
+    [self.undoLayers addObject:sharpLayer];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -129,7 +141,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
             [bezierP setLineDash:dashs count:2 phase:0];
         }
         KSPaintPath *rectPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
-        [self.graphs addObject:rectPath];
         
         self.lineLayer.path = rectPath.bezierPath.CGPath;
     }
@@ -142,7 +153,6 @@ static CGFloat dashs[3] = {10.0, 10.0};
             [bezierP setLineDash:dashs count:2 phase:0];
         }
         KSPaintPath *ovalPath = [KSPaintPath paintpathWithBezierpath:bezierP color:self.color width:self.width];
-        [self.graphs addObject:ovalPath];
         
         self.lineLayer.path = ovalPath.bezierPath.CGPath;
     }
@@ -153,19 +163,15 @@ static CGFloat dashs[3] = {10.0, 10.0};
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    KSPaintPath *lastGraph = self.graphs.lastObject;
-    if (lastGraph) {
-        [self.paths addObject:lastGraph];
-    }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.graphs removeLastObject];
+    
 }
 
 /*
 - (void)drawRect:(CGRect)rect {
-
+    
     // 画线
     for (KSPaintPath *p in self.paths) {
         
@@ -189,43 +195,68 @@ static CGFloat dashs[3] = {10.0, 10.0};
 }
 */
 
-- (NSMutableArray *)undoPaths {
-    if (_undoPaths == nil) {
-        _undoPaths = [NSMutableArray array];
+// 画图片
+- (void)drawRect:(CGRect)rect {
+    for (id obj in self.undoLayers) {
+        if ([obj isKindOfClass:[UIImage class]]) {
+            [obj drawInRect:rect];
+        }
     }
-    return _undoPaths;
 }
 
 #pragma mark - event
 
 // 点击了撤销按钮
 - (void)undo {
-    if (self.paths.count == 0) {
+    if (self.undoLayers.count == 0) {
         return;
     }
-    KSPaintPath *path = [self.paths lastObject];
-    [self.undoPaths addObject:path];
     
-    [self.paths removeLastObject];
-    
-    [self.graphs removeAllObjects];
-    
-    [self setNeedsDisplay];
+    if ([self.undoLayers.lastObject isKindOfClass:[CAShapeLayer class]]) {
+        CAShapeLayer *layer = (CAShapeLayer *)self.undoLayers.lastObject;
+        
+        [self.redoLayers addObject:layer];
+        
+        [layer removeFromSuperlayer];
+        
+        [self.undoLayers removeLastObject];
+        
+    } else if ([self.undoLayers.lastObject isKindOfClass:[UIImage class]]) {
+        UIImage *image = (UIImage *)self.undoLayers.lastObject;
+        
+        [self.redoLayers addObject:image];
+        
+        [self.undoLayers removeLastObject];
+        
+        [self setNeedsDisplay];
+    }
 }
 
 // 点击了取消撤销按钮
 - (void)redo {
-    if (self.undoPaths.count == 0) {
+    if (self.redoLayers.count == 0) {
         return;
     }
-    KSPaintPath *path = [self.undoPaths objectAtIndex:0];
-    [self.paths addObject:path];
-    
-    [self.undoPaths removeObjectAtIndex:0];
-    
-    [self.graphs removeAllObjects];
-    
-    [self setNeedsDisplay];
+
+    if ([self.redoLayers.lastObject isKindOfClass:[CAShapeLayer class]]) {
+        CAShapeLayer *layer = (CAShapeLayer *)self.redoLayers.lastObject;
+        
+        [self.layer addSublayer:layer];
+        
+        [self.undoLayers addObject:layer];
+        
+        [self.redoLayers removeLastObject];
+        
+    } else if ([self.redoLayers.lastObject isKindOfClass:[UIImage class]]) {
+        UIImage *image = (UIImage *)self.redoLayers.lastObject;
+        
+        [self.undoLayers addObject:image];
+        
+        [self.redoLayers removeLastObject];
+        
+        [self setNeedsDisplay];
+    }
+
 }
 
 #pragma mark - getter
@@ -237,18 +268,12 @@ static CGFloat dashs[3] = {10.0, 10.0};
     return _paths;
 }
 
-- (NSMutableArray *)graphs {
-    if (_graphs == nil) {
-        _graphs = [NSMutableArray array];
-    }
-    return _graphs;
-}
-
 #pragma mark - setter
 - (void)setImage:(UIImage *)image {
     
     _image = image;
-    [self.paths addObject:image];
+    [self.undoLayers addObject:image];
     [self setNeedsDisplay];
 }
+
 @end

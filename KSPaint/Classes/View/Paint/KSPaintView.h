@@ -25,17 +25,7 @@ typedef void (^paintViewTapBlock)();
 @property (nonatomic, assign) KSSelectedForm    selectedForm;
 
 /***  选中的画笔 */
-@property (nonatomic, assign) KSPen     pen;
-
-/***  存放所有路径数组 */
-@property (nonatomic, strong) NSMutableArray    *paths;
-
-/***  存放一次绘图时，其他形状的路径*/
-@property (nonatomic, strong) NSMutableArray    *graphs;
-
-/***  存放被撤销的路径*/
-@property (nonatomic, strong) NSMutableArray    *undoPaths;
-
+@property (nonatomic, assign) KSPen pen;
 
 - (void)redo;
 - (void)undo;

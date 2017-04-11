@@ -229,7 +229,7 @@
 // 保存图片
 - (void)saveImg {
     
-    if (self.paintView.paths.count == 0) return;
+//    if (self.paintView.paths.count == 0) return;
     
     ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
     if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied){
@@ -453,7 +453,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [self.paintView.graphs removeAllObjects];
+//    [self.paintView.graphs removeAllObjects];
 }
 
 @end
