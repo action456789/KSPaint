@@ -8,8 +8,6 @@
 
 #import "KSHandleImageView.h"
 #import "UIImage+KS.h"
-#import "KSPaint.h"
-
 
 @interface KSHandleImageView () <UIGestureRecognizerDelegate>
 @property (nonatomic, strong)UIImageView *imageView;

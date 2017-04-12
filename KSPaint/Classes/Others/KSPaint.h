@@ -16,9 +16,6 @@
 #define kRedoBtnMargin   12            // 隐藏的按钮距离边框的间隙
 #define kUndoBtnMargin   kRedoBtnMargin
 
-#define kHandleImageNotification @"kHandleImageNotification" // 处理图片通知
-
-
 // 获得RGB颜色
 #define KSColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 

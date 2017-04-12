@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class KSHandleImageView;
+#define kHandleImageNotification @"kHandleImageNotification" // 处理图片通知
 
+@class KSHandleImageView;
 
 typedef void (^HandleImageViewLongPressBlock)(UIImage *image);
 
